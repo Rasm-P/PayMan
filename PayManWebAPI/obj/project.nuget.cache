@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "c7RMpHrUVqhB6uwFN//Q4QYqf08TuTaIbauJmSpVOzFktMuF8uiqLrVNjnAwE4VDdDAnILd2sKmmzrz/78i2+g==",
+  "dgSpecHash": "C2uV0pQ1YCUL7JsPl5Tj6EQbICjkyByYkfqhjIyopW3W8AETPj5Qb8P/nNlmRqJBIGMw0eQkn4djs1LSsofIJA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\rasmu\\Documents\\github\\PayMan\\PayManWebAPI\\PayManWebAPI.csproj",
+  "projectFilePath": "C:\\Users\\rasmu\\Documents\\Github\\PayMan\\PayManWebAPI\\PayManWebAPI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\rasmu\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\rasmu\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
