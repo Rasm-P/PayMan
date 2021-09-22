@@ -20,18 +20,18 @@ namespace PayManWebAPI.DBContexts
             // Use Fluent API to configure  
 
             // Map entities to tables  
-            modelBuilder.Entity<TodoItem>().ToTable("TodoItems");
+            //modelBuilder.Entity<TodoItem>().ToTable("TodoItems");
 
             // Configure Primary Keys  
-            modelBuilder.Entity<TodoItem>().HasKey(u => u.Id).HasName("PK_TodoItems");
+            //modelBuilder.Entity<TodoItem>().HasKey(u => u.Id).HasName("PK_TodoItems");
 
             // Configure indexes  
-            modelBuilder.Entity<TodoItem>().HasIndex(u => u.Name).HasDatabaseName("Idx_Name");
+            //modelBuilder.Entity<TodoItem>().HasIndex(u => u.Name).HasDatabaseName("Idx_Name");
 
             // Configure columns  
-            modelBuilder.Entity<TodoItem>().Property(u => u.Id).HasColumnType("int").UseMySqlIdentityColumn().IsRequired();
-            modelBuilder.Entity<TodoItem>().Property(u => u.Name).HasColumnType("varchar(50)").IsRequired();
-            modelBuilder.Entity<TodoItem>().Property(u => u.IsComplete).HasColumnType("tinyint").HasDefaultValue(false);
+            //modelBuilder.Entity<TodoItem>().Property(u => u.Id).HasColumnType("int").UseMySqlIdentityColumn().IsRequired();
+            //modelBuilder.Entity<TodoItem>().Property(u => u.Name).HasColumnType("varchar(50)").IsRequired();
+            //modelBuilder.Entity<TodoItem>().Property(u => u.IsComplete).HasColumnType("tinyint").HasDefaultValue(false);
 
             // Configure relationships
         }
