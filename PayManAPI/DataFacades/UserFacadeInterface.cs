@@ -2,9 +2,9 @@
 using System;
 using System.Collections.Generic;
 
-namespace PayManAPI.Repositories
+namespace PayManAPI.DataFacades
 {
-    public interface UserRepositoryInterface
+    public interface UserFacadeInterface
     {
         User Getuser(Guid id);
         IEnumerable<User> GetUsers();

@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using PayManAPI.Models;
 
-namespace PayManAPI.Repositories
+namespace PayManAPI.DataFacades
 {
-    public class InMemUserRepository : UserRepositoryInterface
+    public class UserFacade : UserFacadeInterface
     {
         private readonly List<User> users = new()
         {

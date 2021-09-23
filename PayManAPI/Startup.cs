@@ -11,7 +11,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
-using PayManAPI.Repositories;
+using PayManAPI.DataFacades;
 
 namespace PayManAPI
 {
@@ -28,7 +28,7 @@ namespace PayManAPI
         public void ConfigureServices(IServiceCollection services)
         {
             //Creation of singleton repository to only have one instance
-            services.AddSingleton<UserRepositoryInterface, InMemUserRepository>();
+            services.AddSingleton<UserFacadeInterface, UserFacade>();
 
             services.AddControllers();
             services.AddSwaggerGen(c =>

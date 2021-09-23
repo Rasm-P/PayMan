@@ -32,3 +32,4 @@ C:\Users\rasmu\Documents\github\PayMan\PayManWcfApi\bin\Debug\System.Numerics.Ve
 C:\Users\rasmu\Documents\github\PayMan\PayManWcfApi\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
 C:\Users\rasmu\Documents\github\PayMan\PayManWcfApi\obj\Debug\PayManWcfApi.csproj.CopyComplete
 C:\Users\rasmu\Documents\github\PayMan\PayManWcfApi\bin\Debug\mysql.data.entity.EF6.dll
+C:\Users\rasmu\Documents\github\PayMan\PayManWcfApi\obj\Debug\PayManWcfApi.csproj.AssemblyReference.cache

@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
-using PayManAPI.Repositories;
+using PayManAPI.DataFacades;
 using PayManAPI.Models;
 using PayManAPI.Dtos;
 using System.Linq;
@@ -13,12 +13,12 @@ namespace PayManAPI.Controllers
     [Route("users")]
     public class UserController : ControllerBase
     {
-        private readonly UserRepositoryInterface repository;
+        private readonly UserFacadeInterface repository;
 
         //Dependency injection to inject the UserRepository into the UserController.
         //This way UserRepository can depend on an abstraction, allowing us to register different dependencides.
         //All this is also done as a singleton so we dont need to construct a UserRepository every time we use the api (Look in Startup.cs).
-        public UserController(UserRepositoryInterface repositroy)
+        public UserController(UserFacadeInterface repositroy)
         {
             this.repository = repositroy;
         }
