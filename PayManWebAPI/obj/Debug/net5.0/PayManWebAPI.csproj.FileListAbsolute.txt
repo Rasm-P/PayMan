@@ -35,4 +35,5 @@ C:\Users\rasmu\Documents\Github\PayMan\PayManWebAPI\obj\Debug\net5.0\PayManWebAP
 C:\Users\rasmu\Documents\Github\PayMan\PayManWebAPI\obj\Debug\net5.0\ref\PayManWebAPI.dll
 C:\Users\rasmu\Documents\Github\PayMan\PayManWebAPI\obj\Debug\net5.0\PayManWebAPI.pdb
 C:\Users\rasmu\Documents\Github\PayMan\PayManWebAPI\obj\Debug\net5.0\PayManWebAPI.genruntimeconfig.cache
+C:\Users\rasmu\Documents\github\PayMan\PayManWebAPI\bin\Debug\net5.0\packages\EntityFramework.6.4.4\tools\netcoreapp3.0\any\ef6.runtimeconfig.json
 C:\Users\rasmu\Documents\github\PayMan\PayManWebAPI\obj\Debug\net5.0\PayManWebAPI.csproj.AssemblyReference.cache

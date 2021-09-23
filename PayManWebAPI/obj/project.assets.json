@@ -249,19 +249,19 @@
           "lib/netstandard2.1/Pomelo.EntityFrameworkCore.MySql.dll": {}
         }
       },
-      "Swashbuckle.AspNetCore/6.2.1": {
+      "Swashbuckle.AspNetCore/6.2.2": {
         "type": "package",
         "dependencies": {
           "Microsoft.Extensions.ApiDescription.Server": "3.0.0",
-          "Swashbuckle.AspNetCore.Swagger": "6.2.1",
-          "Swashbuckle.AspNetCore.SwaggerGen": "6.2.1",
-          "Swashbuckle.AspNetCore.SwaggerUI": "6.2.1"
+          "Swashbuckle.AspNetCore.Swagger": "6.2.2",
+          "Swashbuckle.AspNetCore.SwaggerGen": "6.2.2",
+          "Swashbuckle.AspNetCore.SwaggerUI": "6.2.2"
         },
         "build": {
           "build/Swashbuckle.AspNetCore.props": {}
         }
       },
-      "Swashbuckle.AspNetCore.Swagger/6.2.1": {
+      "Swashbuckle.AspNetCore.Swagger/6.2.2": {
         "type": "package",
         "dependencies": {
           "Microsoft.OpenApi": "1.2.3"
@@ -276,10 +276,10 @@
           "Microsoft.AspNetCore.App"
         ]
       },
-      "Swashbuckle.AspNetCore.SwaggerGen/6.2.1": {
+      "Swashbuckle.AspNetCore.SwaggerGen/6.2.2": {
         "type": "package",
         "dependencies": {
-          "Swashbuckle.AspNetCore.Swagger": "6.2.1"
+          "Swashbuckle.AspNetCore.Swagger": "6.2.2"
         },
         "compile": {
           "lib/net5.0/Swashbuckle.AspNetCore.SwaggerGen.dll": {}
@@ -288,7 +288,7 @@
           "lib/net5.0/Swashbuckle.AspNetCore.SwaggerGen.dll": {}
         }
       },
-      "Swashbuckle.AspNetCore.SwaggerUI/6.2.1": {
+      "Swashbuckle.AspNetCore.SwaggerUI/6.2.2": {
         "type": "package",
         "compile": {
           "lib/net5.0/Swashbuckle.AspNetCore.SwaggerUI.dll": {}
@@ -789,22 +789,22 @@
         "pomelo.entityframeworkcore.mysql.nuspec"
       ]
     },
-    "Swashbuckle.AspNetCore/6.2.1": {
-      "sha512": "j5hM7XhGaZqKu9BOqKzyAlPzqa4qSJF6sE4HFGW4YBnt5ogpJzp4CVbgs8KnV15NngVJMKX6ZErfb50CSb9Chg==",
+    "Swashbuckle.AspNetCore/6.2.2": {
+      "sha512": "Irw1OHu06kN3KOpLLQvy4pb/K7AjphnaNFWa9AZCEh0CNZ+3Eesqr/WfNzhX6w6om0Y4LEhVmbub83aGAZoguQ==",
       "type": "package",
-      "path": "swashbuckle.aspnetcore/6.2.1",
+      "path": "swashbuckle.aspnetcore/6.2.2",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "build/Swashbuckle.AspNetCore.props",
-        "swashbuckle.aspnetcore.6.2.1.nupkg.sha512",
+        "swashbuckle.aspnetcore.6.2.2.nupkg.sha512",
         "swashbuckle.aspnetcore.nuspec"
       ]
     },
-    "Swashbuckle.AspNetCore.Swagger/6.2.1": {
-      "sha512": "uxvZjIkzkcHwPFu4mfJQljjx4kVzdS6SMgMK5k5E0U600vb+527lllY2uo8Ul3BZr1A6N/jksK6OyZKjBwEYvA==",
+    "Swashbuckle.AspNetCore.Swagger/6.2.2": {
+      "sha512": "o8UV8yecriMfHTFx1elrltamuSv36g5KtofKtsb1VZ/xHuFADUSBvNzdTZzSy4igBf06+dmimh3oM/JeMPkL3g==",
       "type": "package",
-      "path": "swashbuckle.aspnetcore.swagger/6.2.1",
+      "path": "swashbuckle.aspnetcore.swagger/6.2.2",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -817,14 +817,14 @@
         "lib/netstandard2.0/Swashbuckle.AspNetCore.Swagger.dll",
         "lib/netstandard2.0/Swashbuckle.AspNetCore.Swagger.pdb",
         "lib/netstandard2.0/Swashbuckle.AspNetCore.Swagger.xml",
-        "swashbuckle.aspnetcore.swagger.6.2.1.nupkg.sha512",
+        "swashbuckle.aspnetcore.swagger.6.2.2.nupkg.sha512",
         "swashbuckle.aspnetcore.swagger.nuspec"
       ]
     },
-    "Swashbuckle.AspNetCore.SwaggerGen/6.2.1": {
-      "sha512": "b+rx3qw4G3UIKR5DA1z0wNUcHmqT4grQzqDMa6Yz1wqpUT+XJlq5QkFrkCTbWvH3EWG8YlLqiJtKSanjgaz2NQ==",
+    "Swashbuckle.AspNetCore.SwaggerGen/6.2.2": {
+      "sha512": "GktBI7JHN4XFYwDM5ZTD5IbBYxVYZ7y7lFs6F3PgESwn2SPLyoLxJsWSi3ozDK3fB6aKcHgY90gHtezbbfW2iw==",
       "type": "package",
-      "path": "swashbuckle.aspnetcore.swaggergen/6.2.1",
+      "path": "swashbuckle.aspnetcore.swaggergen/6.2.2",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -837,14 +837,14 @@
         "lib/netstandard2.0/Swashbuckle.AspNetCore.SwaggerGen.dll",
         "lib/netstandard2.0/Swashbuckle.AspNetCore.SwaggerGen.pdb",
         "lib/netstandard2.0/Swashbuckle.AspNetCore.SwaggerGen.xml",
-        "swashbuckle.aspnetcore.swaggergen.6.2.1.nupkg.sha512",
+        "swashbuckle.aspnetcore.swaggergen.6.2.2.nupkg.sha512",
         "swashbuckle.aspnetcore.swaggergen.nuspec"
       ]
     },
-    "Swashbuckle.AspNetCore.SwaggerUI/6.2.1": {
-      "sha512": "GZSdcbBaBwtWzjA5vSIPJZtw++LTdFW/PfWpBdZ687aQ3kLPFxa0AaJxtIAj1obDx0xfDsNFDNofRnLI+f670Q==",
+    "Swashbuckle.AspNetCore.SwaggerUI/6.2.2": {
+      "sha512": "wGrglgunEydAGuUvETBRytvFvhEhwFRuY0Qu1rK+axZfFNfRSFRdlqg+vhT4OLOCJpfReSX47jLCYu56c5RsFg==",
       "type": "package",
-      "path": "swashbuckle.aspnetcore.swaggerui/6.2.1",
+      "path": "swashbuckle.aspnetcore.swaggerui/6.2.2",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -857,7 +857,7 @@
         "lib/netstandard2.0/Swashbuckle.AspNetCore.SwaggerUI.dll",
         "lib/netstandard2.0/Swashbuckle.AspNetCore.SwaggerUI.pdb",
         "lib/netstandard2.0/Swashbuckle.AspNetCore.SwaggerUI.xml",
-        "swashbuckle.aspnetcore.swaggerui.6.2.1.nupkg.sha512",
+        "swashbuckle.aspnetcore.swaggerui.6.2.2.nupkg.sha512",
         "swashbuckle.aspnetcore.swaggerui.nuspec"
       ]
     },
@@ -1011,7 +1011,7 @@
       "Microsoft.EntityFrameworkCore >= 5.0.10",
       "Microsoft.EntityFrameworkCore.Tools >= 5.0.10",
       "Pomelo.EntityFrameworkCore.MySql >= 5.0.1",
-      "Swashbuckle.AspNetCore >= 6.2.1"
+      "Swashbuckle.AspNetCore >= 6.2.2"
     ]
   },
   "packageFolders": {
@@ -1074,7 +1074,7 @@
           },
           "Swashbuckle.AspNetCore": {
             "target": "Package",
-            "version": "[6.2.1, )"
+            "version": "[6.2.2, )"
           }
         },
         "imports": [
@@ -1095,7 +1095,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.401\\RuntimeIdentifierGraph.json"
       }
     }
   }

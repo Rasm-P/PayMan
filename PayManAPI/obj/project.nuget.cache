@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "dgSpecHash": "VwINNauv2SK15ySmCy46jswUotVqTUJAPe35evTUTMynWT+XeiZiEYzrc6SoC97VBo/zvApp0qZXYcyNf0K0QQ==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\rasmu\\Documents\\github\\PayMan\\PayManAPI\\PayManAPI.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\rasmu\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
+    "C:\\Users\\rasmu\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
+    "C:\\Users\\rasmu\\.nuget\\packages\\swashbuckle.aspnetcore\\5.6.3\\swashbuckle.aspnetcore.5.6.3.nupkg.sha512",
+    "C:\\Users\\rasmu\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\5.6.3\\swashbuckle.aspnetcore.swagger.5.6.3.nupkg.sha512",
+    "C:\\Users\\rasmu\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\5.6.3\\swashbuckle.aspnetcore.swaggergen.5.6.3.nupkg.sha512",
+    "C:\\Users\\rasmu\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\5.6.3\\swashbuckle.aspnetcore.swaggerui.5.6.3.nupkg.sha512"
+  ],
+  "logs": []
+}

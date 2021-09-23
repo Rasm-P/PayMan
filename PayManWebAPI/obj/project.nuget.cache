@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "c7RMpHrUVqhB6uwFN//Q4QYqf08TuTaIbauJmSpVOzFktMuF8uiqLrVNjnAwE4VDdDAnILd2sKmmzrz/78i2+g==",
+  "dgSpecHash": "qTNN84nSOb5+N3euoLbQMk9aPcs4H96jBENO9mKkodeWOGtroJDta3a1s3ELm/1CAzLtOomcQoS2H00DyjwDJA==",
   "success": true,
   "projectFilePath": "C:\\Users\\rasmu\\Documents\\github\\PayMan\\PayManWebAPI\\PayManWebAPI.csproj",
   "expectedPackageFiles": [
@@ -25,10 +25,10 @@
     "C:\\Users\\rasmu\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
     "C:\\Users\\rasmu\\.nuget\\packages\\mysqlconnector\\1.3.10\\mysqlconnector.1.3.10.nupkg.sha512",
     "C:\\Users\\rasmu\\.nuget\\packages\\pomelo.entityframeworkcore.mysql\\5.0.1\\pomelo.entityframeworkcore.mysql.5.0.1.nupkg.sha512",
-    "C:\\Users\\rasmu\\.nuget\\packages\\swashbuckle.aspnetcore\\6.2.1\\swashbuckle.aspnetcore.6.2.1.nupkg.sha512",
-    "C:\\Users\\rasmu\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.2.1\\swashbuckle.aspnetcore.swagger.6.2.1.nupkg.sha512",
-    "C:\\Users\\rasmu\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.2.1\\swashbuckle.aspnetcore.swaggergen.6.2.1.nupkg.sha512",
-    "C:\\Users\\rasmu\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\6.2.1\\swashbuckle.aspnetcore.swaggerui.6.2.1.nupkg.sha512",
+    "C:\\Users\\rasmu\\.nuget\\packages\\swashbuckle.aspnetcore\\6.2.2\\swashbuckle.aspnetcore.6.2.2.nupkg.sha512",
+    "C:\\Users\\rasmu\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.2.2\\swashbuckle.aspnetcore.swagger.6.2.2.nupkg.sha512",
+    "C:\\Users\\rasmu\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.2.2\\swashbuckle.aspnetcore.swaggergen.6.2.2.nupkg.sha512",
+    "C:\\Users\\rasmu\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\6.2.2\\swashbuckle.aspnetcore.swaggerui.6.2.2.nupkg.sha512",
     "C:\\Users\\rasmu\\.nuget\\packages\\system.collections.immutable\\5.0.0\\system.collections.immutable.5.0.0.nupkg.sha512",
     "C:\\Users\\rasmu\\.nuget\\packages\\system.componentmodel.annotations\\5.0.0\\system.componentmodel.annotations.5.0.0.nupkg.sha512",
     "C:\\Users\\rasmu\\.nuget\\packages\\system.diagnostics.diagnosticsource\\5.0.1\\system.diagnostics.diagnosticsource.5.0.1.nupkg.sha512"
