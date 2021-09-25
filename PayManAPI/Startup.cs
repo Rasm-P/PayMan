@@ -6,11 +6,13 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using PayManAPI.Data;
 using PayManAPI.DataFacades;
 
 namespace PayManAPI
@@ -27,8 +29,14 @@ namespace PayManAPI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            //This is a scoped service
+            string mySqlConnectionStr = Configuration.GetConnectionString("DefaultConnection");
+            services.AddDbContextPool<MyDBContext>(options => options.UseMySql(mySqlConnectionStr, ServerVersion.AutoDetect(mySqlConnectionStr)).UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking));
+            //services.AddDbContext<MyDBContext>(options => options.UseMySql(mySqlConnectionStr, ServerVersion.AutoDetect(mySqlConnectionStr)).UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking), ServiceLifetime.Transient, ServiceLifetime.Singleton);
+
             //Creation of singleton repository to only have one instance
-            services.AddSingleton<UserFacadeInterface, UserFacade>();
+            services.AddTransient<UserFacadeInterface, UserFacade>();
+            //services.AddSingleton<UserFacadeInterface, UserFacade>();
 
             services.AddControllers();
             services.AddSwaggerGen(c =>

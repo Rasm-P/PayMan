@@ -1,9 +1,11 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace PayManAPI.Models
 {
     public record User
     {
+        [Key]
         public Guid Id { get; init; }
         public String UserName { get; init; }
         

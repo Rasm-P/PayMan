@@ -1,44 +1,48 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Microsoft.EntityFrameworkCore;
 using PayManAPI.Models;
+using PayManAPI.Data;
 
 namespace PayManAPI.DataFacades
 {
     public class UserFacade : UserFacadeInterface
     {
-        private readonly List<User> users = new()
+
+        private MyDBContext context;
+
+        public UserFacade(MyDBContext context)
         {
-            new User { Id = Guid.NewGuid(), UserName = "Rasmus", Frikort = 45555.50, Hovedkort = 0.0, CreatedAt = DateTimeOffset.Now },
-            new User { Id = Guid.NewGuid(), UserName = "Susan", Frikort = 0.0, Hovedkort = 44444.44, CreatedAt = DateTimeOffset.Now },
-            new User { Id = Guid.NewGuid(), UserName = "Anders", Frikort = 15555.55, Hovedkort = 0.0, CreatedAt = DateTimeOffset.Now }
-        };
+            this.context = context;
+        }
 
         public IEnumerable<User> GetUsers()
         {
-            return users;
+            return context.Users.ToList();
         }
 
         public User Getuser(Guid id)
         {
-            return users.Where(User => User.Id == id).SingleOrDefault();
+            return context.Users.Find(id);
         }
 
         public void CreateUser(User user)
         {
-            users.Add(user);
+            context.Users.Add(user);
+            context.SaveChanges();
         }
 
         public void UpdateUser(User user)
         {
-            var index = users.FindIndex(userToUpdate => userToUpdate.Id == user.Id);
-            users[index] = user;
+            context.Users.Update(user);
+            context.SaveChanges();
         }
 
-        public void DeleteUser(Guid id)
+        public void DeleteUser(User user)
         {
-            var index = users.FindIndex(userToDelete => userToDelete.Id == id);
-            users.RemoveAt(index);
+            context.Users.Remove(user);
+            context.SaveChanges();
         }
     }
 }

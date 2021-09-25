@@ -96,7 +96,7 @@ namespace PayManAPI.Controllers
                 return NotFound();
             }
 
-            repository.DeleteUser(id);
+            repository.DeleteUser(userToDelete);
 
             return NoContent();
         }

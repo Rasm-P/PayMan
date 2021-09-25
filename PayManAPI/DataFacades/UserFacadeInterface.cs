@@ -10,6 +10,6 @@ namespace PayManAPI.DataFacades
         IEnumerable<User> GetUsers();
         void CreateUser(User user);
         void UpdateUser(User user);
-        void DeleteUser(Guid id);
+        void DeleteUser(User id);
     }
 }

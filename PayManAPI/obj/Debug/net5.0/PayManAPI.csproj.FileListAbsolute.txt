@@ -11,7 +11,6 @@ C:\Users\rasmu\Documents\github\PayMan\PayManAPI\bin\Debug\net5.0\Microsoft.Open
 C:\Users\rasmu\Documents\github\PayMan\PayManAPI\bin\Debug\net5.0\Swashbuckle.AspNetCore.Swagger.dll
 C:\Users\rasmu\Documents\github\PayMan\PayManAPI\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 C:\Users\rasmu\Documents\github\PayMan\PayManAPI\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerUI.dll
-C:\Users\rasmu\Documents\github\PayMan\PayManAPI\obj\Debug\net5.0\PayManAPI.csproj.AssemblyReference.cache
 C:\Users\rasmu\Documents\github\PayMan\PayManAPI\obj\Debug\net5.0\PayManAPI.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\rasmu\Documents\github\PayMan\PayManAPI\obj\Debug\net5.0\PayManAPI.AssemblyInfoInputs.cache
 C:\Users\rasmu\Documents\github\PayMan\PayManAPI\obj\Debug\net5.0\PayManAPI.AssemblyInfo.cs
@@ -27,3 +26,13 @@ C:\Users\rasmu\Documents\github\PayMan\PayManAPI\obj\Debug\net5.0\PayManAPI.dll
 C:\Users\rasmu\Documents\github\PayMan\PayManAPI\obj\Debug\net5.0\ref\PayManAPI.dll
 C:\Users\rasmu\Documents\github\PayMan\PayManAPI\obj\Debug\net5.0\PayManAPI.pdb
 C:\Users\rasmu\Documents\github\PayMan\PayManAPI\obj\Debug\net5.0\PayManAPI.genruntimeconfig.cache
+C:\Users\rasmu\Documents\github\PayMan\PayManAPI\bin\Debug\net5.0\Humanizer.dll
+C:\Users\rasmu\Documents\github\PayMan\PayManAPI\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.dll
+C:\Users\rasmu\Documents\github\PayMan\PayManAPI\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Users\rasmu\Documents\github\PayMan\PayManAPI\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Design.dll
+C:\Users\rasmu\Documents\github\PayMan\PayManAPI\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Relational.dll
+C:\Users\rasmu\Documents\github\PayMan\PayManAPI\bin\Debug\net5.0\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\rasmu\Documents\github\PayMan\PayManAPI\bin\Debug\net5.0\MySqlConnector.dll
+C:\Users\rasmu\Documents\github\PayMan\PayManAPI\bin\Debug\net5.0\Pomelo.EntityFrameworkCore.MySql.dll
+C:\Users\rasmu\Documents\github\PayMan\PayManAPI\bin\Debug\net5.0\System.Diagnostics.DiagnosticSource.dll
+C:\Users\rasmu\Documents\github\PayMan\PayManAPI\obj\Debug\net5.0\PayManAPI.csproj.AssemblyReference.cache
