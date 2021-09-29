@@ -998,11 +998,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\rasmu\\Documents\\Github\\PayMan\\PayManMobileApp\\PayManMobileApp.iOS\\PayManMobileApp.iOS.csproj",
+      "projectUniqueName": "C:\\Users\\rasmu\\Documents\\github\\PayMan\\PayManMobileApp\\PayManMobileApp.iOS\\PayManMobileApp.iOS.csproj",
       "projectName": "PayManMobileApp.iOS",
-      "projectPath": "C:\\Users\\rasmu\\Documents\\Github\\PayMan\\PayManMobileApp\\PayManMobileApp.iOS\\PayManMobileApp.iOS.csproj",
+      "projectPath": "C:\\Users\\rasmu\\Documents\\github\\PayMan\\PayManMobileApp\\PayManMobileApp.iOS\\PayManMobileApp.iOS.csproj",
       "packagesPath": "C:\\Users\\rasmu\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\rasmu\\Documents\\Github\\PayMan\\PayManMobileApp\\PayManMobileApp.iOS\\obj\\",
+      "outputPath": "C:\\Users\\rasmu\\Documents\\github\\PayMan\\PayManMobileApp\\PayManMobileApp.iOS\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "fallbackFolders": [
@@ -1025,8 +1025,8 @@
       "frameworks": {
         "xamarinios10": {
           "projectReferences": {
-            "C:\\Users\\rasmu\\Documents\\Github\\PayMan\\PayManMobileApp\\PayManMobileApp\\PayManMobileApp.csproj": {
-              "projectPath": "C:\\Users\\rasmu\\Documents\\Github\\PayMan\\PayManMobileApp\\PayManMobileApp\\PayManMobileApp.csproj"
+            "C:\\Users\\rasmu\\Documents\\github\\PayMan\\PayManMobileApp\\PayManMobileApp\\PayManMobileApp.csproj": {
+              "projectPath": "C:\\Users\\rasmu\\Documents\\github\\PayMan\\PayManMobileApp\\PayManMobileApp\\PayManMobileApp.csproj"
             }
           }
         }

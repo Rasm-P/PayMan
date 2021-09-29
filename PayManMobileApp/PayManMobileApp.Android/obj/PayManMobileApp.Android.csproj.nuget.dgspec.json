@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\rasmu\\Documents\\Github\\PayMan\\PayManMobileApp\\PayManMobileApp.Android\\PayManMobileApp.Android.csproj": {}
+    "C:\\Users\\rasmu\\Documents\\github\\PayMan\\PayManMobileApp\\PayManMobileApp.Android\\PayManMobileApp.Android.csproj": {}
   },
   "projects": {
-    "C:\\Users\\rasmu\\Documents\\Github\\PayMan\\PayManMobileApp\\PayManMobileApp.Android\\PayManMobileApp.Android.csproj": {
+    "C:\\Users\\rasmu\\Documents\\github\\PayMan\\PayManMobileApp\\PayManMobileApp.Android\\PayManMobileApp.Android.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\rasmu\\Documents\\Github\\PayMan\\PayManMobileApp\\PayManMobileApp.Android\\PayManMobileApp.Android.csproj",
+        "projectUniqueName": "C:\\Users\\rasmu\\Documents\\github\\PayMan\\PayManMobileApp\\PayManMobileApp.Android\\PayManMobileApp.Android.csproj",
         "projectName": "PayManMobileApp.Android",
-        "projectPath": "C:\\Users\\rasmu\\Documents\\Github\\PayMan\\PayManMobileApp\\PayManMobileApp.Android\\PayManMobileApp.Android.csproj",
+        "projectPath": "C:\\Users\\rasmu\\Documents\\github\\PayMan\\PayManMobileApp\\PayManMobileApp.Android\\PayManMobileApp.Android.csproj",
         "packagesPath": "C:\\Users\\rasmu\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\rasmu\\Documents\\Github\\PayMan\\PayManMobileApp\\PayManMobileApp.Android\\obj\\",
+        "outputPath": "C:\\Users\\rasmu\\Documents\\github\\PayMan\\PayManMobileApp\\PayManMobileApp.Android\\obj\\",
         "projectStyle": "PackageReference",
         "skipContentFileWrite": true,
         "fallbackFolders": [
@@ -34,8 +34,8 @@
         "frameworks": {
           "monoandroid11.0": {
             "projectReferences": {
-              "C:\\Users\\rasmu\\Documents\\Github\\PayMan\\PayManMobileApp\\PayManMobileApp\\PayManMobileApp.csproj": {
-                "projectPath": "C:\\Users\\rasmu\\Documents\\Github\\PayMan\\PayManMobileApp\\PayManMobileApp\\PayManMobileApp.csproj"
+              "C:\\Users\\rasmu\\Documents\\github\\PayMan\\PayManMobileApp\\PayManMobileApp\\PayManMobileApp.csproj": {
+                "projectPath": "C:\\Users\\rasmu\\Documents\\github\\PayMan\\PayManMobileApp\\PayManMobileApp\\PayManMobileApp.csproj"
               }
             }
           }
@@ -56,14 +56,14 @@
         }
       }
     },
-    "C:\\Users\\rasmu\\Documents\\Github\\PayMan\\PayManMobileApp\\PayManMobileApp\\PayManMobileApp.csproj": {
+    "C:\\Users\\rasmu\\Documents\\github\\PayMan\\PayManMobileApp\\PayManMobileApp\\PayManMobileApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\rasmu\\Documents\\Github\\PayMan\\PayManMobileApp\\PayManMobileApp\\PayManMobileApp.csproj",
+        "projectUniqueName": "C:\\Users\\rasmu\\Documents\\github\\PayMan\\PayManMobileApp\\PayManMobileApp\\PayManMobileApp.csproj",
         "projectName": "PayManMobileApp",
-        "projectPath": "C:\\Users\\rasmu\\Documents\\Github\\PayMan\\PayManMobileApp\\PayManMobileApp\\PayManMobileApp.csproj",
+        "projectPath": "C:\\Users\\rasmu\\Documents\\github\\PayMan\\PayManMobileApp\\PayManMobileApp\\PayManMobileApp.csproj",
         "packagesPath": "C:\\Users\\rasmu\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\rasmu\\Documents\\Github\\PayMan\\PayManMobileApp\\PayManMobileApp\\obj\\",
+        "outputPath": "C:\\Users\\rasmu\\Documents\\github\\PayMan\\PayManMobileApp\\PayManMobileApp\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
@@ -123,7 +123,7 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.401\\RuntimeIdentifierGraph.json"
         }
       }
     }

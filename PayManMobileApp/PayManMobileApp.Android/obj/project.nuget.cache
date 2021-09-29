@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "5bY/XIyWUcSBFVw1bVIYN2+JSsU3guqnVEY1PhbU+V4LuSuNOO54GhzrgdhnXdPQ1/kQj5cQseK0+9bqsZVaWA==",
+  "dgSpecHash": "CHQutSlM+0WBkl/XEh4bWAm7xBm3Ci+i3d6Lmum9IrEf1+5zpXWNs0nZeFKheMHpvK8aTAmdiDMMppLYCr0NIQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\rasmu\\Documents\\Github\\PayMan\\PayManMobileApp\\PayManMobileApp.Android\\PayManMobileApp.Android.csproj",
+  "projectFilePath": "C:\\Users\\rasmu\\Documents\\github\\PayMan\\PayManMobileApp\\PayManMobileApp.Android\\PayManMobileApp.Android.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\rasmu\\.nuget\\packages\\system.numerics.vectors\\4.5.0\\system.numerics.vectors.4.5.0.nupkg.sha512",
     "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\xamarin.androidx.activity\\1.1.0.5\\xamarin.androidx.activity.1.1.0.5.nupkg.sha512",
@@ -49,8 +49,8 @@
     "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\xamarin.androidx.versionedparcelable\\1.1.1.6\\xamarin.androidx.versionedparcelable.1.1.1.6.nupkg.sha512",
     "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\xamarin.androidx.viewpager\\1.0.0.6\\xamarin.androidx.viewpager.1.0.0.6.nupkg.sha512",
     "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\xamarin.androidx.viewpager2\\1.0.0.8\\xamarin.androidx.viewpager2.1.0.0.8.nupkg.sha512",
-    "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\xamarin.essentials\\1.6.1\\xamarin.essentials.1.6.1.nupkg.sha512",
-    "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\xamarin.forms\\5.0.0.2012\\xamarin.forms.5.0.0.2012.nupkg.sha512",
+    "C:\\Users\\rasmu\\.nuget\\packages\\xamarin.essentials\\1.6.1\\xamarin.essentials.1.6.1.nupkg.sha512",
+    "C:\\Users\\rasmu\\.nuget\\packages\\xamarin.forms\\5.0.0.2012\\xamarin.forms.5.0.0.2012.nupkg.sha512",
     "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\xamarin.google.android.material\\1.2.1.1\\xamarin.google.android.material.1.2.1.1.nupkg.sha512",
     "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\xamarin.google.guava.listenablefuture\\1.0.0.2\\xamarin.google.guava.listenablefuture.1.0.0.2.nupkg.sha512"
   ],

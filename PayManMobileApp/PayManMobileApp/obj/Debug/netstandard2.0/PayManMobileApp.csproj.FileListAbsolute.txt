@@ -2,7 +2,6 @@ C:\Users\rasmu\Documents\Github\PayMan\PayManMobileApp\PayManMobileApp\bin\Debug
 C:\Users\rasmu\Documents\Github\PayMan\PayManMobileApp\PayManMobileApp\bin\Debug\netstandard2.0\PayManMobileApp.dll
 C:\Users\rasmu\Documents\Github\PayMan\PayManMobileApp\PayManMobileApp\bin\Debug\netstandard2.0\ref\PayManMobileApp.dll
 C:\Users\rasmu\Documents\Github\PayMan\PayManMobileApp\PayManMobileApp\bin\Debug\netstandard2.0\PayManMobileApp.pdb
-C:\Users\rasmu\Documents\Github\PayMan\PayManMobileApp\PayManMobileApp\obj\Debug\netstandard2.0\PayManMobileApp.csproj.AssemblyReference.cache
 C:\Users\rasmu\Documents\Github\PayMan\PayManMobileApp\PayManMobileApp\obj\Debug\netstandard2.0\PayManMobileApp.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\rasmu\Documents\Github\PayMan\PayManMobileApp\PayManMobileApp\obj\Debug\netstandard2.0\App.xaml.g.cs
 C:\Users\rasmu\Documents\Github\PayMan\PayManMobileApp\PayManMobileApp\obj\Debug\netstandard2.0\MainPage.xaml.g.cs
