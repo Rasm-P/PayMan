@@ -32,10 +32,11 @@ namespace PayManAPI
             //This is a scoped service
             string mySqlConnectionStr = Configuration.GetConnectionString("DefaultConnection");
             services.AddDbContextPool<MyDBContext>(options => options.UseMySql(mySqlConnectionStr, ServerVersion.AutoDetect(mySqlConnectionStr)).UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking));
+            //Singleton service
             //services.AddDbContext<MyDBContext>(options => options.UseMySql(mySqlConnectionStr, ServerVersion.AutoDetect(mySqlConnectionStr)).UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking), ServiceLifetime.Transient, ServiceLifetime.Singleton);
 
-            //Creation of singleton repository to only have one instance
             services.AddTransient<UserFacadeInterface, UserFacade>();
+            //Creation of singleton repository to only have one instance
             //services.AddSingleton<UserFacadeInterface, UserFacade>();
 
             services.AddControllers();
