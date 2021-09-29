@@ -6,28 +6,27 @@ using PayManAPI.Models;
 using PayManAPI.Dtos;
 using System.Linq;
 
-//See: https://youtu.be/ZXdFisA_hOY?t=2415
 namespace PayManAPI.Controllers
 {
     [ApiController]
     [Route("users")]
     public class UserController : ControllerBase
     {
-        private readonly UserFacadeInterface repository;
+        private readonly UserFacadeInterface userFacade;
 
         //Dependency injection to inject the UserRepository into the UserController.
         //This way UserRepository can depend on an abstraction, allowing us to register different dependencides.
         //All this is also done as a singleton so we dont need to construct a UserRepository every time we use the api (Look in Startup.cs).
         public UserController(UserFacadeInterface repositroy)
         {
-            this.repository = repositroy;
+            this.userFacade = repositroy;
         }
 
         //Get /users
         [HttpGet]
         public IEnumerable<UserDto> GetUsers()
         {
-            var users = repository.GetUsers().Select( user => user.AsDto());
+            var users = userFacade.GetUsers().Select( user => user.AsDto());
             return users;
         }
 
@@ -35,7 +34,7 @@ namespace PayManAPI.Controllers
         [HttpGet("{id}")]
         public ActionResult<UserDto> GetUser(Guid id)
         {
-            var user = repository.Getuser(id);
+            var user = userFacade.Getuser(id);
 
             if (user is null) {
                 return NotFound();
@@ -57,7 +56,7 @@ namespace PayManAPI.Controllers
                 CreatedAt = DateTimeOffset.Now
             };
 
-            repository.CreateUser(user);
+            userFacade.CreateUser(user);
 
             return CreatedAtAction(nameof(GetUser), new { id = user.Id }, user.AsDto());
         }
@@ -66,7 +65,7 @@ namespace PayManAPI.Controllers
         [HttpPut]
         public ActionResult UpdateUser(Guid id, UpdateUserDto userDto)
         {
-            var userToUpdate = repository.Getuser(id);
+            var userToUpdate = userFacade.Getuser(id);
 
             if (userToUpdate is null)
             {
@@ -80,7 +79,7 @@ namespace PayManAPI.Controllers
                 Password = userDto.Password
             };
 
-            repository.UpdateUser(updateUser);
+            userFacade.UpdateUser(updateUser);
 
             return NoContent();
         }
@@ -89,14 +88,14 @@ namespace PayManAPI.Controllers
         [HttpDelete("{id}")]
         public ActionResult DeleteItem(Guid id)
         {
-            var userToDelete = repository.Getuser(id);
+            var userToDelete = userFacade.Getuser(id);
 
             if (userToDelete is null)
             {
                 return NotFound();
             }
 
-            repository.DeleteUser(userToDelete);
+            userFacade.DeleteUser(userToDelete);
 
             return NoContent();
         }
