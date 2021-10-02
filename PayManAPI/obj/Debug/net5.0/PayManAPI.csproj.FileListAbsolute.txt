@@ -35,3 +35,4 @@ C:\Users\rasmu\Documents\github\PayMan\PayManAPI\bin\Debug\net5.0\Microsoft.Exte
 C:\Users\rasmu\Documents\github\PayMan\PayManAPI\bin\Debug\net5.0\MySqlConnector.dll
 C:\Users\rasmu\Documents\github\PayMan\PayManAPI\bin\Debug\net5.0\Pomelo.EntityFrameworkCore.MySql.dll
 C:\Users\rasmu\Documents\github\PayMan\PayManAPI\bin\Debug\net5.0\System.Diagnostics.DiagnosticSource.dll
+C:\Users\rasmu\Documents\github\PayMan\PayManAPI\obj\Debug\net5.0\PayManAPI.csproj.AssemblyReference.cache
