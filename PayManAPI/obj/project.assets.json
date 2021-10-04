@@ -644,11 +644,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\rasmu\\Documents\\github\\PayMan\\PayManAPI\\PayManAPI.csproj",
+      "projectUniqueName": "C:\\Users\\rasmu\\Documents\\Github\\PayMan\\PayManAPI\\PayManAPI.csproj",
       "projectName": "PayManAPI",
-      "projectPath": "C:\\Users\\rasmu\\Documents\\github\\PayMan\\PayManAPI\\PayManAPI.csproj",
+      "projectPath": "C:\\Users\\rasmu\\Documents\\Github\\PayMan\\PayManAPI\\PayManAPI.csproj",
       "packagesPath": "C:\\Users\\rasmu\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\rasmu\\Documents\\github\\PayMan\\PayManAPI\\obj\\",
+      "outputPath": "C:\\Users\\rasmu\\Documents\\Github\\PayMan\\PayManAPI\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
@@ -710,7 +710,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.401\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
       }
     }
   }

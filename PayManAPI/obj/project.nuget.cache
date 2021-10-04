@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "3YIfiQxyv+wChDOjTyR/PstxZ6/i6TKAOmO/W53fq7Ygrho/0IwDW//i+IuDNpOhejmuF7vWFcfrUTqUjjwHRg==",
+  "dgSpecHash": "pvcLmS0JG4cJvlnXeVKXlb6rWc/Vt0QlpLZbM065S7gpYaOY972vygNMMgDY1rkfIGExMN/VH8cajln795mSVg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\rasmu\\Documents\\github\\PayMan\\PayManAPI\\PayManAPI.csproj",
+  "projectFilePath": "C:\\Users\\rasmu\\Documents\\Github\\PayMan\\PayManAPI\\PayManAPI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\rasmu\\.nuget\\packages\\dnsclient\\1.4.0\\dnsclient.1.4.0.nupkg.sha512",
     "C:\\Users\\rasmu\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
