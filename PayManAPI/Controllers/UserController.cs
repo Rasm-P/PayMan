@@ -6,7 +6,6 @@ using PayManAPI.Models;
 using PayManAPI.Dtos;
 using System.Linq;
 
-//See: https://youtu.be/ZXdFisA_hOY?t=2415
 namespace PayManAPI.Controllers
 {
     [ApiController]
