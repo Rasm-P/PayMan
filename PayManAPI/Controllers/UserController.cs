@@ -5,19 +5,21 @@ using PayManAPI.Repositories;
 using PayManAPI.Models;
 using PayManAPI.Dtos;
 using System.Linq;
+using Microsoft.AspNetCore.Authorization;
 
 namespace PayManAPI.Controllers
 {
+    [Authorize]
     [ApiController]
     [Route("users")]
     public class UserController : ControllerBase
     {
-        private readonly UserRepositoryInterface repository;
+        private readonly IUserRepository repository;
 
         //Dependency injection to inject the UserRepository into the UserController.
         //This way UserRepository can depend on an abstraction, allowing us to register different dependencides.
         //All this is also done as a singleton so we dont need to construct a UserRepository every time we use the api (Look in Startup.cs).
-        public UserController(UserRepositoryInterface repositroy)
+        public UserController(IUserRepository repositroy)
         {
             this.repository = repositroy;
         }
@@ -40,25 +42,6 @@ namespace PayManAPI.Controllers
                 return NotFound();
             }
             return user.AsDto();
-        }
-
-        //Post /users
-        [HttpPost]
-        public ActionResult<UserDto> CreateUser(CreateUserDto userDto)
-        {
-            User user = new()
-            {
-                Id = Guid.NewGuid(),
-                UserName = userDto.UserName,
-                Password = userDto.Password,
-                Frikort = 46000,
-                Hovedkort = 0,
-                CreatedAt = DateTimeOffset.Now
-            };
-
-            repository.CreateUser(user);
-
-            return CreatedAtAction(nameof(GetUser), new { id = user.Id }, user.AsDto());
         }
 
         //Put /users

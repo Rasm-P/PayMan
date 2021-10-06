@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace PayManAPI.Repositories
 {
-    public class MongoDbUserRepository : UserRepositoryInterface
+    public class MongoDbUserRepository : IUserRepository
     {
         private const string dbName = "PayMan";
 
@@ -26,11 +26,6 @@ namespace PayManAPI.Repositories
             //docker run -d --rm --name mongo -p 27017:27017 -v mongodbdata:/data/db mongo
             IMongoDatabase database = mongoClient.GetDatabase(dbName);
             userCollection = database.GetCollection<User>(colName);
-        }
-
-        public void CreateUser(User user)
-        {
-            userCollection.InsertOne(user);
         }
 
         public void DeleteUser(Guid id)
