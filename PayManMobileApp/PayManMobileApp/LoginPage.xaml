@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PayManMobileApp.LoginPage">
+
+    <StackLayout Padding="40" VerticalOptions="Center" HorizontalOptions="FillAndExpand">
+        <Label Text="Username"/>
+        <Entry Placeholder="Username"/>
+        <Label Text="Password"/>
+        <Entry Placeholder="Password"/>
+        <Button Text="Login" Clicked="Button_clicked"/>
+        <Label Text="Regiser" HorizontalOptions="Center"/>
+        <Label.GestureRecognizers>
+            <TapGestureRecognizer Tapped="TapGestureRecognizer_tapped"/>
+        </Label.GestureRecognizers>
+    </StackLayout>
+</ContentPage>
