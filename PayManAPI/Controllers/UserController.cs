@@ -6,6 +6,7 @@ using PayManAPI.Models;
 using PayManAPI.Dtos;
 using System.Linq;
 using Microsoft.AspNetCore.Authorization;
+using PayManAPI.Security;
 
 namespace PayManAPI.Controllers
 {
@@ -15,6 +16,7 @@ namespace PayManAPI.Controllers
     public class UserController : ControllerBase
     {
         private readonly IUserRepository repository;
+        private readonly PasswordAuthentication passAuth;
 
         //Dependency injection to inject the UserRepository into the UserController.
         //This way UserRepository can depend on an abstraction, allowing us to register different dependencides.
@@ -22,6 +24,9 @@ namespace PayManAPI.Controllers
         public UserController(IUserRepository repositroy)
         {
             this.repository = repositroy;
+            //Should this be dependency injected?
+            passAuth = new PasswordAuthentication();
+
         }
 
         //Get /users
@@ -45,7 +50,7 @@ namespace PayManAPI.Controllers
         }
 
         //Put /users
-        [HttpPut]
+        [HttpPut("{id}")]
         public ActionResult UpdateUser(Guid id, UpdateUserDto userDto)
         {
             var userToUpdate = repository.Getuser(id);
@@ -59,7 +64,7 @@ namespace PayManAPI.Controllers
             User updateUser = userToUpdate with
             {
                 UserName = userDto.UserName,
-                Password = userDto.Password
+                Password = passAuth.generatePassword(userDto.Password)
             };
 
             repository.UpdateUser(updateUser);

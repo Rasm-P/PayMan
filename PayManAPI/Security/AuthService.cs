@@ -25,25 +25,28 @@ namespace PayManAPI.Security
 
         private readonly string key;
 
+        private readonly PasswordAuthentication passAuth;
+
         //Constructor for injecting a MongoDB client
         public AuthService(IMongoClient mongoClient, IConfiguration Configuration)
         {
-            //docker run -d --rm --name mongo -p 27017:27017 -v mongodbdata:/data/db mongo
             IMongoDatabase database = mongoClient.GetDatabase(dbName);
             userCollection = database.GetCollection<User>(colName);
 
             key = Configuration.GetSection("JwtKey").ToString();
+
+            passAuth = new PasswordAuthentication();
         }
 
         //Method for user authentication
-        public string Authentication(string username, string password)
+        public (User, string) Authentication(string username, string password)
         {
             //Will return null if no match
-            var user = userCollection.Find(user => user.UserName == username && user.Password == password).FirstOrDefault();
+            var user = userCollection.Find(user => user.UserName == username).FirstOrDefault();
 
-            if (user == null)
+            if (user == null || !passAuth.verifyPassword(user.Password, password))
             {
-                return null;
+                return (null, null);
             }
 
             var tokenHandler = new JwtSecurityTokenHandler();
@@ -64,18 +67,17 @@ namespace PayManAPI.Security
 
             var token = tokenHandler.CreateToken(tokenDiscriptor);
 
-            return tokenHandler.WriteToken(token);
+            return (user, tokenHandler.WriteToken(token));
         }
 
-        public User GetAuthoriceduser(string username, string password)
+        public User GetAuthenticatedUser(string username, string password)
         {
-            var user = userCollection.Find(user => user.UserName == username && user.Password == password).SingleOrDefault();
+            var user = userCollection.Find(user => user.UserName == username).SingleOrDefault();
+            if (!passAuth.verifyPassword(user.Password, password))
+            {
+                return null;
+            }
             return user;
-        }
-
-        public void CreateUser(User user)
-        {
-            userCollection.InsertOne(user);
         }
     }
 }

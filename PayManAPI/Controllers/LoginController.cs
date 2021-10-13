@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using PayManAPI.Dtos;
 using PayManAPI.Models;
+using PayManAPI.Repositories;
 using PayManAPI.Security;
 using System;
 using System.Collections.Generic;
@@ -17,26 +18,29 @@ namespace PayManAPI.Controllers
     public class LoginController : ControllerBase
     {
         private readonly IAuthService authService;
+        private readonly IUserRepository repositroy;
+        private readonly PasswordAuthentication passAuth;
 
-        public LoginController(IAuthService authService)
+        public LoginController(IAuthService authService, IUserRepository repositroy)
         {
             this.authService = authService;
+            this.repositroy = repositroy;
+            //Should this be dependency injected?
+            passAuth = new PasswordAuthentication();
         }
 
         //Post /login
         [HttpPost("login")]
         public ActionResult Login(CreateUserDto userDto)
         {
-            var token = authService.Authentication(userDto.UserName, userDto.Password);
+            (User user, string token) = authService.Authentication(userDto.UserName, userDto.Password);
 
             if (token == null)
             {
                 return Unauthorized();
             }
 
-            var authenticatedUser = authService.GetAuthoriceduser(userDto.UserName, userDto.Password).AsDto();
-
-            return Ok(new { token, authenticatedUser });
+            return Ok(new { token, user });
         }
 
         //Post /users
@@ -47,15 +51,15 @@ namespace PayManAPI.Controllers
             {
                 Id = Guid.NewGuid(),
                 UserName = userDto.UserName,
-                Password = userDto.Password,
+                Password = passAuth.generatePassword(userDto.Password),
                 Frikort = 46000,
                 Hovedkort = 0,
                 CreatedAt = DateTimeOffset.Now
             };
 
-            authService.CreateUser(user);
+            repositroy.CreateUser(user);
 
-            var token = authService.Authentication(user.UserName, user.Password);
+            var token = authService.Authentication(userDto.UserName, userDto.Password);
 
             var userToReturn = user.AsDto();
 

@@ -10,5 +10,6 @@ namespace PayManAPI.Repositories
         IEnumerable<User> GetUsers();
         void UpdateUser(User user);
         void DeleteUser(Guid id);
+        public void CreateUser(User user);
     }
 }

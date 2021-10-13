@@ -1,6 +1,7 @@
 ﻿using MongoDB.Bson;
 using MongoDB.Driver;
 using PayManAPI.Models;
+using PayManAPI.Security;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace PayManAPI.Repositories
 {
-    public class MongoDbUserRepository : IUserRepository
+    public class UserRepository : IUserRepository
     {
         private const string dbName = "PayMan";
 
@@ -21,7 +22,7 @@ namespace PayManAPI.Repositories
         private readonly FilterDefinitionBuilder<User> fBuilder = Builders<User>.Filter;
 
         //Constructor for injecting a MongoDB client
-        public MongoDbUserRepository(IMongoClient mongoClient)
+        public UserRepository(IMongoClient mongoClient)
         {
             //docker run -d --rm --name mongo -p 27017:27017 -v mongodbdata:/data/db mongo
             IMongoDatabase database = mongoClient.GetDatabase(dbName);
@@ -49,6 +50,10 @@ namespace PayManAPI.Repositories
         {
             var filter = fBuilder.Eq(user => user.Id, user.Id);
             userCollection.ReplaceOne(filter, user);
+        }
+        public void CreateUser(User user)
+        {
+            userCollection.InsertOne(user);
         }
     }
 }

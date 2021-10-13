@@ -9,8 +9,7 @@ namespace PayManAPI.Security
 {
     public interface IAuthService
     {
-        string Authentication(string username, string password);
-        User GetAuthoriceduser(string username, string password);
-        void CreateUser(User user);
+        (User, string) Authentication(string username, string password);
+        User GetAuthenticatedUser(string username, string password);
     }
 }

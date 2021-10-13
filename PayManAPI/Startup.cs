@@ -49,16 +49,18 @@ namespace PayManAPI
             });
 
             //Creation of singleton repository to only have one instance
-            services.AddSingleton<IUserRepository, MongoDbUserRepository>();
+            services.AddSingleton<IUserRepository, UserRepository>();
             services.AddSingleton<IAuthService, AuthService>();
 
             services.AddControllers();
 
+            //Swagger
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "PayManAPI", Version = "v1" });
             });
 
+            //JWT authentication
             services.AddAuthentication(x =>
             {
                 x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
