@@ -16,7 +16,6 @@
     <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
     <MonoAndroidResourcePrefix>Resources</MonoAndroidResourcePrefix>
     <MonoAndroidAssetsPrefix>Assets</MonoAndroidAssetsPrefix>
-    <AndroidUseLatestPlatformSdk>false</AndroidUseLatestPlatformSdk>
     <TargetFrameworkVersion>v11.0</TargetFrameworkVersion>
     <AndroidEnableSGenConcurrent>true</AndroidEnableSGenConcurrent>
     <AndroidUseAapt2>true</AndroidUseAapt2>
@@ -88,7 +87,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\PayManMobileApp\PayManMobileApp.csproj">
-      <Project>{82564263-3D30-4884-A515-F1045C926234}</Project>
+      <Project>{AD1429CF-A59D-4297-9F5B-97F7DE49EDD6}</Project>
       <Name>PayManMobileApp</Name>
     </ProjectReference>
   </ItemGroup>

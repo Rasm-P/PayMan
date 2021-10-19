@@ -155,8 +155,8 @@
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
-          "Xamarin.Essentials": "1.6.1",
-          "Xamarin.Forms": "5.0.0.2012"
+          "Xamarin.Essentials": "1.7.0",
+          "Xamarin.Forms": "5.0.0.2125"
         },
         "compile": {
           "bin/placeholder/PayManMobileApp.dll": {}
@@ -320,8 +320,8 @@
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
-          "Xamarin.Essentials": "1.6.1",
-          "Xamarin.Forms": "5.0.0.2012"
+          "Xamarin.Essentials": "1.7.0",
+          "Xamarin.Forms": "5.0.0.2125"
         },
         "compile": {
           "bin/placeholder/PayManMobileApp.dll": {}
@@ -485,8 +485,8 @@
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
-          "Xamarin.Essentials": "1.6.1",
-          "Xamarin.Forms": "5.0.0.2012"
+          "Xamarin.Essentials": "1.7.0",
+          "Xamarin.Forms": "5.0.0.2125"
         },
         "compile": {
           "bin/placeholder/PayManMobileApp.dll": {}
@@ -650,8 +650,8 @@
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
-          "Xamarin.Essentials": "1.6.1",
-          "Xamarin.Forms": "5.0.0.2012"
+          "Xamarin.Essentials": "1.7.0",
+          "Xamarin.Forms": "5.0.0.2125"
         },
         "compile": {
           "bin/placeholder/PayManMobileApp.dll": {}
@@ -991,42 +991,32 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\rasmu\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {},
-    "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\": {}
+    "/Users/sbrook/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\rasmu\\Documents\\Github\\PayMan\\PayManMobileApp\\PayManMobileApp.iOS\\PayManMobileApp.iOS.csproj",
+      "projectUniqueName": "/Users/sbrook/Documents/PayMan/PayManMobileApp/PayManMobileApp.iOS/PayManMobileApp.iOS.csproj",
       "projectName": "PayManMobileApp.iOS",
-      "projectPath": "C:\\Users\\rasmu\\Documents\\Github\\PayMan\\PayManMobileApp\\PayManMobileApp.iOS\\PayManMobileApp.iOS.csproj",
-      "packagesPath": "C:\\Users\\rasmu\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\rasmu\\Documents\\Github\\PayMan\\PayManMobileApp\\PayManMobileApp.iOS\\obj\\",
+      "projectPath": "/Users/sbrook/Documents/PayMan/PayManMobileApp/PayManMobileApp.iOS/PayManMobileApp.iOS.csproj",
+      "packagesPath": "/Users/sbrook/.nuget/packages/",
+      "outputPath": "/Users/sbrook/Documents/PayMan/PayManMobileApp/PayManMobileApp.iOS/obj/",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-        "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
-      ],
       "configFilePaths": [
-        "C:\\Users\\rasmu\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        "/Users/sbrook/.config/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "xamarinios10"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "xamarinios10": {
           "projectReferences": {
-            "C:\\Users\\rasmu\\Documents\\Github\\PayMan\\PayManMobileApp\\PayManMobileApp\\PayManMobileApp.csproj": {
-              "projectPath": "C:\\Users\\rasmu\\Documents\\Github\\PayMan\\PayManMobileApp\\PayManMobileApp\\PayManMobileApp.csproj"
+            "/Users/sbrook/Documents/PayMan/PayManMobileApp/PayManMobileApp/PayManMobileApp.csproj": {
+              "projectPath": "/Users/sbrook/Documents/PayMan/PayManMobileApp/PayManMobileApp/PayManMobileApp.csproj"
             }
           }
         }
@@ -1057,5 +1047,33 @@
         "#import": []
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1605",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Detected package downgrade: Xamarin.Essentials from 1.7.0 to 1.6.1. Reference the package directly from the project to select a different version. \n PayManMobileApp.iOS -> PayManMobileApp -> Xamarin.Essentials (>= 1.7.0) \n PayManMobileApp.iOS -> Xamarin.Essentials (>= 1.6.1)",
+      "libraryId": "Xamarin.Essentials",
+      "targetGraphs": [
+        "Xamarin.iOS,Version=v1.0",
+        "Xamarin.iOS,Version=v1.0/win",
+        "Xamarin.iOS,Version=v1.0/win-x64",
+        "Xamarin.iOS,Version=v1.0/win-x86"
+      ]
+    },
+    {
+      "code": "NU1605",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Detected package downgrade: Xamarin.Forms from 5.0.0.2125 to 5.0.0.2012. Reference the package directly from the project to select a different version. \n PayManMobileApp.iOS -> PayManMobileApp -> Xamarin.Forms (>= 5.0.0.2125) \n PayManMobileApp.iOS -> Xamarin.Forms (>= 5.0.0.2012)",
+      "libraryId": "Xamarin.Forms",
+      "targetGraphs": [
+        "Xamarin.iOS,Version=v1.0",
+        "Xamarin.iOS,Version=v1.0/win",
+        "Xamarin.iOS,Version=v1.0/win-x64",
+        "Xamarin.iOS,Version=v1.0/win-x86"
+      ]
+    }
+  ]
 }

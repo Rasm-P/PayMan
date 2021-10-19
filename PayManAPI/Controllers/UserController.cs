@@ -26,7 +26,7 @@ namespace PayManAPI.Controllers
         [HttpGet]
         public IEnumerable<UserDto> GetUsers()
         {
-            var users = repository.GetUsers().Select( user => user.AsDto());
+            var users = repository.GetUsers().Select(user => user.AsDto());
             return users;
         }
 

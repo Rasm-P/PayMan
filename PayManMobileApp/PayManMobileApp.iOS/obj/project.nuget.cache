@@ -1,12 +1,39 @@
 {
   "version": 2,
-  "dgSpecHash": "/3615d0SNK+4zXVTGh4YqeIJzwdI7MKfEFlyo0t6FuccLfjx9kYdyNst/JntLzo1fFxNN7wZcMsY+9EpZlYz7A==",
+  "dgSpecHash": "oePqPDReeFuglRjSXFnoi5KNeaUnzFp45r4stVtmeocF5lDPIWRKiCU3OVvYd6MdvrOiRiP2aaiLAvB3EBIUJA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\rasmu\\Documents\\Github\\PayMan\\PayManMobileApp\\PayManMobileApp.iOS\\PayManMobileApp.iOS.csproj",
+  "projectFilePath": "/Users/sbrook/Documents/PayMan/PayManMobileApp/PayManMobileApp.iOS/PayManMobileApp.iOS.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\rasmu\\.nuget\\packages\\system.numerics.vectors\\4.5.0\\system.numerics.vectors.4.5.0.nupkg.sha512",
-    "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\xamarin.essentials\\1.6.1\\xamarin.essentials.1.6.1.nupkg.sha512",
-    "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\xamarin.forms\\5.0.0.2012\\xamarin.forms.5.0.0.2012.nupkg.sha512"
+    "/Users/sbrook/.nuget/packages/system.numerics.vectors/4.5.0/system.numerics.vectors.4.5.0.nupkg.sha512",
+    "/Users/sbrook/.nuget/packages/xamarin.essentials/1.6.1/xamarin.essentials.1.6.1.nupkg.sha512",
+    "/Users/sbrook/.nuget/packages/xamarin.forms/5.0.0.2012/xamarin.forms.5.0.0.2012.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "NU1605",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Detected package downgrade: Xamarin.Essentials from 1.7.0 to 1.6.1. Reference the package directly from the project to select a different version. \n PayManMobileApp.iOS -> PayManMobileApp -> Xamarin.Essentials (>= 1.7.0) \n PayManMobileApp.iOS -> Xamarin.Essentials (>= 1.6.1)",
+      "libraryId": "Xamarin.Essentials",
+      "targetGraphs": [
+        "Xamarin.iOS,Version=v1.0",
+        "Xamarin.iOS,Version=v1.0/win",
+        "Xamarin.iOS,Version=v1.0/win-x64",
+        "Xamarin.iOS,Version=v1.0/win-x86"
+      ]
+    },
+    {
+      "code": "NU1605",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Detected package downgrade: Xamarin.Forms from 5.0.0.2125 to 5.0.0.2012. Reference the package directly from the project to select a different version. \n PayManMobileApp.iOS -> PayManMobileApp -> Xamarin.Forms (>= 5.0.0.2125) \n PayManMobileApp.iOS -> Xamarin.Forms (>= 5.0.0.2012)",
+      "libraryId": "Xamarin.Forms",
+      "targetGraphs": [
+        "Xamarin.iOS,Version=v1.0",
+        "Xamarin.iOS,Version=v1.0/win",
+        "Xamarin.iOS,Version=v1.0/win-x64",
+        "Xamarin.iOS,Version=v1.0/win-x86"
+      ]
+    }
+  ]
 }
