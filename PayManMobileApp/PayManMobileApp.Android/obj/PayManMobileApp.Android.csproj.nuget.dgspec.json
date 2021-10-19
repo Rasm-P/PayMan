@@ -1,33 +1,41 @@
 {
   "format": 1,
   "restore": {
-    "/Users/sbrook/Documents/PayMan/PayManMobileApp/PayManMobileApp.Android/PayManMobileApp.Android.csproj": {}
+    "C:\\Users\\rasmu\\Documents\\github\\PayMan\\PayManMobileApp\\PayManMobileApp.Android\\PayManMobileApp.Android.csproj": {}
   },
   "projects": {
-    "/Users/sbrook/Documents/PayMan/PayManMobileApp/PayManMobileApp.Android/PayManMobileApp.Android.csproj": {
+    "C:\\Users\\rasmu\\Documents\\github\\PayMan\\PayManMobileApp\\PayManMobileApp.Android\\PayManMobileApp.Android.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/sbrook/Documents/PayMan/PayManMobileApp/PayManMobileApp.Android/PayManMobileApp.Android.csproj",
+        "projectUniqueName": "C:\\Users\\rasmu\\Documents\\github\\PayMan\\PayManMobileApp\\PayManMobileApp.Android\\PayManMobileApp.Android.csproj",
         "projectName": "PayManMobileApp.Android",
-        "projectPath": "/Users/sbrook/Documents/PayMan/PayManMobileApp/PayManMobileApp.Android/PayManMobileApp.Android.csproj",
-        "packagesPath": "/Users/sbrook/.nuget/packages/",
-        "outputPath": "/Users/sbrook/Documents/PayMan/PayManMobileApp/PayManMobileApp.Android/obj/",
+        "projectPath": "C:\\Users\\rasmu\\Documents\\github\\PayMan\\PayManMobileApp\\PayManMobileApp.Android\\PayManMobileApp.Android.csproj",
+        "packagesPath": "C:\\Users\\rasmu\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\rasmu\\Documents\\github\\PayMan\\PayManMobileApp\\PayManMobileApp.Android\\obj\\",
         "projectStyle": "PackageReference",
         "skipContentFileWrite": true,
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
+        ],
         "configFilePaths": [
-          "/Users/sbrook/.config/NuGet/NuGet.Config"
+          "C:\\Users\\rasmu\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "monoandroid11.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "monoandroid11.0": {
             "projectReferences": {
-              "/Users/sbrook/Documents/PayMan/PayManMobileApp/PayManMobileApp/PayManMobileApp.csproj": {
-                "projectPath": "/Users/sbrook/Documents/PayMan/PayManMobileApp/PayManMobileApp/PayManMobileApp.csproj"
+              "C:\\Users\\rasmu\\Documents\\github\\PayMan\\PayManMobileApp\\PayManMobileApp\\PayManMobileApp.csproj": {
+                "projectPath": "C:\\Users\\rasmu\\Documents\\github\\PayMan\\PayManMobileApp\\PayManMobileApp\\PayManMobileApp.csproj"
               }
             }
           }
@@ -48,22 +56,30 @@
         }
       }
     },
-    "/Users/sbrook/Documents/PayMan/PayManMobileApp/PayManMobileApp/PayManMobileApp.csproj": {
+    "C:\\Users\\rasmu\\Documents\\github\\PayMan\\PayManMobileApp\\PayManMobileApp\\PayManMobileApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/sbrook/Documents/PayMan/PayManMobileApp/PayManMobileApp/PayManMobileApp.csproj",
+        "projectUniqueName": "C:\\Users\\rasmu\\Documents\\github\\PayMan\\PayManMobileApp\\PayManMobileApp\\PayManMobileApp.csproj",
         "projectName": "PayManMobileApp",
-        "projectPath": "/Users/sbrook/Documents/PayMan/PayManMobileApp/PayManMobileApp/PayManMobileApp.csproj",
-        "packagesPath": "/Users/sbrook/.nuget/packages/",
-        "outputPath": "/Users/sbrook/Documents/PayMan/PayManMobileApp/PayManMobileApp/obj/",
+        "projectPath": "C:\\Users\\rasmu\\Documents\\github\\PayMan\\PayManMobileApp\\PayManMobileApp\\PayManMobileApp.csproj",
+        "packagesPath": "C:\\Users\\rasmu\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\rasmu\\Documents\\github\\PayMan\\PayManMobileApp\\PayManMobileApp\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
+        ],
         "configFilePaths": [
-          "/Users/sbrook/.config/NuGet/NuGet.Config"
+          "C:\\Users\\rasmu\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netstandard2.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -107,7 +123,7 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.402/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.401\\RuntimeIdentifierGraph.json"
         }
       }
     }
