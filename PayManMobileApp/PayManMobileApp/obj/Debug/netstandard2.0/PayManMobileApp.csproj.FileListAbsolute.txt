@@ -42,3 +42,4 @@ C:\Users\rasmu\Documents\github\PayMan\PayManMobileApp\PayManMobileApp\obj\Debug
 C:\Users\rasmu\Documents\github\PayMan\PayManMobileApp\PayManMobileApp\obj\Debug\netstandard2.0\PayManMobileApp.dll
 C:\Users\rasmu\Documents\github\PayMan\PayManMobileApp\PayManMobileApp\obj\Debug\netstandard2.0\ref\PayManMobileApp.dll
 C:\Users\rasmu\Documents\github\PayMan\PayManMobileApp\PayManMobileApp\obj\Debug\netstandard2.0\PayManMobileApp.pdb
+C:\Users\rasmu\Documents\github\PayMan\PayManMobileApp\PayManMobileApp\obj\Debug\netstandard2.0\PayManMobileApp.csproj.AssemblyReference.cache

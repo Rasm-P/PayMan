@@ -9,7 +9,6 @@ namespace PayManAPI.Config
     {
         public String Host { get; set; }
         public int Port { get; set; }
-
         public String ConnectionString { get { return $"mongodb://{Host}:{Port}"; } }
     }
 }
