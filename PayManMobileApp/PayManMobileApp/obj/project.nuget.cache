@@ -1,14 +1,14 @@
 {
   "version": 2,
-  "dgSpecHash": "7COlffhSuhv+s44j7rt5vG/UpqYSZq3YoLQL5UhbK8pdScWV7KZpMSHRngy4X/NlmmaCbTGrTZmSs+n3+E3HiA==",
+  "dgSpecHash": "z8lm0AI6GZAyNwKbzwLAzGHHNpjd/LB5w0DxjKdzt4jiEt46Tjgc/UB6Lj/lLCRJwmeXzSes+EcqpRBcyb5N0A==",
   "success": true,
   "projectFilePath": "C:\\Users\\rasmu\\Documents\\github\\PayMan\\PayManMobileApp\\PayManMobileApp\\PayManMobileApp.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\rasmu\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
     "C:\\Users\\rasmu\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512",
     "C:\\Users\\rasmu\\.nuget\\packages\\system.numerics.vectors\\4.5.0\\system.numerics.vectors.4.5.0.nupkg.sha512",
-    "C:\\Users\\rasmu\\.nuget\\packages\\xamarin.essentials\\1.6.1\\xamarin.essentials.1.6.1.nupkg.sha512",
-    "C:\\Users\\rasmu\\.nuget\\packages\\xamarin.forms\\5.0.0.2012\\xamarin.forms.5.0.0.2012.nupkg.sha512"
+    "C:\\Users\\rasmu\\.nuget\\packages\\xamarin.essentials\\1.7.0\\xamarin.essentials.1.7.0.nupkg.sha512",
+    "C:\\Users\\rasmu\\.nuget\\packages\\xamarin.forms\\5.0.0.2125\\xamarin.forms.5.0.0.2125.nupkg.sha512"
   ],
   "logs": []
 }

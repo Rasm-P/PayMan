@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "LeicF+0kPnxKkofz1qAfoqsg/AFdyxG7MlMPYPUMIr9MvJLOO5rswsR/Sz8FKG+CjuW9QsN/gTX1A9lYJR75yg==",
+  "dgSpecHash": "rgZ1iRqr+Pk0WSpz+8g77gc2bBEWS0oDl0oYXHdmEdsWTlCmuBCZzVKFW1g6zJTtUUmANy7WTiKfhb76al4yww==",
   "success": true,
   "projectFilePath": "C:\\Users\\rasmu\\Documents\\github\\PayMan\\PayManMobileApp\\PayManMobileApp.iOS\\PayManMobileApp.iOS.csproj",
   "expectedPackageFiles": [
@@ -8,5 +8,32 @@
     "C:\\Users\\rasmu\\.nuget\\packages\\xamarin.essentials\\1.6.1\\xamarin.essentials.1.6.1.nupkg.sha512",
     "C:\\Users\\rasmu\\.nuget\\packages\\xamarin.forms\\5.0.0.2012\\xamarin.forms.5.0.0.2012.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "NU1605",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Detected package downgrade: Xamarin.Essentials from 1.7.0 to 1.6.1. Reference the package directly from the project to select a different version. \r\n PayManMobileApp.iOS -> PayManMobileApp -> Xamarin.Essentials (>= 1.7.0) \r\n PayManMobileApp.iOS -> Xamarin.Essentials (>= 1.6.1)",
+      "libraryId": "Xamarin.Essentials",
+      "targetGraphs": [
+        "Xamarin.iOS,Version=v1.0",
+        "Xamarin.iOS,Version=v1.0/win",
+        "Xamarin.iOS,Version=v1.0/win-x64",
+        "Xamarin.iOS,Version=v1.0/win-x86"
+      ]
+    },
+    {
+      "code": "NU1605",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Detected package downgrade: Xamarin.Forms from 5.0.0.2125 to 5.0.0.2012. Reference the package directly from the project to select a different version. \r\n PayManMobileApp.iOS -> PayManMobileApp -> Xamarin.Forms (>= 5.0.0.2125) \r\n PayManMobileApp.iOS -> Xamarin.Forms (>= 5.0.0.2012)",
+      "libraryId": "Xamarin.Forms",
+      "targetGraphs": [
+        "Xamarin.iOS,Version=v1.0",
+        "Xamarin.iOS,Version=v1.0/win",
+        "Xamarin.iOS,Version=v1.0/win-x64",
+        "Xamarin.iOS,Version=v1.0/win-x86"
+      ]
+    }
+  ]
 }
