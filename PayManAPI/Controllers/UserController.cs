@@ -7,6 +7,7 @@ using PayManAPI.Dtos;
 using System.Linq;
 using Microsoft.AspNetCore.Authorization;
 using PayManAPI.Security;
+using System.Threading.Tasks;
 
 namespace PayManAPI.Controllers
 {
@@ -31,17 +32,17 @@ namespace PayManAPI.Controllers
 
         //Get /users
         [HttpGet]
-        public IEnumerable<UserDto> GetUsers()
+        public async Task<IEnumerable<UserDto>> GetUsersAsync()
         {
-            var users = repository.GetUsers().Select(user => user.AsDto());
+            var users = (await repository.GetUsersAsync()).Select(user => user.AsDto());
             return users;
         }
 
         //Get /users/{id}
         [HttpGet("{id}")]
-        public ActionResult<UserDto> GetUser(Guid id)
+        public async Task<ActionResult<UserDto>> GetUserAsync(Guid id)
         {
-            var user = repository.Getuser(id);
+            var user = await repository.GetuserAsync(id);
 
             if (user is null) {
                 return NotFound();
@@ -51,9 +52,9 @@ namespace PayManAPI.Controllers
 
         //Put /users
         [HttpPut("{id}")]
-        public ActionResult UpdateUser(Guid id, UpdateUserDto userDto)
+        public async Task<ActionResult> UpdateUserAsync(Guid id, UpdateUserDto userDto)
         {
-            var userToUpdate = repository.Getuser(id);
+            var userToUpdate = await repository.GetuserAsync(id);
 
             if (userToUpdate is null)
             {
@@ -67,23 +68,23 @@ namespace PayManAPI.Controllers
                 Password = passAuth.generatePassword(userDto.Password)
             };
 
-            repository.UpdateUser(updateUser);
+            await repository.UpdateUserAsync(updateUser);
 
             return NoContent();
         }
 
         //Delete users/{id}
         [HttpDelete("{id}")]
-        public ActionResult DeleteUser(Guid id)
+        public async Task<ActionResult> DeleteUserAsync(Guid id)
         {
-            var userToDelete = repository.Getuser(id);
+            var userToDelete = await repository.GetuserAsync(id);
 
             if (userToDelete is null)
             {
                 return NotFound();
             }
 
-            repository.DeleteUser(id);
+            await repository.DeleteUserAsync(id);
 
             return NoContent();
         }

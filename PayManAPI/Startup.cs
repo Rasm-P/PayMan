@@ -52,7 +52,11 @@ namespace PayManAPI
             services.AddSingleton<IUserRepository, UserRepository>();
             services.AddSingleton<IAuthService, AuthService>();
 
-            services.AddControllers();
+            services.AddControllers(options => 
+            {
+                //Do this to avid .Net auto removing Async Suffix for endpoints
+                options.SuppressAsyncSuffixInActionNames = false;
+            });
 
             //Swagger
             services.AddSwaggerGen(c =>

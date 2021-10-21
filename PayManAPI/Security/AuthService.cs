@@ -11,6 +11,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using System.Security.Claims;
 using PayManAPI.Dtos;
+using System.Threading.Tasks;
 
 namespace PayManAPI.Security
 {
@@ -39,10 +40,10 @@ namespace PayManAPI.Security
         }
 
         //Method for user authentication
-        public (User, string) Authentication(string username, string password)
+        public async Task<(User, string)> AuthenticationAsync(string username, string password)
         {
             //Will return null if no match
-            var user = userCollection.Find(user => user.UserName == username).FirstOrDefault();
+            var user = await userCollection.Find(user => user.UserName == username).FirstOrDefaultAsync();
 
             if (user == null || !passAuth.verifyPassword(user.Password, password))
             {
@@ -70,9 +71,9 @@ namespace PayManAPI.Security
             return (user, tokenHandler.WriteToken(token));
         }
 
-        public User GetAuthenticatedUser(string username, string password)
+        public async Task<User> GetAuthenticatedUserAsync(string username, string password)
         {
-            var user = userCollection.Find(user => user.UserName == username).SingleOrDefault();
+            var user = await userCollection.Find(user => user.UserName == username).SingleOrDefaultAsync();
             if (!passAuth.verifyPassword(user.Password, password))
             {
                 return null;

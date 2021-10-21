@@ -29,31 +29,32 @@ namespace PayManAPI.Repositories
             userCollection = database.GetCollection<User>(colName);
         }
 
-        public void DeleteUser(Guid id)
+        public async Task DeleteUserAsync(Guid id)
         {
             var filter = fBuilder.Eq(user => user.Id, id);
-            userCollection.DeleteOne(filter);
+            await userCollection.DeleteOneAsync(filter);
         }
 
-        public User Getuser(Guid id)
+        public async Task<User> GetuserAsync(Guid id)
         {
             var filter = fBuilder.Eq(user => user.Id, id);
-            return userCollection.Find(filter).SingleOrDefault();
+            return await userCollection.Find(filter).SingleOrDefaultAsync();
         }
 
-        public IEnumerable<User> GetUsers()
+        public async Task<IEnumerable<User>> GetUsersAsync()
         {
-            return userCollection.Find(new BsonDocument()).ToList();
+            return await userCollection.Find(new BsonDocument()).ToListAsync();
         }
 
-        public void UpdateUser(User user)
+        public async Task UpdateUserAsync(User user)
         {
             var filter = fBuilder.Eq(user => user.Id, user.Id);
-            userCollection.ReplaceOne(filter, user);
+            await userCollection.ReplaceOneAsync(filter, user);
         }
-        public void CreateUser(User user)
+
+        public async Task CreateUserAsync(User user)
         {
-            userCollection.InsertOne(user);
+            await userCollection.InsertOneAsync(user);
         }
     }
 }
