@@ -1,9 +1,12 @@
-﻿using System;
+﻿using MongoDB.Bson;
+using MongoDB.Bson.Serialization.Attributes;
+using System;
 
 namespace PayManAPI.Models
 {
     public record User
     {
+        [BsonId]
         public Guid Id { get; init; }
         public String UserName { get; init; }
         
@@ -12,7 +15,6 @@ namespace PayManAPI.Models
         //public List<Jobs>
         public double Frikort { get; init; }
         public double Hovedkort { get; init; }
-        //public Enum? Nationality { get; init; }
         public DateTimeOffset CreatedAt { get; init; }
     }
 }
