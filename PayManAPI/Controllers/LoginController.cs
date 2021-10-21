@@ -33,12 +33,14 @@ namespace PayManAPI.Controllers
         [HttpPost("login")]
         public ActionResult Login(CreateUserDto userDto)
         {
-            (User user, string token) = authService.Authentication(userDto.UserName, userDto.Password);
+            (User userToReturn, string token) = authService.Authentication(userDto.UserName, userDto.Password);
 
             if (token == null)
             {
                 return Unauthorized();
             }
+
+            var user = userToReturn.AsDto();
 
             return Ok(new { token, user });
         }
@@ -47,7 +49,7 @@ namespace PayManAPI.Controllers
         [HttpPost("create")]
         public ActionResult<UserDto> CreateUser(CreateUserDto userDto)
         {
-            User user = new()
+            User newUser = new()
             {
                 Id = Guid.NewGuid(),
                 UserName = userDto.UserName,
@@ -57,13 +59,13 @@ namespace PayManAPI.Controllers
                 CreatedAt = DateTimeOffset.Now
             };
 
-            repositroy.CreateUser(user);
+            repositroy.CreateUser(newUser);
 
-            var token = authService.Authentication(userDto.UserName, userDto.Password);
+            (User authUser, string token) = authService.Authentication(userDto.UserName, userDto.Password);
 
-            var userToReturn = user.AsDto();
+            var user = authUser.AsDto();
 
-            return CreatedAtAction(nameof(Login), new { id = userToReturn.Id }, new { token, userToReturn });
+            return CreatedAtAction(nameof(Login), new { id = user.Id }, new { token, user });
         }
     }
 }
