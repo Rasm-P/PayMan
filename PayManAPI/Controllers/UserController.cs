@@ -74,7 +74,7 @@ namespace PayManAPI.Controllers
 
         //Delete users/{id}
         [HttpDelete("{id}")]
-        public ActionResult DeleteItem(Guid id)
+        public ActionResult DeleteUser(Guid id)
         {
             var userToDelete = repository.Getuser(id);
 
