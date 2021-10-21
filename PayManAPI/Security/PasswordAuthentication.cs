@@ -6,7 +6,7 @@ using PayManAPI.Models;
 
 namespace PayManAPI.Security
 {
-    public class PasswordAuthentication
+    public class PasswordAuthentication : IPasswordAuthentication
     {
         private int saltBytes = 128 / 8;
         private KeyDerivationPrf prf = KeyDerivationPrf.HMACSHA256;
