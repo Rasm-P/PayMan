@@ -43,7 +43,7 @@ namespace PayManAPI
             //We only want one IMongoClient for the serivce
             //We here register and inject the client into the MongoDB repository
             services.AddSingleton<IMongoClient>(serviceProvider => 
-            { 
+            {
                 var settings = Configuration.GetSection(nameof(MongoDbSettings)).Get<MongoDbSettings>();
                 return new MongoClient(settings.ConnectionString);
             });
@@ -76,7 +76,7 @@ namespace PayManAPI
                 x.TokenValidationParameters = new TokenValidationParameters
                 {
                     ValidateIssuerSigningKey = true,
-                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(Configuration.GetSection("JwtKey").ToString())),
+                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(Configuration["JwtKey"].ToString())),
                     ValidateIssuer = false,
                     ValidateAudience = false
                 };

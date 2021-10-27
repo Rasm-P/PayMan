@@ -24,7 +24,7 @@ namespace PayManAPI.Repositories
         //Constructor for injecting a MongoDB client
         public UserRepository(IMongoClient mongoClient)
         {
-            //docker run -d --rm --name mongo -p 27017:27017 -v mongodbdata:/data/db mongo
+            //docker run -d --rm --name mongo -p 27017:27017 -v mongodbdata:/data/db -e MONGO_INITDB_ROOT_USERNAME=mongodbadmin -e MONGO_INITDB_ROOT_PASSWORD=ax2 mongo
             IMongoDatabase database = mongoClient.GetDatabase(dbName);
             userCollection = database.GetCollection<User>(colName);
         }
