@@ -50,9 +50,6 @@ namespace PayManAPI.Security
             string password = passwordString[1];
 
             string hashToVerify = hashPassword(passwordToVerify, salt);
-            Console.WriteLine(passwordToVerify);
-            Console.WriteLine(hashToVerify);
-            Console.WriteLine(hashedPassword);
             return password == hashToVerify;
         }
     }
