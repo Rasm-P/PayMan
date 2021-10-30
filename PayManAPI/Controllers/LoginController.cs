@@ -31,9 +31,9 @@ namespace PayManAPI.Controllers
 
         //Post /login
         [HttpPost("login")]
-        public async Task<ActionResult> LoginAsync(CreateUserDto userDto)
+        public async Task<ActionResult> LoginAsync(Login loginModel)
         {
-            (User userToReturn, string token) = await authService.AuthenticationAsync(userDto.UserName, userDto.Password);
+            (User userToReturn, string token) = await authService.AuthenticationAsync(loginModel.UserName, loginModel.Password);
 
             if (token == null)
             {
@@ -47,7 +47,7 @@ namespace PayManAPI.Controllers
 
         //Post /users
         [HttpPost("create")]
-        public async Task<ActionResult<UserDto>> CreateUserAsync(CreateUserDto userDto)
+        public async Task<ActionResult> CreateUserAsync(CreateUserDto userDto)
         {
             User newUser = new()
             {
@@ -63,7 +63,7 @@ namespace PayManAPI.Controllers
 
             (User authUser, string token) = await authService.AuthenticationAsync(userDto.UserName, userDto.Password);
 
-            var user = authUser.AsDto();
+            var user = newUser.AsDto();
 
             return CreatedAtAction(nameof(LoginAsync), new { id = user.Id }, new { token, user });
         }
