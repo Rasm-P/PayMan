@@ -4,9 +4,9 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace PayManAPI.Models
+namespace PayManAPI.Dtos
 {
-    public class Login
+    public record LoginDto
     {
         [Required]
         [StringLength(50)]

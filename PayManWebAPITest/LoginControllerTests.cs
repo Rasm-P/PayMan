@@ -44,13 +44,13 @@ namespace PayManWebAPITest
         public async Task LoginAsync_WithUserToLogin_ReturnsToken()
         {
             //Arrange
-            var user = new User()
+            var user = new UserModel()
             {
                 UserName = Guid.NewGuid().ToString(),
                 Password = Guid.NewGuid().ToString()
             };
 
-            var loginmodel = new Login()
+            var loginmodel = new LoginDto()
             {
                 UserName = user.UserName,
                 Password = user.Password

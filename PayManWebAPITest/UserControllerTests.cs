@@ -19,7 +19,7 @@ namespace PayManWebAPITest
         public async Task GetUserAsync_WithNoUser_ReturnsNotFound()
         {
             //Arrange
-            userRepositroyStub.Setup(repository => repository.GetuserAsync(It.IsAny<Guid>())).ReturnsAsync((User)null);
+            userRepositroyStub.Setup(repository => repository.GetuserAsync(It.IsAny<Guid>())).ReturnsAsync((UserModel)null);
 
             var userController = new UserController(userRepositroyStub.Object);
 
@@ -47,7 +47,45 @@ namespace PayManWebAPITest
             result.Value.Should().BeEquivalentTo(expectedUser, options => options.ComparingByMembers<UserDto>().ExcludingMissingMembers());
         }
 
-        private User CreateRandomUser()
+        [Fact]
+        public async Task UpdateUserAsync_WithExistingUser_ReturnsNoContent()
+        {
+            //Arrange
+            var expectedUser = CreateRandomUser();
+            userRepositroyStub.Setup(repository => repository.GetuserAsync(It.IsAny<Guid>())).ReturnsAsync(expectedUser);
+
+            var userToUpdate = new UpdateUserDto
+            {
+                UserName = Guid.NewGuid().ToString(),
+                Password = Guid.NewGuid().ToString()
+            };
+
+            var userController = new UserController(userRepositroyStub.Object);
+
+            //Act
+            var result = await userController.UpdateUserAsync(expectedUser.Id, userToUpdate);
+
+            //Assert
+            result.Should().BeOfType<NoContentResult>();
+        }
+
+        [Fact]
+        public async Task DeleteUserAsync_WithExistingUser_ReturnsNoContent()
+        {
+            //Arrange
+            var expectedUser = CreateRandomUser();
+            userRepositroyStub.Setup(repository => repository.GetuserAsync(It.IsAny<Guid>())).ReturnsAsync(expectedUser);
+
+            var userController = new UserController(userRepositroyStub.Object);
+
+            //Act
+            var result = await userController.DeleteUserAsync(expectedUser.Id);
+
+            //Assert
+            result.Should().BeOfType<NoContentResult>();
+        }
+
+        private UserModel CreateRandomUser()
         {
             Random rand = new();
             return new()

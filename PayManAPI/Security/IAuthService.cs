@@ -9,7 +9,7 @@ namespace PayManAPI.Security
 {
     public interface IAuthService
     {
-        Task<(User, string)> AuthenticationAsync(string username, string password);
-        Task<User> GetAuthenticatedUserAsync(string username, string password);
+        Task<(UserModel, string)> AuthenticationAsync(string username, string password);
+        Task<UserModel> GetAuthenticatedUserAsync(string username, string password);
     }
 }

@@ -76,7 +76,7 @@ namespace PayManAPI
                 x.TokenValidationParameters = new TokenValidationParameters
                 {
                     ValidateIssuerSigningKey = true,
-                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(Configuration["JwtKey"].ToString())),
+                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes("JwtKey")),
                     ValidateIssuer = false,
                     ValidateAudience = false
                 };

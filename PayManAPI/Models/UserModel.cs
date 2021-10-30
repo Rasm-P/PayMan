@@ -4,7 +4,7 @@ using System;
 
 namespace PayManAPI.Models
 {
-    public record User
+    public record UserModel
     {
         [BsonId]
         public Guid Id { get; init; }

@@ -22,7 +22,7 @@ namespace PayManAPI.Security
         private const string colName = "users";
 
         //A collection is the way that Mongo db assisiates entities together. It is readonly
-        private readonly IMongoCollection<User> userCollection;
+        private readonly IMongoCollection<UserModel> userCollection;
 
         private readonly string key;
 
@@ -32,7 +32,7 @@ namespace PayManAPI.Security
         public AuthService(IMongoClient mongoClient, IConfiguration Configuration)
         {
             IMongoDatabase database = mongoClient.GetDatabase(dbName);
-            userCollection = database.GetCollection<User>(colName);
+            userCollection = database.GetCollection<UserModel>(colName);
 
             key = Configuration.GetSection("JwtKey").ToString();
 
@@ -40,7 +40,7 @@ namespace PayManAPI.Security
         }
 
         //Method for user authentication
-        public async Task<(User, string)> AuthenticationAsync(string username, string password)
+        public async Task<(UserModel, string)> AuthenticationAsync(string username, string password)
         {
             //Will return null if no match
             var user = await userCollection.Find(user => user.UserName == username).FirstOrDefaultAsync();
@@ -71,7 +71,7 @@ namespace PayManAPI.Security
             return (user, tokenHandler.WriteToken(token));
         }
 
-        public async Task<User> GetAuthenticatedUserAsync(string username, string password)
+        public async Task<UserModel> GetAuthenticatedUserAsync(string username, string password)
         {
             var user = await userCollection.Find(user => user.UserName == username).SingleOrDefaultAsync();
             if (!passAuth.verifyPassword(user.Password, password))

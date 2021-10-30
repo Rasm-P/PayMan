@@ -62,7 +62,7 @@ namespace PayManAPI.Controllers
             }
 
             //Creating a copy of user with new updates
-            User updateUser = userToUpdate with
+            UserModel updateUser = userToUpdate with
             {
                 UserName = userDto.UserName,
                 Password = passAuth.generatePassword(userDto.Password)

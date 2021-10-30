@@ -11,7 +11,7 @@ namespace PayManAPI
     public static class Extentions
     {
         //Converts a User object to a UserDto
-        public static UserDto AsDto(this User user)
+        public static UserDto AsDto(this UserModel user)
         {
             return new UserDto
             {

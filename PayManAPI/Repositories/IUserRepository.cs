@@ -7,10 +7,10 @@ namespace PayManAPI.Repositories
 {
     public interface IUserRepository
     {
-        Task<User> GetuserAsync(Guid id);
-        Task<IEnumerable<User>> GetUsersAsync();
-        Task UpdateUserAsync(User user);
+        Task<UserModel> GetuserAsync(Guid id);
+        Task<IEnumerable<UserModel>> GetUsersAsync();
+        Task UpdateUserAsync(UserModel user);
         Task DeleteUserAsync(Guid id);
-        Task CreateUserAsync(User user);
+        Task CreateUserAsync(UserModel user);
     }
 }
