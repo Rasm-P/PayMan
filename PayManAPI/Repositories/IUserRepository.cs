@@ -12,5 +12,6 @@ namespace PayManAPI.Repositories
         Task UpdateUserAsync(UserModel user);
         Task DeleteUserAsync(Guid id);
         Task CreateUserAsync(UserModel user);
+        Task<Boolean> IsUsernameTaken(String username);
     }
 }

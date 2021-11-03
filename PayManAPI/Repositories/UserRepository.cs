@@ -56,5 +56,18 @@ namespace PayManAPI.Repositories
         {
             await userCollection.InsertOneAsync(user);
         }
+
+        public async Task<Boolean> IsUsernameTaken(string username)
+        {
+            var filter = fBuilder.Eq(user => user.UserName, username);
+            var user = await userCollection.Find(filter).FirstOrDefaultAsync();
+            if (user == null)
+            {
+                return false;
+            } else
+            {
+                return true;
+            }
+        }
     }
 }

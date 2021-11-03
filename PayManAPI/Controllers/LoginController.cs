@@ -48,6 +48,12 @@ namespace PayManAPI.Controllers
         [HttpPost("create")]
         public async Task<ActionResult> CreateUserAsync(CreateUserDto userDto)
         {
+            var isUsernameTaken = await repositroy.IsUsernameTaken(userDto.UserName);
+            if (isUsernameTaken)
+            {
+                return Unauthorized();
+            }
+
             UserModel newUser = new()
             {
                 Id = Guid.NewGuid(),
