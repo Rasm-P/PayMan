@@ -19,14 +19,13 @@ namespace PayManAPI.Controllers
     {
         private readonly IAuthService authService;
         private readonly IUserRepository repositroy;
-        private readonly PasswordAuthentication passAuth;
+        private readonly IPasswordAuthentication passAuth;
 
-        public LoginController(IAuthService authService, IUserRepository repositroy)
+        public LoginController(IAuthService authService, IUserRepository repositroy, IPasswordAuthentication passAuth)
         {
             this.authService = authService;
             this.repositroy = repositroy;
-            //Should this be dependency injected?
-            passAuth = new PasswordAuthentication();
+            this.passAuth = passAuth;
         }
 
         //Post /login

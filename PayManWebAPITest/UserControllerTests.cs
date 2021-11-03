@@ -5,6 +5,7 @@ using PayManAPI.Controllers;
 using PayManAPI.Dtos;
 using PayManAPI.Models;
 using PayManAPI.Repositories;
+using PayManAPI.Security;
 using System;
 using System.Threading.Tasks;
 using Xunit;
@@ -14,6 +15,7 @@ namespace PayManWebAPITest
     public class UserControllerTests
     {
         private readonly Mock<IUserRepository> userRepositroyStub = new();
+        private readonly Mock<IPasswordAuthentication> passwordAuthenticationStub = new();
 
         [Fact]
         public async Task GetUserAsync_WithNoUser_ReturnsNotFound()
@@ -21,7 +23,7 @@ namespace PayManWebAPITest
             //Arrange
             userRepositroyStub.Setup(repository => repository.GetuserAsync(It.IsAny<Guid>())).ReturnsAsync((UserModel)null);
 
-            var userController = new UserController(userRepositroyStub.Object);
+            var userController = new UserController(userRepositroyStub.Object, passwordAuthenticationStub.Object);
 
             //Act
             var result = await userController.GetUserAsync(Guid.NewGuid());
@@ -37,7 +39,7 @@ namespace PayManWebAPITest
             var expectedUser = CreateRandomUser();
             userRepositroyStub.Setup(repository => repository.GetuserAsync(It.IsAny<Guid>())).ReturnsAsync(expectedUser);
 
-            var userController = new UserController(userRepositroyStub.Object);
+            var userController = new UserController(userRepositroyStub.Object, passwordAuthenticationStub.Object);
 
             //Act
             var result = await userController.GetUserAsync(expectedUser.Id);
@@ -60,7 +62,7 @@ namespace PayManWebAPITest
                 Password = Guid.NewGuid().ToString()
             };
 
-            var userController = new UserController(userRepositroyStub.Object);
+            var userController = new UserController(userRepositroyStub.Object, passwordAuthenticationStub.Object);
 
             //Act
             var result = await userController.UpdateUserAsync(expectedUser.Id, userToUpdate);
@@ -76,7 +78,7 @@ namespace PayManWebAPITest
             var expectedUser = CreateRandomUser();
             userRepositroyStub.Setup(repository => repository.GetuserAsync(It.IsAny<Guid>())).ReturnsAsync(expectedUser);
 
-            var userController = new UserController(userRepositroyStub.Object);
+            var userController = new UserController(userRepositroyStub.Object, passwordAuthenticationStub.Object);
 
             //Act
             var result = await userController.DeleteUserAsync(expectedUser.Id);

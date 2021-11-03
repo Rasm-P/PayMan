@@ -16,6 +16,7 @@ namespace PayManWebAPITest
     {
         private readonly Mock<IUserRepository> userRepositroyStub = new();
         private readonly Mock<IAuthService> authServiceStub = new();
+        private readonly Mock<IPasswordAuthentication> passwordAuthenticationStub = new();
 
         [Fact]
         public async Task CreateUserAsync_WithUserToCreate_ReturnsUser()
@@ -27,7 +28,7 @@ namespace PayManWebAPITest
                 Password = Guid.NewGuid().ToString()
             };
 
-            var loginController = new LoginController(authServiceStub.Object, userRepositroyStub.Object);
+            var loginController = new LoginController(authServiceStub.Object, userRepositroyStub.Object, passwordAuthenticationStub.Object);
 
             //Act
             var result = await loginController.CreateUserAsync(userToCreate);
@@ -60,7 +61,7 @@ namespace PayManWebAPITest
             
             authServiceStub.Setup(authService => authService.AuthenticationAsync(It.IsAny<string>(), It.IsAny<string>())).ReturnsAsync((user, token));
 
-            var loginController = new LoginController(authServiceStub.Object, userRepositroyStub.Object);
+            var loginController = new LoginController(authServiceStub.Object, userRepositroyStub.Object, passwordAuthenticationStub.Object);
 
             //Act
             var result = await loginController.LoginAsync(loginmodel);

@@ -51,6 +51,7 @@ namespace PayManAPI
             //Creation of singleton repository to only have one instance
             services.AddSingleton<IUserRepository, UserRepository>();
             services.AddSingleton<IAuthService, AuthService>();
+            services.AddSingleton<IPasswordAuthentication, PasswordAuthentication>();
 
             services.AddControllers(options => 
             {

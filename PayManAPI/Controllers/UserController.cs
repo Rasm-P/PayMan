@@ -17,17 +17,15 @@ namespace PayManAPI.Controllers
     public class UserController : ControllerBase
     {
         private readonly IUserRepository repository;
-        private readonly PasswordAuthentication passAuth;
+        private readonly IPasswordAuthentication passAuth;
 
         //Dependency injection to inject the UserRepository into the UserController.
         //This way UserRepository can depend on an abstraction, allowing us to register different dependencides.
         //All this is also done as a singleton so we dont need to construct a UserRepository every time we use the api (Look in Startup.cs).
-        public UserController(IUserRepository repositroy)
+        public UserController(IUserRepository repositroy, IPasswordAuthentication passAuth)
         {
             this.repository = repositroy;
-            //Should this be dependency injected?
-            passAuth = new PasswordAuthentication();
-
+            this.passAuth = passAuth;
         }
 
         //Get /users
