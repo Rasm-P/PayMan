@@ -7,6 +7,7 @@ using PayManAPI.Models;
 using PayManAPI.Repositories;
 using PayManAPI.Security;
 using System;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using Xunit;
 
@@ -15,18 +16,21 @@ namespace PayManWebAPITest
     public class UserControllerTests
     {
         private readonly Mock<IUserRepository> userRepositroyStub = new();
+        private readonly Mock<IAuthService> authServiceStub = new();
         private readonly Mock<IPasswordAuthentication> passwordAuthenticationStub = new();
 
         [Fact]
         public async Task GetUserAsync_WithNoUser_ReturnsNotFound()
         {
             //Arrange
+            var userId = Guid.NewGuid();
             userRepositroyStub.Setup(repository => repository.GetuserAsync(It.IsAny<Guid>())).ReturnsAsync((UserModel)null);
+            authServiceStub.Setup(authService => authService.GetUserIdFromToken(It.IsAny<ClaimsPrincipal>())).Returns(userId.ToString());
 
-            var userController = new UserController(userRepositroyStub.Object, passwordAuthenticationStub.Object);
+            var userController = new UserController(authServiceStub.Object, userRepositroyStub.Object, passwordAuthenticationStub.Object);
 
             //Act
-            var result = await userController.GetUserAsync(Guid.NewGuid());
+            var result = await userController.GetUserAsync(userId);
 
             //Assert
             result.Result.Should().BeOfType<NotFoundResult>();
@@ -38,8 +42,9 @@ namespace PayManWebAPITest
             //Arrange
             var expectedUser = CreateRandomUser();
             userRepositroyStub.Setup(repository => repository.GetuserAsync(It.IsAny<Guid>())).ReturnsAsync(expectedUser);
+            authServiceStub.Setup(authService => authService.GetUserIdFromToken(It.IsAny<ClaimsPrincipal>())).Returns(expectedUser.Id.ToString());
 
-            var userController = new UserController(userRepositroyStub.Object, passwordAuthenticationStub.Object);
+            var userController = new UserController(authServiceStub.Object, userRepositroyStub.Object, passwordAuthenticationStub.Object);
 
             //Act
             var result = await userController.GetUserAsync(expectedUser.Id);
@@ -55,6 +60,7 @@ namespace PayManWebAPITest
             //Arrange
             var expectedUser = CreateRandomUser();
             userRepositroyStub.Setup(repository => repository.GetuserAsync(It.IsAny<Guid>())).ReturnsAsync(expectedUser);
+            authServiceStub.Setup(authService => authService.GetUserIdFromToken(It.IsAny<ClaimsPrincipal>())).Returns(expectedUser.Id.ToString());
 
             var userToUpdate = new UpdateUserDto
             {
@@ -62,7 +68,7 @@ namespace PayManWebAPITest
                 Password = Guid.NewGuid().ToString()
             };
 
-            var userController = new UserController(userRepositroyStub.Object, passwordAuthenticationStub.Object);
+            var userController = new UserController(authServiceStub.Object, userRepositroyStub.Object, passwordAuthenticationStub.Object);
 
             //Act
             var result = await userController.UpdateUserAsync(expectedUser.Id, userToUpdate);
@@ -77,8 +83,9 @@ namespace PayManWebAPITest
             //Arrange
             var expectedUser = CreateRandomUser();
             userRepositroyStub.Setup(repository => repository.GetuserAsync(It.IsAny<Guid>())).ReturnsAsync(expectedUser);
+            authServiceStub.Setup(authService => authService.GetUserIdFromToken(It.IsAny<ClaimsPrincipal>())).Returns(expectedUser.Id.ToString());
 
-            var userController = new UserController(userRepositroyStub.Object, passwordAuthenticationStub.Object);
+            var userController = new UserController(authServiceStub.Object, userRepositroyStub.Object, passwordAuthenticationStub.Object);
 
             //Act
             var result = await userController.DeleteUserAsync(expectedUser.Id);

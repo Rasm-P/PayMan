@@ -1,8 +1,5 @@
-﻿using PayManAPI.Dtos;
-using PayManAPI.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using PayManAPI.Models;
+using System.Security.Claims;
 using System.Threading.Tasks;
 
 namespace PayManAPI.Security
@@ -11,5 +8,6 @@ namespace PayManAPI.Security
     {
         Task<(UserModel, string)> AuthenticationAsync(string username, string password);
         Task<UserModel> GetAuthenticatedUserAsync(string username, string password);
+        string GetUserIdFromToken(ClaimsPrincipal claimsPrincipal);
     }
 }

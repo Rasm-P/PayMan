@@ -1,16 +1,12 @@
-﻿using MongoDB.Bson;
-using MongoDB.Driver;
+﻿using MongoDB.Driver;
 using PayManAPI.Models;
 using System;
-using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
 using System.Text;
-using PayManAPI.Config;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using System.Security.Claims;
-using PayManAPI.Dtos;
 using System.Threading.Tasks;
 
 namespace PayManAPI.Security
@@ -58,7 +54,8 @@ namespace PayManAPI.Security
             {
                 Subject = new ClaimsIdentity(new Claim[]
                 {
-                    new Claim(ClaimTypes.Name, username),
+                    new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
+                    new Claim(ClaimTypes.Name, user.UserName),
                 }),
 
                 Expires = DateTime.UtcNow.AddMinutes(30),
@@ -79,6 +76,11 @@ namespace PayManAPI.Security
                 return null;
             }
             return user;
+        }
+
+        public string GetUserIdFromToken(ClaimsPrincipal claimsPrincipal)
+        {
+            return claimsPrincipal.Claims.First(i => i.Type == ClaimTypes.NameIdentifier).Value;
         }
     }
 }
