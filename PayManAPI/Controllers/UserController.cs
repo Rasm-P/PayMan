@@ -30,24 +30,11 @@ namespace PayManAPI.Controllers
             this.passAuth = passAuth;
         }
 
-        //Get /users
-        [HttpGet]
-        public async Task<IEnumerable<UserDto>> GetUsersAsync()
-        {
-            var users = (await repository.GetUsersAsync()).Select(user => user.AsDto());
-            return users;
-        }
-
         //Get /users/{id}
-        [HttpGet("{id}")]
-        public async Task<ActionResult<UserDto>> GetUserAsync(Guid id)
+        [HttpGet]
+        public async Task<ActionResult<UserDto>> GetUserAsync()
         {
-            if (authService.GetUserIdFromToken(User) != id.ToString())
-            {
-                return Unauthorized();
-            }
-
-            var user = await repository.GetuserAsync(id);
+            var user = await repository.GetuserAsync(Guid.Parse(authService.GetUserIdFromToken(User)));
 
             if (user is null) {
                 return NotFound();
@@ -56,15 +43,10 @@ namespace PayManAPI.Controllers
         }
 
         //Put /users
-        [HttpPut("{id}")]
-        public async Task<ActionResult> UpdateUserAsync(Guid id, UpdateUserDto userDto)
+        [HttpPut]
+        public async Task<ActionResult> UpdateUserAsync(UpdateUserDto userDto)
         {
-            if (authService.GetUserIdFromToken(User) != id.ToString())
-            {
-                return Unauthorized();
-            }
-
-            var userToUpdate = await repository.GetuserAsync(id);
+            var userToUpdate = await repository.GetuserAsync(Guid.Parse(authService.GetUserIdFromToken(User)));
 
             if (userToUpdate is null)
             {
@@ -84,13 +66,10 @@ namespace PayManAPI.Controllers
         }
 
         //Delete users/{id}
-        [HttpDelete("{id}")]
-        public async Task<ActionResult> DeleteUserAsync(Guid id)
+        [HttpDelete]
+        public async Task<ActionResult> DeleteUserAsync()
         {
-            if (authService.GetUserIdFromToken(User) != id.ToString())
-            {
-                return Unauthorized();
-            }
+            var id = Guid.Parse(authService.GetUserIdFromToken(User));
 
             var userToDelete = await repository.GetuserAsync(id);
 

@@ -30,7 +30,7 @@ namespace PayManWebAPITest
             var userController = new UserController(authServiceStub.Object, userRepositroyStub.Object, passwordAuthenticationStub.Object);
 
             //Act
-            var result = await userController.GetUserAsync(userId);
+            var result = await userController.GetUserAsync();
 
             //Assert
             result.Result.Should().BeOfType<NotFoundResult>();
@@ -47,7 +47,7 @@ namespace PayManWebAPITest
             var userController = new UserController(authServiceStub.Object, userRepositroyStub.Object, passwordAuthenticationStub.Object);
 
             //Act
-            var result = await userController.GetUserAsync(expectedUser.Id);
+            var result = await userController.GetUserAsync();
 
             //Assert
             //With this method from FluentAssertions we dont need to check alle the object properties
@@ -71,7 +71,7 @@ namespace PayManWebAPITest
             var userController = new UserController(authServiceStub.Object, userRepositroyStub.Object, passwordAuthenticationStub.Object);
 
             //Act
-            var result = await userController.UpdateUserAsync(expectedUser.Id, userToUpdate);
+            var result = await userController.UpdateUserAsync(userToUpdate);
 
             //Assert
             result.Should().BeOfType<NoContentResult>();
@@ -88,7 +88,7 @@ namespace PayManWebAPITest
             var userController = new UserController(authServiceStub.Object, userRepositroyStub.Object, passwordAuthenticationStub.Object);
 
             //Act
-            var result = await userController.DeleteUserAsync(expectedUser.Id);
+            var result = await userController.DeleteUserAsync();
 
             //Assert
             result.Should().BeOfType<NoContentResult>();
