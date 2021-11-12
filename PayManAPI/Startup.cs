@@ -45,6 +45,8 @@ namespace PayManAPI
             services.AddSingleton<IUserRepository, UserRepository>();
             services.AddSingleton<IAuthService, AuthService>();
             services.AddSingleton<IPasswordAuthentication, PasswordAuthentication>();
+            services.AddSingleton<IJobRepository, JobRepository>();
+            services.AddSingleton<ITaxRepository, TaxRepository>();
 
             services.AddControllers(options => 
             {

@@ -39,7 +39,7 @@ namespace PayManAPI.Controllers
             if (user is null) {
                 return NotFound();
             }
-            return user.AsDto();
+            return user.AsUserDto();
         }
 
         //Put /users

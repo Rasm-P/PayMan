@@ -36,7 +36,7 @@ namespace PayManAPI.Controllers
                 return Unauthorized();
             }
 
-            var user = userToReturn.AsDto();
+            var user = userToReturn.AsUserDto();
 
             return Ok(new { token, user });
         }
@@ -65,7 +65,7 @@ namespace PayManAPI.Controllers
 
             (UserModel authUser, string token) = await authService.AuthenticationAsync(userDto.UserName, userDto.Password);
 
-            var user = newUser.AsDto();
+            var user = newUser.AsUserDto();
 
             return CreatedAtAction(nameof(LoginAsync), new { id = user.Id }, new { token, user });
         }
