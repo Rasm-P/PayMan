@@ -8,6 +8,10 @@ namespace PayManAPI.Repositories
 {
     public interface ITaxRepository
     {
-        Task<IEnumerable<TaxModel>> GetTaxesFromIdListAsync(List<Guid> idList);
+        Task CreateTaxAsync(TaxModel tax);
+        Task DeleteTaxAsync(Guid id);
+        Task<TaxModel> GetTaxAsync(Guid id);
+        Task<IEnumerable<TaxModel>> GetTaxsAsync(List<Guid> idList);
+        Task UpdateTaxAsync(TaxModel tax);
     }
 }

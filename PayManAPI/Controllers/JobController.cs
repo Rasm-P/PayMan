@@ -92,7 +92,7 @@ namespace PayManAPI.Controllers
 
         //Put /jobs/{id}
         [HttpPut("{id}")]
-        public async Task<ActionResult> UpdateUserAsync(CreateUpdateJobDto jobDto, Guid id)
+        public async Task<ActionResult> UpdateJobAsync(CreateUpdateJobDto jobDto, Guid id)
         {
             var user = await userRepository.GetuserAsync(Guid.Parse(authService.GetUserIdFromToken(User)));
             if (!user.Jobs.Contains(id))
@@ -121,7 +121,7 @@ namespace PayManAPI.Controllers
 
         //Delete /jobs/{id}
         [HttpDelete("{id}")]
-        public async Task<ActionResult> DeleteUserAsync(Guid id)
+        public async Task<ActionResult> DeleteJobAsync(Guid id)
         {
             var user = await userRepository.GetuserAsync(Guid.Parse(authService.GetUserIdFromToken(User)));
             if (!user.Jobs.Contains(id))
