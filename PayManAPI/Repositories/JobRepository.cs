@@ -44,9 +44,10 @@ namespace PayManAPI.Repositories
             return await jobCollection.Find(filter).SingleOrDefaultAsync();
         }
 
-        public async Task<IEnumerable<JobModel>> GetJobsAsync()
+        public async Task<IEnumerable<JobModel>> GetJobsAsync(List<Guid> idList)
         {
-            return await jobCollection.Find(new BsonDocument()).ToListAsync();
+            var filter = fBuilder.In(x => x.Id, idList);
+            return await jobCollection.Find(filter).ToListAsync();
         }
 
         public async Task UpdateJobAsync(JobModel job)

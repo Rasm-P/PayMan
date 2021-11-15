@@ -5,6 +5,7 @@ using PayManAPI.Models;
 using PayManAPI.Repositories;
 using PayManAPI.Security;
 using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace PayManAPI.Controllers
@@ -41,7 +42,7 @@ namespace PayManAPI.Controllers
             return Ok(new { token, user });
         }
 
-        //Post /users
+        //Post /login
         [HttpPost("create")]
         public async Task<ActionResult> CreateUserAsync(CreateUserDto userDto)
         {
@@ -56,6 +57,7 @@ namespace PayManAPI.Controllers
                 Id = Guid.NewGuid(),
                 UserName = userDto.UserName,
                 Password = passAuth.generatePassword(userDto.Password),
+                Jobs = new List<Guid>(),
                 Frikort = 46000,
                 Hovedkort = 0,
                 CreatedAt = DateTimeOffset.Now

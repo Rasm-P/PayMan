@@ -30,7 +30,7 @@ namespace PayManAPI.Controllers
             this.passAuth = passAuth;
         }
 
-        //Get /users/{id}
+        //Get /users
         [HttpGet]
         public async Task<ActionResult<UserDto>> GetUserAsync()
         {
@@ -65,7 +65,7 @@ namespace PayManAPI.Controllers
             return NoContent();
         }
 
-        //Delete users/{id}
+        //Delete users
         [HttpDelete]
         public async Task<ActionResult> DeleteUserAsync()
         {
