@@ -62,7 +62,7 @@ namespace PayManWebAPITest
             userRepositroyStub.Setup(repository => repository.GetuserAsync(It.IsAny<Guid>())).ReturnsAsync(expectedUser);
             authServiceStub.Setup(authService => authService.GetUserIdFromToken(It.IsAny<ClaimsPrincipal>())).Returns(expectedUser.Id.ToString());
 
-            var userToUpdate = new UpdateUserDto
+            var userToUpdate = new CreateUpdateUserDto
             {
                 UserName = Guid.NewGuid().ToString(),
                 Password = Guid.NewGuid().ToString()

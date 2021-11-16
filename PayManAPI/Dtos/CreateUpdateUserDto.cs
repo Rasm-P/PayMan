@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
-using System.ComponentModel.DataAnnotations;
 
 namespace PayManAPI.Dtos
 {
-    public class UpdateUserDto
+    public class CreateUpdateUserDto
     {
         [Required]
         [StringLength(50)]

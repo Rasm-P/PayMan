@@ -44,7 +44,7 @@ namespace PayManAPI.Controllers
 
         //Put /users
         [HttpPut]
-        public async Task<ActionResult> UpdateUserAsync(UpdateUserDto userDto)
+        public async Task<ActionResult> UpdateUserAsync(CreateUpdateUserDto userDto)
         {
             var userToUpdate = await repository.GetuserAsync(Guid.Parse(authService.GetUserIdFromToken(User)));
 
