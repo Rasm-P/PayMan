@@ -30,7 +30,7 @@ namespace PayManAPI.Controllers
         }
 
         //Get /taxes/{id}
-        [HttpGet("{id}")]
+        [HttpGet("{jobId}")]
         public async Task<IEnumerable<TaxDto>> GetTaxesAsync(Guid jobId)
         {
             var user = await userRepository.GetuserAsync(Guid.Parse(authService.GetUserIdFromToken(User)));
@@ -46,7 +46,7 @@ namespace PayManAPI.Controllers
             return taxes;
         }
 
-        //Get /taxes/{id}
+        //Get /taxes/{id}/{id}
         [HttpGet("{jobId}/{taxId}")]
         public async Task<ActionResult<TaxDto>> GetTaxAsync(Guid jobId, Guid taxId)
         {
@@ -68,11 +68,11 @@ namespace PayManAPI.Controllers
         }
 
         //Post /taxes/{id}
-        [HttpPost("{id}")]
-        public async Task<ActionResult> CreateJobAsync(CreateUpdateTaxDto taxDto, Guid id)
+        [HttpPost("{jobId}")]
+        public async Task<ActionResult> CreateTaxAsync(CreateUpdateTaxDto taxDto, Guid jobId)
         {
             var user = await userRepository.GetuserAsync(Guid.Parse(authService.GetUserIdFromToken(User)));
-            var job = await jobRepository.GetJobAsync(id);
+            var job = await jobRepository.GetJobAsync(jobId);
 
             var taxId = Guid.NewGuid();
 
@@ -96,7 +96,71 @@ namespace PayManAPI.Controllers
             await taxRepository.CreateTaxAsync(newTax);
             await jobRepository.UpdateJobAsync(updateJob);
 
-            return CreatedAtAction(nameof(CreateJobAsync), new { id = newTax.Id }, new { newTax });
+            return CreatedAtAction(nameof(CreateTaxAsync), new { id = newTax.Id }, new { newTax });
+        }
+
+        //Put /taxes/{id}/{id}
+        [HttpPut("{jobId}/{taxId}")]
+        public async Task<ActionResult> UpdateTaxAsync(CreateUpdateTaxDto taxDto, Guid jobId, Guid taxId)
+        {
+            var user = await userRepository.GetuserAsync(Guid.Parse(authService.GetUserIdFromToken(User)));
+            var job = await jobRepository.GetJobAsync(jobId);
+
+            if (!user.Jobs.Contains(jobId) || !job.Taxes.Contains(taxId))
+            {
+                return Unauthorized();
+            }
+
+            var taxToUpdate = await taxRepository.GetTaxAsync(taxId);
+
+            if (taxToUpdate is null)
+            {
+                return NotFound();
+            }
+
+            TaxModel updateTax = taxToUpdate with
+            {
+                TaxName = taxDto.TaxName,
+                Description = taxDto.Description,
+                TaxRate = taxDto.TaxRate,
+            };
+
+            await taxRepository.UpdateTaxAsync(updateTax);
+
+            return NoContent();
+        }
+
+        //Delete /taxes/{id}/{id}
+        [HttpDelete("{jobId}/{taxId}")]
+        public async Task<ActionResult> DeleteTaxAsync(Guid jobId, Guid taxId)
+        {
+            var user = await userRepository.GetuserAsync(Guid.Parse(authService.GetUserIdFromToken(User)));
+            var job = await jobRepository.GetJobAsync(jobId);
+
+            if (!user.Jobs.Contains(jobId) || !job.Taxes.Contains(taxId))
+            {
+                return Unauthorized();
+            }
+
+            var taxToDelete = await taxRepository.GetTaxAsync(taxId);
+
+            if (taxToDelete is null)
+            {
+                return NotFound();
+            }
+
+            var JobTaxIdList = job.Taxes;
+            JobTaxIdList.Remove(taxId);
+
+            JobModel updateJob = job with
+            {
+                Taxes = JobTaxIdList
+            };
+
+            await taxRepository.DeleteTaxAsync(taxId);
+            await jobRepository.UpdateJobAsync(updateJob);
+
+            return NoContent();
         }
     }
 }
