@@ -7,6 +7,7 @@ using PayManAPI.Dtos;
 using System.Linq;
 using Microsoft.AspNetCore.Authorization;
 using PayManAPI.Security;
+using System.Threading.Tasks;
 
 namespace PayManAPI.Controllers
 {
@@ -15,45 +16,37 @@ namespace PayManAPI.Controllers
     [Route("users")]
     public class UserController : ControllerBase
     {
+        private readonly IAuthService authService;
         private readonly IUserRepository repository;
-        private readonly PasswordAuthentication passAuth;
+        private readonly IPasswordAuthentication passAuth;
 
         //Dependency injection to inject the UserRepository into the UserController.
         //This way UserRepository can depend on an abstraction, allowing us to register different dependencides.
         //All this is also done as a singleton so we dont need to construct a UserRepository every time we use the api (Look in Startup.cs).
-        public UserController(IUserRepository repositroy)
+        public UserController(IAuthService authService, IUserRepository repositroy, IPasswordAuthentication passAuth)
         {
+            this.authService = authService;
             this.repository = repositroy;
-            //Should this be dependency injected?
-            passAuth = new PasswordAuthentication();
-
+            this.passAuth = passAuth;
         }
 
         //Get /users
         [HttpGet]
-        public IEnumerable<UserDto> GetUsers()
+        public async Task<ActionResult<UserDto>> GetUserAsync()
         {
-            var users = repository.GetUsers().Select(user => user.AsDto());
-            return users;
-        }
-
-        //Get /users/{id}
-        [HttpGet("{id}")]
-        public ActionResult<UserDto> GetUser(Guid id)
-        {
-            var user = repository.Getuser(id);
+            var user = await repository.GetuserAsync(Guid.Parse(authService.GetUserIdFromToken(User)));
 
             if (user is null) {
                 return NotFound();
             }
-            return user.AsDto();
+            return user.AsUserDto();
         }
 
         //Put /users
-        [HttpPut("{id}")]
-        public ActionResult UpdateUser(Guid id, UpdateUserDto userDto)
+        [HttpPut]
+        public async Task<ActionResult> UpdateUserAsync(CreateUpdateUserDto userDto)
         {
-            var userToUpdate = repository.Getuser(id);
+            var userToUpdate = await repository.GetuserAsync(Guid.Parse(authService.GetUserIdFromToken(User)));
 
             if (userToUpdate is null)
             {
@@ -61,29 +54,31 @@ namespace PayManAPI.Controllers
             }
 
             //Creating a copy of user with new updates
-            User updateUser = userToUpdate with
+            UserModel updateUser = userToUpdate with
             {
                 UserName = userDto.UserName,
                 Password = passAuth.generatePassword(userDto.Password)
             };
 
-            repository.UpdateUser(updateUser);
+            await repository.UpdateUserAsync(updateUser);
 
             return NoContent();
         }
 
-        //Delete users/{id}
-        [HttpDelete("{id}")]
-        public ActionResult DeleteItem(Guid id)
+        //Delete users
+        [HttpDelete]
+        public async Task<ActionResult> DeleteUserAsync()
         {
-            var userToDelete = repository.Getuser(id);
+            var id = Guid.Parse(authService.GetUserIdFromToken(User));
+
+            var userToDelete = await repository.GetuserAsync(id);
 
             if (userToDelete is null)
             {
                 return NotFound();
             }
 
-            repository.DeleteUser(id);
+            await repository.DeleteUserAsync(id);
 
             return NoContent();
         }

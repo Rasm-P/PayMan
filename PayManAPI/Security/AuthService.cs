@@ -1,16 +1,13 @@
-﻿using MongoDB.Bson;
-using MongoDB.Driver;
+﻿using MongoDB.Driver;
 using PayManAPI.Models;
 using System;
-using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
 using System.Text;
-using PayManAPI.Config;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using System.Security.Claims;
-using PayManAPI.Dtos;
+using System.Threading.Tasks;
 
 namespace PayManAPI.Security
 {
@@ -21,7 +18,7 @@ namespace PayManAPI.Security
         private const string colName = "users";
 
         //A collection is the way that Mongo db assisiates entities together. It is readonly
-        private readonly IMongoCollection<User> userCollection;
+        private readonly IMongoCollection<UserModel> userCollection;
 
         private readonly string key;
 
@@ -31,7 +28,7 @@ namespace PayManAPI.Security
         public AuthService(IMongoClient mongoClient, IConfiguration Configuration)
         {
             IMongoDatabase database = mongoClient.GetDatabase(dbName);
-            userCollection = database.GetCollection<User>(colName);
+            userCollection = database.GetCollection<UserModel>(colName);
 
             key = Configuration.GetSection("JwtKey").ToString();
 
@@ -39,10 +36,10 @@ namespace PayManAPI.Security
         }
 
         //Method for user authentication
-        public (User, string) Authentication(string username, string password)
+        public async Task<(UserModel, string)> AuthenticationAsync(string username, string password)
         {
             //Will return null if no match
-            var user = userCollection.Find(user => user.UserName == username).FirstOrDefault();
+            var user = await userCollection.Find(user => user.UserName == username).FirstOrDefaultAsync();
 
             if (user == null || !passAuth.verifyPassword(user.Password, password))
             {
@@ -57,7 +54,8 @@ namespace PayManAPI.Security
             {
                 Subject = new ClaimsIdentity(new Claim[]
                 {
-                    new Claim(ClaimTypes.Name, username),
+                    new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
+                    new Claim(ClaimTypes.Name, user.UserName),
                 }),
 
                 Expires = DateTime.UtcNow.AddMinutes(30),
@@ -70,14 +68,19 @@ namespace PayManAPI.Security
             return (user, tokenHandler.WriteToken(token));
         }
 
-        public User GetAuthenticatedUser(string username, string password)
+        public async Task<UserModel> GetAuthenticatedUserAsync(string username, string password)
         {
-            var user = userCollection.Find(user => user.UserName == username).SingleOrDefault();
+            var user = await userCollection.Find(user => user.UserName == username).SingleOrDefaultAsync();
             if (!passAuth.verifyPassword(user.Password, password))
             {
                 return null;
             }
             return user;
+        }
+
+        public string GetUserIdFromToken(ClaimsPrincipal claimsPrincipal)
+        {
+            return claimsPrincipal.Claims.First(i => i.Type == ClaimTypes.NameIdentifier).Value;
         }
     }
 }

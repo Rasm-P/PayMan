@@ -6,7 +6,7 @@ using PayManAPI.Models;
 
 namespace PayManAPI.Security
 {
-    public class PasswordAuthentication
+    public class PasswordAuthentication : IPasswordAuthentication
     {
         private int saltBytes = 128 / 8;
         private KeyDerivationPrf prf = KeyDerivationPrf.HMACSHA256;
@@ -50,9 +50,6 @@ namespace PayManAPI.Security
             string password = passwordString[1];
 
             string hashToVerify = hashPassword(passwordToVerify, salt);
-            Console.WriteLine(passwordToVerify);
-            Console.WriteLine(hashToVerify);
-            Console.WriteLine(hashedPassword);
             return password == hashToVerify;
         }
     }

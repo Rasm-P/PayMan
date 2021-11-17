@@ -6,14 +6,13 @@ using System.Threading.Tasks;
 
 namespace PayManAPI.Dtos
 {
-    //The dto object that we will receave from the user
-    public class CreateUserDto
+    public record LoginDto
     {
         [Required]
         [StringLength(50)]
-        public String UserName { get; init; }
+        public string UserName { get; init; }
         [Required]
         [StringLength(30)]
-        public String Password { get; init; }
+        public string Password { get; init; }
     }
 }

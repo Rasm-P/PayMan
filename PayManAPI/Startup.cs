@@ -1,17 +1,10 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using MongoDB.Bson;
@@ -43,7 +36,7 @@ namespace PayManAPI
             //We only want one IMongoClient for the serivce
             //We here register and inject the client into the MongoDB repository
             services.AddSingleton<IMongoClient>(serviceProvider => 
-            { 
+            {
                 var settings = Configuration.GetSection(nameof(MongoDbSettings)).Get<MongoDbSettings>();
                 return new MongoClient(settings.ConnectionString);
             });
@@ -51,8 +44,16 @@ namespace PayManAPI
             //Creation of singleton repository to only have one instance
             services.AddSingleton<IUserRepository, UserRepository>();
             services.AddSingleton<IAuthService, AuthService>();
+            services.AddSingleton<IPasswordAuthentication, PasswordAuthentication>();
+            services.AddSingleton<IJobRepository, JobRepository>();
+            services.AddSingleton<ITaxRepository, TaxRepository>();
+            services.AddSingleton<IWorkHourRepository, WorkHourRepository>();
 
-            services.AddControllers();
+            services.AddControllers(options => 
+            {
+                //Do this to avid .Net auto removing Async Suffix for endpoints
+                options.SuppressAsyncSuffixInActionNames = false;
+            });
 
             //Swagger
             services.AddSwaggerGen(c =>
@@ -76,6 +77,7 @@ namespace PayManAPI
                     ValidateIssuer = false,
                     ValidateAudience = false
                 };
+                x.SaveToken = true;
             });
         }
 

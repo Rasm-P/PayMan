@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Authentication;
-using Microsoft.AspNetCore.Authorization;
+﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using PayManAPI.Dtos;
 using PayManAPI.Models;
@@ -7,7 +6,6 @@ using PayManAPI.Repositories;
 using PayManAPI.Security;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace PayManAPI.Controllers
@@ -19,51 +17,59 @@ namespace PayManAPI.Controllers
     {
         private readonly IAuthService authService;
         private readonly IUserRepository repositroy;
-        private readonly PasswordAuthentication passAuth;
+        private readonly IPasswordAuthentication passAuth;
 
-        public LoginController(IAuthService authService, IUserRepository repositroy)
+        public LoginController(IAuthService authService, IUserRepository repositroy, IPasswordAuthentication passAuth)
         {
             this.authService = authService;
             this.repositroy = repositroy;
-            //Should this be dependency injected?
-            passAuth = new PasswordAuthentication();
+            this.passAuth = passAuth;
         }
 
         //Post /login
         [HttpPost("login")]
-        public ActionResult Login(CreateUserDto userDto)
+        public async Task<ActionResult> LoginAsync(LoginDto loginDto)
         {
-            (User user, string token) = authService.Authentication(userDto.UserName, userDto.Password);
+            (UserModel userToReturn, string token) = await authService.AuthenticationAsync(loginDto.UserName, loginDto.Password);
 
             if (token == null)
             {
                 return Unauthorized();
             }
 
+            var user = userToReturn.AsUserDto();
+
             return Ok(new { token, user });
         }
 
-        //Post /users
+        //Post /login
         [HttpPost("create")]
-        public ActionResult<UserDto> CreateUser(CreateUserDto userDto)
+        public async Task<ActionResult> CreateUserAsync(CreateUpdateUserDto userDto)
         {
-            User user = new()
+            var isUsernameTaken = await repositroy.IsUsernameTaken(userDto.UserName);
+            if (isUsernameTaken)
+            {
+                return Unauthorized();
+            }
+
+            UserModel newUser = new()
             {
                 Id = Guid.NewGuid(),
                 UserName = userDto.UserName,
                 Password = passAuth.generatePassword(userDto.Password),
+                Jobs = new List<Guid>(),
                 Frikort = 46000,
                 Hovedkort = 0,
                 CreatedAt = DateTimeOffset.Now
             };
 
-            repositroy.CreateUser(user);
+            await repositroy.CreateUserAsync(newUser);
 
-            var token = authService.Authentication(userDto.UserName, userDto.Password);
+            (UserModel authUser, string token) = await authService.AuthenticationAsync(userDto.UserName, userDto.Password);
 
-            var userToReturn = user.AsDto();
+            var user = newUser.AsUserDto();
 
-            return CreatedAtAction(nameof(Login), new { id = userToReturn.Id }, new { token, userToReturn });
+            return CreatedAtAction(nameof(LoginAsync), new { id = user.Id }, new { token, user });
         }
     }
 }
