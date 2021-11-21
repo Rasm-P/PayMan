@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Shell xmlns="http://xamarin.com/schemas/2014/forms"
+       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+       x:Class="PayManXamarin.AppShell"
+       xmlns:local="clr-namespace:PayManXamarin.Views"
+       Title="PayManXamarin">
+
+    <ShellItem Route="LoginPage" FlyoutItemIsVisible="False">
+        <ShellContent ContentTemplate="{DataTemplate local:LoginPage}"/>
+    </ShellItem>
+    <ShellItem Title="RegistrationPage" FlyoutItemIsVisible="False">
+        <ShellContent ContentTemplate="{DataTemplate local:RegistrationPage}" Route="RegistrationPage"/>
+    </ShellItem>
+    
+    <FlyoutItem Title="MainPage">
+        <ShellContent ContentTemplate="{DataTemplate local:MainPage}" Route="MainPage"/>
+    </FlyoutItem>
+
+</Shell>
