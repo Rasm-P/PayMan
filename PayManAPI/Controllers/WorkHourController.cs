@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using PayManAPI.Dtos;
+using PayManAPI.Exceptions;
 using PayManAPI.Models;
 using PayManAPI.Repositories;
 using PayManAPI.Security;
@@ -37,7 +38,7 @@ namespace PayManAPI.Controllers
             if (!user.Jobs.Contains(jobId))
             {
                 //return Unauthorized();
-                return null;
+                throw new NotFoundException(jobId);
             }
 
             var jobs = await jobRepository.GetJobAsync(jobId);

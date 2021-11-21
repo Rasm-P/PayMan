@@ -12,6 +12,7 @@ using MongoDB.Bson.Serialization;
 using MongoDB.Bson.Serialization.Serializers;
 using MongoDB.Driver;
 using PayManAPI.Config;
+using PayManAPI.Exceptions;
 using PayManAPI.Repositories;
 using PayManAPI.Security;
 
@@ -55,7 +56,13 @@ namespace PayManAPI
                 options.SuppressAsyncSuffixInActionNames = false;
             });
 
-            //Swagger
+            //A filter that returns unhandled exception as JSON
+            services.AddMvc(options =>
+            {
+                options.Filters.Add(typeof(ExceptionFilter));
+            });
+
+            //Swagger openAPI
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "PayManAPI", Version = "v1" });
