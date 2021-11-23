@@ -23,8 +23,6 @@ namespace PayManXamarin.Repositories
 
             HttpClient client = new HttpClient(httpClientHandler);
 
-            //HttpClient client = new HttpClient();
-
             StringContent content = new StringContent("{" + "  \"userName\": \"New2\"," + "\"password\": \"1234\"" + "}");
             content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
             HttpResponseMessage response = await client.PostAsync(uri, content);
@@ -32,7 +30,6 @@ namespace PayManXamarin.Repositories
             
             string serialized = await response.Content.ReadAsStringAsync();
             //await HandleResponse(response);
-
 
             /*
             TResult result = await Task.Run(() =>
