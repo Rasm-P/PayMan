@@ -1,18 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace PayManXamarin.Models
 {
-    class LoginModel
+    public class LoginModel
     {
-        private string userName;
-        private string password;
-
-        public LoginModel(string userName, string password)
+        public string userName { get; set; }
+        public string password { get; set; }
+        public LoginModel(string username, string pass)
         {
-            this.userName = userName;
-            this.password = password;
+            userName = username;
+            password = pass;
         }
     }
 }

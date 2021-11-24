@@ -7,9 +7,9 @@
     <ContentPage.Content>
         <StackLayout Padding="40" VerticalOptions="Center" HorizontalOptions="FillAndExpand">
             <Label Text="Username:" />
-            <Entry Placeholder="username"/>
+            <Entry Placeholder="username" x:Name="EntryUsername"/>
             <Label Text="Password:" />
-            <Entry Placeholder="password"/>
+            <Entry Placeholder="password" IsPassword="True" x:Name="EntryPassword"/>
             <Button Text="Login" Clicked="Login_Clicked"/>
             <Label Text="Regiser" HorizontalOptions="Center">
                 <Label.GestureRecognizers>

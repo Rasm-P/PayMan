@@ -1,4 +1,6 @@
 ﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using PayManXamarin.Authentication;
 using PayManXamarin.Models;
 using System;
 using System.Collections.Generic;
@@ -12,44 +14,41 @@ namespace PayManXamarin.Repositories
 {
     public class LoginRepository
     {
-        public async Task<Boolean> AuthenticateLogin(string username, string password)
+        public async Task<AuthenticationResult> AuthenticateLogin(string username, string password)
         {
             string uri = "https://10.0.2.2:5001/auth/login";
 
-            var httpClientHandler = new HttpClientHandler();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
 
             httpClientHandler.ServerCertificateCustomValidationCallback =
             (message, cert, chain, errors) => { return true; };
 
             HttpClient client = new HttpClient(httpClientHandler);
 
-            StringContent content = new StringContent("{" + "  \"userName\": \"New2\"," + "\"password\": \"1234\"" + "}");
+            StringContent content = new StringContent("{ \"userName\": \"" + username + "\"," + "\"password\": \"" + password + "\" }");
             content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
             HttpResponseMessage response = await client.PostAsync(uri, content);
 
-            
-            string serialized = await response.Content.ReadAsStringAsync();
-            //await HandleResponse(response);
-
-            /*
-            TResult result = await Task.Run(() =>
-            JsonConvert.DeserializeObject<TResult>(serialized, _serializerSettings));
-            */
-
-            return true;
-        }
-
-        private async Task HandleResponse(HttpResponseMessage response)
-        {
             if (!response.IsSuccessStatusCode)
             {
-                var content = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
-                if (response.StatusCode == HttpStatusCode.Forbidden || response.StatusCode == HttpStatusCode.Unauthorized)
+                return new AuthenticationResult()
                 {
-                    throw new Exception(content);
-                }
-                throw new HttpRequestException(content);
+                    IsError = true,
+                    Error = await response.Content.ReadAsStringAsync()
+                };
             }
+
+            string responseString = await response.Content.ReadAsStringAsync();
+            JObject jsonObjcet = JObject.Parse(responseString);
+            string token = jsonObjcet["token"].ToString();
+            UserModel user = JsonConvert.DeserializeObject<UserModel>(jsonObjcet["user"].ToString());
+
+            return new AuthenticationResult()
+            {
+                AccessToken = token,
+                User = user,
+                IsError = false
+            };
         }
     }
 }
