@@ -9,7 +9,7 @@ namespace PayManXamarin.Authentication
     {
         public string AccessToken { get; set; }
 
-        public UserModel User { get; set; }
+        public string User { get; set; }
 
         public bool IsError { get; set; }
 

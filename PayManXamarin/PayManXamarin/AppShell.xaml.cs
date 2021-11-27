@@ -1,4 +1,5 @@
-﻿using PayManXamarin.Views;
+﻿using PayManXamarin.ViewModels;
+using PayManXamarin.Views;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,6 +16,7 @@ namespace PayManXamarin
         public AppShell()
         {
             InitializeComponent();
+            BindingContext = new AppShellViewModel();
 
             Routing.RegisterRoute(nameof(LoginPage), typeof(LoginPage));
             Routing.RegisterRoute(nameof(MainPage), typeof(MainPage));

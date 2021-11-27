@@ -2,7 +2,9 @@
 <Shell xmlns="http://xamarin.com/schemas/2014/forms"
        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
        x:Class="PayManXamarin.AppShell"
-       xmlns:local="clr-namespace:PayManXamarin.Views"
+       xmlns:local="clr-namespace:PayManXamarin.Views" 
+       xmlns:viewmodels="clr-namespace:PayManXamarin.ViewModels" 
+       x:DataType="viewmodels:AppShellViewModel"
        Title="PayManXamarin">
 
     <ShellItem Route="LoginPage" FlyoutItemIsVisible="False">
@@ -16,4 +18,10 @@
         <ShellContent ContentTemplate="{DataTemplate local:MainPage}" Route="MainPage"/>
     </FlyoutItem>
 
+
+    <MenuItem Text="Logout"
+          StyleClass="MenuItemLayoutStyle"
+          Command="{Binding Logout}"
+          />
+    
 </Shell>

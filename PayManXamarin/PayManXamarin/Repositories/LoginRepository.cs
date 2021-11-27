@@ -41,7 +41,7 @@ namespace PayManXamarin.Repositories
             string responseString = await response.Content.ReadAsStringAsync();
             JObject jsonObjcet = JObject.Parse(responseString);
             string token = jsonObjcet["token"].ToString();
-            UserModel user = JsonConvert.DeserializeObject<UserModel>(jsonObjcet["user"].ToString());
+            string user = jsonObjcet["user"].ToString();
 
             return new AuthenticationResult()
             {
