@@ -29,6 +29,8 @@ namespace PayManXamarin.Views
             {
                 await Application.Current.MainPage.DisplayAlert("Register Error", "The passwords were not the same", "Ok");
             }
+            EntryUsername.Text = "";
+            EntryPassword.Text = "";
         }
 
         private async void TapGesture_Tapped(Object sender, EventArgs e)

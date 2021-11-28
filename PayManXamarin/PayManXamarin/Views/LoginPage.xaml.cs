@@ -28,6 +28,8 @@ namespace PayManXamarin.Views
         private async void Login_Clicked(Object sender, EventArgs e)
         {
             await loginViewModel.Login(EntryUsername.Text, EntryPassword.Text);
+            EntryUsername.Text = "";
+            EntryPassword.Text = "";
         }
 
         private async void TapGesture_Tapped(Object sender, EventArgs e)
