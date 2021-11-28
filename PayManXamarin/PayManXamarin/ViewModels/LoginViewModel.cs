@@ -28,7 +28,7 @@ namespace PayManXamarin.ViewModels
                 await Shell.Current.GoToAsync($"//{nameof(MainPage)}");
             } else
             {
-                await Application.Current.MainPage.DisplayAlert("Error login",authenticate.Error, "Ok");
+                await Application.Current.MainPage.DisplayAlert("Login Error",authenticate.Error, "Ok");
             }
         }
 

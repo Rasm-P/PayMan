@@ -6,6 +6,7 @@
              Shell.NavBarIsVisible="False">
     <ContentPage.Content>
         <StackLayout Padding="40" VerticalOptions="Center" HorizontalOptions="FillAndExpand">
+            <Label Text="Login" HorizontalOptions="Center" FontSize="Title"/>
             <Label Text="Username:" />
             <Entry Placeholder="username" x:Name="EntryUsername"/>
             <Label Text="Password:" />

@@ -5,8 +5,20 @@
              Shell.FlyoutBehavior="Disabled"
              Shell.NavBarIsVisible="False">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Register" VerticalOptions="Center" HorizontalOptions="FillAndExpand"/>
+            <StackLayout Padding="40" VerticalOptions="Center" HorizontalOptions="FillAndExpand">
+            <Label Text="Register User" HorizontalOptions="Center"  FontSize="Title"/>
+            <Label Text="Username:" />
+                <Entry Placeholder="username" x:Name="EntryUsername"/>
+                <Label Text="Password:" />
+                <Entry Placeholder="password" IsPassword="True" x:Name="EntryPassword"/>
+                <Label Text="Repeat Password:" />
+                <Entry Placeholder="password" IsPassword="True" x:Name="EntryRepeatPassword"/>
+            <Button Text="Register" Clicked="Register_Clicked"/>
+            <Label Text="Back" HorizontalOptions="Center">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="TapGesture_Tapped"/>
+                </Label.GestureRecognizers>
+            </Label>
         </StackLayout>
-    </ContentPage.Content>
-</ContentPage>
+        </ContentPage.Content>
+    </ContentPage>

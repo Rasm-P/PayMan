@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PayManXamarin.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,9 +12,28 @@ namespace PayManXamarin.Views
 {
     public partial class RegistrationPage : ContentPage
     {
+        private readonly RegisterViewModel registerViewModel;
+
         public RegistrationPage()
         {
             InitializeComponent();
+            registerViewModel = new RegisterViewModel();
+        }
+
+        private async void Register_Clicked(Object sender, EventArgs e)
+        {
+            if (EntryPassword.Text == EntryRepeatPassword.Text)
+            {
+                await registerViewModel.Register(EntryUsername.Text, EntryPassword.Text);
+            } else
+            {
+                await Application.Current.MainPage.DisplayAlert("Register Error", "The passwords were not the same", "Ok");
+            }
+        }
+
+        private async void TapGesture_Tapped(Object sender, EventArgs e)
+        {
+            await Shell.Current.GoToAsync($"{nameof(LoginPage)}");
         }
     }
 }
