@@ -16,7 +16,7 @@ namespace PayManXamarin.Repositories
     {
         public async Task<AuthenticationResult> AuthenticateLogin(string username, string password)
         {
-            string uri = "https://10.0.2.2:5001/auth/login";
+            string url = AppSettings.baseUrl + "/auth/login";
 
             HttpClientHandler httpClientHandler = new HttpClientHandler();
 
@@ -27,7 +27,7 @@ namespace PayManXamarin.Repositories
 
             StringContent content = new StringContent("{ \"userName\": \"" + username + "\"," + "\"password\": \"" + password + "\" }");
             content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
-            HttpResponseMessage response = await client.PostAsync(uri, content);
+            HttpResponseMessage response = await client.PostAsync(url, content);
 
             if (!response.IsSuccessStatusCode)
             {

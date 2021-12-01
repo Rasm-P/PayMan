@@ -21,7 +21,7 @@ namespace PayManXamarin.Views
             bool isLoggedIn = Application.Current.Properties.Keys.Contains("IsLoggedIn") ? Convert.ToBoolean(Application.Current.Properties["IsLoggedIn"]) : false;
             if (isLoggedIn)
             {
-                Shell.Current.GoToAsync($"//{nameof(MainPage)}");
+                Shell.Current.GoToAsync($"//{nameof(JobsPage)}");
             }
         }
 

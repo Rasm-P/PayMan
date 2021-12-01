@@ -13,7 +13,7 @@ namespace PayManXamarin.Repositories
     {
         public async Task<AuthenticationResult> RegisterUser(string username, string password)
         {
-            string uri = "https://10.0.2.2:5001/auth/create";
+            string url = AppSettings.baseUrl + "/auth/create";
 
             HttpClientHandler httpClientHandler = new HttpClientHandler();
 
@@ -24,7 +24,7 @@ namespace PayManXamarin.Repositories
 
             StringContent content = new StringContent("{ \"userName\": \"" + username + "\"," + "\"password\": \"" + password + "\" }");
             content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
-            HttpResponseMessage response = await client.PostAsync(uri, content);
+            HttpResponseMessage response = await client.PostAsync(url, content);
 
             if (!response.IsSuccessStatusCode)
             {

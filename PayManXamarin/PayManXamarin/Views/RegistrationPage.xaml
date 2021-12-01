@@ -3,7 +3,9 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="PayManXamarin.Views.RegistrationPage"
              Shell.FlyoutBehavior="Disabled"
-             Shell.NavBarIsVisible="False">
+             Shell.NavBarIsVisible="False"
+             BackgroundColor="{AppThemeBinding Default={StaticResource WindowBackgroundColor}}">
+    
     <ContentPage.Content>
             <StackLayout Padding="40" VerticalOptions="Center" HorizontalOptions="FillAndExpand">
             <Label Text="Register User" HorizontalOptions="Center"  FontSize="Title"/>

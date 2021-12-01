@@ -19,8 +19,11 @@ namespace PayManXamarin
             BindingContext = new AppShellViewModel();
 
             Routing.RegisterRoute(nameof(LoginPage), typeof(LoginPage));
-            Routing.RegisterRoute(nameof(MainPage), typeof(MainPage));
             Routing.RegisterRoute(nameof(RegistrationPage), typeof(RegistrationPage));
+            Routing.RegisterRoute(nameof(JobsPage), typeof(JobsPage));
+            Routing.RegisterRoute(nameof(TaxesPage), typeof(TaxesPage));
+            Routing.RegisterRoute(nameof(ProfilePage), typeof(ProfilePage));
+            Routing.RegisterRoute(nameof(WorkHoursPage), typeof(WorkHoursPage));
         }
     }
 }
