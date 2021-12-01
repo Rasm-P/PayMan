@@ -31,11 +31,12 @@ namespace PayManXamarin.Views
             }
             EntryUsername.Text = "";
             EntryPassword.Text = "";
+            EntryRepeatPassword.Text = "";
         }
 
         private async void TapGesture_Tapped(Object sender, EventArgs e)
         {
-            await Shell.Current.GoToAsync($"{nameof(LoginPage)}");
+            await Navigation.PopAsync();
         }
     }
 }

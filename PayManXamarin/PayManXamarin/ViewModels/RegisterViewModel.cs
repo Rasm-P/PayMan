@@ -24,7 +24,7 @@ namespace PayManXamarin.ViewModels
                 Application.Current.Properties.Add("user", register.User);
                 await Application.Current.SavePropertiesAsync();
 
-                await Shell.Current.GoToAsync($"//{nameof(JobsPage)}");
+                Application.Current.MainPage = new AppShell();
             } else
             {
                 await Application.Current.MainPage.DisplayAlert("Register Error", register.Error, "Ok");

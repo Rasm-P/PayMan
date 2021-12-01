@@ -7,7 +7,13 @@
              BackgroundColor="{AppThemeBinding Default={StaticResource WindowBackgroundColor}}">
     
     <ContentPage.Content>
+
+
         <StackLayout Padding="40" VerticalOptions="Center" HorizontalOptions="FillAndExpand">
+            <Image HorizontalOptions="Center" 
+                    VerticalOptions="Center" 
+                    Source="payman_logo"
+                    Margin="50"/>
             <Label Text="Login" HorizontalOptions="Center" FontSize="Title"/>
             <Label Text="Username:" />
             <Entry Placeholder="username" x:Name="EntryUsername"/>

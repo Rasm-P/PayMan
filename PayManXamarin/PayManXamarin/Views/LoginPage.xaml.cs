@@ -18,11 +18,6 @@ namespace PayManXamarin.Views
         {
             InitializeComponent();
             loginViewModel = new LoginViewModel();
-            bool isLoggedIn = Application.Current.Properties.Keys.Contains("IsLoggedIn") ? Convert.ToBoolean(Application.Current.Properties["IsLoggedIn"]) : false;
-            if (isLoggedIn)
-            {
-                Shell.Current.GoToAsync($"//{nameof(JobsPage)}");
-            }
         }
 
         private async void Login_Clicked(Object sender, EventArgs e)
@@ -34,7 +29,7 @@ namespace PayManXamarin.Views
 
         private async void TapGesture_Tapped(Object sender, EventArgs e)
         {
-            await Shell.Current.GoToAsync($"{nameof(RegistrationPage)}");
+            await Navigation.PushAsync(new RegistrationPage());
         }
     }
 }

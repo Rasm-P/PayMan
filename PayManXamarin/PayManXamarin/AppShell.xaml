@@ -67,25 +67,21 @@
         </ResourceDictionary>
     </Shell.Resources>
 
-    
-    <ShellItem Route="LoginPage" FlyoutItemIsVisible="False">
-        <ShellContent ContentTemplate="{DataTemplate local:LoginPage}"/>
-    </ShellItem>
-    <ShellItem Title="RegistrationPage" FlyoutItemIsVisible="False">
-        <ShellContent ContentTemplate="{DataTemplate local:RegistrationPage}" Route="RegistrationPage"/>
-    </ShellItem>
+    <Shell.FlyoutHeader>
+        <local:HeaderContentView />
+    </Shell.FlyoutHeader>
 
     <FlyoutItem Title="TapBar"
         Shell.TabBarIsVisible="False"
         FlyoutDisplayOptions="AsMultipleItems">
-        <ShellContent Title="JobsPage" IsTabStop="True" ContentTemplate="{DataTemplate local:JobsPage}" Route="JobsPage"/>
-        <ShellContent Title="TaxesPage" IsTabStop="True" ContentTemplate="{DataTemplate local:TaxesPage}" Route="TaxesPage"/>
-        <ShellContent Title="ProfilePage" IsTabStop="True" ContentTemplate="{DataTemplate local:ProfilePage}" Route="ProfilePage"/>
-        <ShellContent Title="WorkHoursPage" IsTabStop="True" ContentTemplate="{DataTemplate local:WorkHoursPage}" Route="WorkHoursPage"/>
+        <ShellContent Title="Jobs" Icon="job_icon" IsTabStop="True" ContentTemplate="{DataTemplate local:JobsPage}" Route="JobsPage"/>
+        <ShellContent Title="WorkHours" Icon="workhours_icon" IsTabStop="True" ContentTemplate="{DataTemplate local:WorkHoursPage}" Route="WorkHoursPage"/>
+        <ShellContent Title="Taxes" Icon="tax_icon" IsTabStop="True" ContentTemplate="{DataTemplate local:TaxesPage}" Route="TaxesPage"/>
+        <ShellContent Title="Profile" Icon="profile_icon" IsTabStop="True" ContentTemplate="{DataTemplate local:ProfilePage}" Route="ProfilePage"/>
     </FlyoutItem>
 
-
     <MenuItem Text="Logout"
+              IconImageSource="logout_icon"
           StyleClass="MenuItemLayoutStyle"
           Command="{Binding Logout}"
           />

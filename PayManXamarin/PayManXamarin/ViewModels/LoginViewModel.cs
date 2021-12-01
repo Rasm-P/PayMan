@@ -25,7 +25,8 @@ namespace PayManXamarin.ViewModels
                 await Application.Current.SavePropertiesAsync();
 
                 // Using dubble backslash removes the backstack, so that the user cant go back to login again
-                await Shell.Current.GoToAsync($"//{nameof(JobsPage)}");
+                //await Shell.Current.GoToAsync($"//{nameof(JobsPage)}");
+                Application.Current.MainPage = new AppShell();
             } else
             {
                 await Application.Current.MainPage.DisplayAlert("Login Error",authenticate.Error, "Ok");

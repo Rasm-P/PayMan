@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PayManXamarin.Views;
+using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -10,7 +11,15 @@ namespace PayManXamarin
         {
             InitializeComponent();
 
-            MainPage = new AppShell();
+            bool isLoggedIn = Current.Properties.Keys.Contains("IsLoggedIn") ? Convert.ToBoolean(Current.Properties["IsLoggedIn"]) : false;
+            if (isLoggedIn)
+            {
+                MainPage = new AppShell();
+            }
+            else
+            {
+                MainPage = new NavigationPage(new LoginPage());
+            }
         }
 
         protected override void OnStart()
