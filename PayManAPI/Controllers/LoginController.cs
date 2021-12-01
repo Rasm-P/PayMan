@@ -44,7 +44,7 @@ namespace PayManAPI.Controllers
 
         //Post /login
         [HttpPost("create")]
-        public async Task<ActionResult> CreateUserAsync(CreateUserDto userDto)
+        public async Task<ActionResult> CreateUserAsync(CreateUpdateUserDto userDto)
         {
             var isUsernameTaken = await repositroy.IsUsernameTaken(userDto.UserName);
             if (isUsernameTaken)

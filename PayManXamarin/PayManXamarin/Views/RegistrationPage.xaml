@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PayManXamarin.Views.RegistrationPage"
+             Shell.FlyoutBehavior="Disabled"
+             Shell.NavBarIsVisible="False"
+             BackgroundColor="{AppThemeBinding Default={StaticResource WindowBackgroundColor}}">
+    
+    <ContentPage.Content>
+            <StackLayout Padding="40" VerticalOptions="Center" HorizontalOptions="FillAndExpand">
+            <Label Text="Register User" HorizontalOptions="Center"  FontSize="Title"/>
+            <Label Text="Username:" />
+                <Entry Placeholder="username" x:Name="EntryUsername"/>
+                <Label Text="Password:" />
+                <Entry Placeholder="password" IsPassword="True" x:Name="EntryPassword"/>
+                <Label Text="Repeat Password:" />
+                <Entry Placeholder="password" IsPassword="True" x:Name="EntryRepeatPassword"/>
+            <Button Text="Register" Clicked="Register_Clicked"/>
+            <Label Text="Back" HorizontalOptions="Center">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="TapGesture_Tapped"/>
+                </Label.GestureRecognizers>
+            </Label>
+        </StackLayout>
+        </ContentPage.Content>
+    </ContentPage>

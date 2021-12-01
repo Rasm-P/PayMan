@@ -22,7 +22,7 @@ namespace PayManWebAPITest
         public async Task CreateUserAsync_WithUserToCreate_ReturnsUser()
         {
             //Arrange
-            var userToCreate = new CreateUserDto()
+            var userToCreate = new CreateUpdateUserDto()
             {
                 UserName = Guid.NewGuid().ToString(),
                 Password = Guid.NewGuid().ToString()
