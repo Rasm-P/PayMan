@@ -16,7 +16,7 @@ namespace PayManXamarin.ViewModels
 
         public async Task Login(string username, string password)
         {
-            var authenticate = await _loginRepository.AuthenticateLogin(username, password);
+            Authentication.AuthenticationResult authenticate = await _loginRepository.AuthenticateLogin(username, password);
             if (!authenticate.IsError)
             {
                 await SecureStorage.SetAsync("accessToken", authenticate.AccessToken);
@@ -24,8 +24,6 @@ namespace PayManXamarin.ViewModels
                 Application.Current.Properties.Add("user", authenticate.User);
                 await Application.Current.SavePropertiesAsync();
 
-                // Using dubble backslash removes the backstack, so that the user cant go back to login again
-                //await Shell.Current.GoToAsync($"//{nameof(JobsPage)}");
                 Application.Current.MainPage = new AppShell();
             } else
             {

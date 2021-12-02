@@ -24,7 +24,21 @@ namespace PayManXamarin.Repositories
 
             StringContent content = new StringContent("{ \"userName\": \"" + username + "\"," + "\"password\": \"" + password + "\" }");
             content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
-            HttpResponseMessage response = await client.PostAsync(url, content);
+
+            HttpResponseMessage response;
+
+            try
+            {
+                response = await client.PostAsync(url, content);
+            }
+            catch (Exception)
+            {
+                return new AuthenticationResult()
+                {
+                    IsError = true,
+                    Error = "Unable to handle request. Make sure your connection is valid!"
+                };
+            }
 
             if (!response.IsSuccessStatusCode)
             {

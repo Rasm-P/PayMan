@@ -16,8 +16,8 @@ namespace PayManXamarin.ViewModels
 
         public HeaderContentViewmodel()
         {
-            var jsonString = Convert.ToString(Application.Current.Properties["user"]);
-            var user = JsonConvert.DeserializeObject<UserModel>(jsonString);
+            string jsonString = Convert.ToString(Application.Current.Properties["user"]);
+            UserModel user = JsonConvert.DeserializeObject<UserModel>(jsonString);
             Username = user.UserName;
             Frikort = user.Frikort.ToString();
             Hovedkort = user.Hovedkort.ToString();

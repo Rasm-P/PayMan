@@ -154,4 +154,10 @@
   <ItemGroup>
     <BundleResource Include="Resources\payman_logo.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\unable_to_connect.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\add_new.png" />
+  </ItemGroup>
 </Project>

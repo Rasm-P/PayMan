@@ -6,6 +6,28 @@
 
     <StackLayout>
         <Label Text="Jobs" HorizontalTextAlignment="Center" FontSize="36" Padding="16"/>
+
+        <ListView x:Name="JobList">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextCell Text="{Binding JobTitle}"></TextCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <StackLayout x:Name="Unable_to_connect" Padding="40" VerticalOptions="Center" HorizontalOptions="Center" IsVisible="False">
+            <Image  HorizontalOptions="Center" 
+                    VerticalOptions="Center" 
+                    Source="unable_to_connect"/>
+            <Label Text="Unable to connect!" HorizontalOptions="Center"/>
+        </StackLayout>
+        <StackLayout x:Name="Add_new_job" Padding="40" VerticalOptions="Center" HorizontalOptions="Center" IsVisible="False">
+            <Image  HorizontalOptions="Center" 
+                    VerticalOptions="Center" 
+                    Source="add_new"/>
+            <Label Text="Add a new job!" HorizontalOptions="Center"/>
+        </StackLayout>
+
     </StackLayout>
 
 </ContentPage>
