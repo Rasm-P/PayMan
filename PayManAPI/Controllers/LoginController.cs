@@ -34,7 +34,7 @@ namespace PayManAPI.Controllers
 
             if (token == null)
             {
-                return Unauthorized();
+                return Unauthorized("Wrong username or password!");
             }
 
             var user = userToReturn.AsUserDto();
@@ -49,7 +49,7 @@ namespace PayManAPI.Controllers
             var isUsernameTaken = await repositroy.IsUsernameTaken(userDto.UserName);
             if (isUsernameTaken)
             {
-                return Unauthorized();
+                return Unauthorized("Username already taken!");
             }
 
             UserModel newUser = new()

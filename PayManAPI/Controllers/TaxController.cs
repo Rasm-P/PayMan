@@ -37,7 +37,7 @@ namespace PayManAPI.Controllers
             var user = await userRepository.GetuserAsync(Guid.Parse(authService.GetUserIdFromToken(User)));
             if (!user.Jobs.Contains(jobId))
             {
-                //return Unauthorized();
+                //return NotFound();
                 throw new NotFoundException(jobId);
             }
 
@@ -56,7 +56,7 @@ namespace PayManAPI.Controllers
 
             if (!user.Jobs.Contains(jobId) || !job.Taxes.Contains(taxId))
             {
-                return Unauthorized();
+                return BadRequest();
             }
 
             var tax = await taxRepository.GetTaxAsync(taxId);
@@ -109,7 +109,7 @@ namespace PayManAPI.Controllers
 
             if (!user.Jobs.Contains(jobId) || !job.Taxes.Contains(taxId))
             {
-                return Unauthorized();
+                return BadRequest();
             }
 
             var taxToUpdate = await taxRepository.GetTaxAsync(taxId);
@@ -140,7 +140,7 @@ namespace PayManAPI.Controllers
 
             if (!user.Jobs.Contains(jobId) || !job.Taxes.Contains(taxId))
             {
-                return Unauthorized();
+                return BadRequest();
             }
 
             var taxToDelete = await taxRepository.GetTaxAsync(taxId);

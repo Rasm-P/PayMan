@@ -30,7 +30,10 @@ namespace PayManAPI.Controllers
             this.passAuth = passAuth;
         }
 
-        //Get /user
+        /// <summary>
+        /// Get method returnning a User as JSON
+        /// </summary>
+        /// <returns>UserDto</returns>
         [HttpGet]
         public async Task<ActionResult<UserDto>> GetUserAsync()
         {

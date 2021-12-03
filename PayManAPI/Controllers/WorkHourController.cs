@@ -37,7 +37,7 @@ namespace PayManAPI.Controllers
             var user = await userRepository.GetuserAsync(Guid.Parse(authService.GetUserIdFromToken(User)));
             if (!user.Jobs.Contains(jobId))
             {
-                //return Unauthorized();
+                //return BadRequest();
                 throw new NotFoundException(jobId);
             }
 
@@ -56,7 +56,7 @@ namespace PayManAPI.Controllers
 
             if (!user.Jobs.Contains(jobId) || !job.WorkHours.Contains(workHourId))
             {
-                return Unauthorized();
+                return BadRequest();
             }
 
             var workHour = await workHourRepository.GetWorkHourAsync(workHourId);
@@ -109,7 +109,7 @@ namespace PayManAPI.Controllers
 
             if (!user.Jobs.Contains(jobId) || !job.WorkHours.Contains(workHourId))
             {
-                return Unauthorized();
+                return BadRequest();
             }
 
             var workHourToUpdate = await workHourRepository.GetWorkHourAsync(workHourId);
@@ -140,7 +140,7 @@ namespace PayManAPI.Controllers
 
             if (!user.Jobs.Contains(jobId) || !job.WorkHours.Contains(workHourId))
             {
-                return Unauthorized();
+                return BadRequest();
             }
 
             var workHourToDelete = await workHourRepository.GetWorkHourAsync(workHourId);

@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>PayManAPI</name>
+    </assembly>
+    <members>
+        <member name="M:PayManAPI.Controllers.UserController.GetUserAsync">
+            <summary>
+            Get method returnning a User as JSON
+            </summary>
+            <returns>UserDto</returns>
+        </member>
+    </members>
+</doc>

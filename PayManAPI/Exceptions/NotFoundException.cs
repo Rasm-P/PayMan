@@ -10,7 +10,7 @@ namespace PayManAPI.Exceptions
     {
         public int Status { get; set; } = 404;
 
-        public NotFoundException(Guid id) : base(String.Format("Item of id:{0} was not found", id.ToString())) { }
+        public NotFoundException(Guid id) : base(String.Format("User does not contain Job of Id: {0}", id.ToString())) { }
 
     }
 }

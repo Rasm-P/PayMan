@@ -45,7 +45,7 @@ namespace PayManAPI.Controllers
             var user = await userRepository.GetuserAsync(Guid.Parse(authService.GetUserIdFromToken(User)));
             if (!user.Jobs.Contains(jobId))
             {
-                return Unauthorized();
+                return BadRequest();
             }
 
             var job = await jobRepository.GetJobAsync(jobId);
@@ -97,7 +97,7 @@ namespace PayManAPI.Controllers
             var user = await userRepository.GetuserAsync(Guid.Parse(authService.GetUserIdFromToken(User)));
             if (!user.Jobs.Contains(jobId))
             {
-                return Unauthorized();
+                return BadRequest();
             }
 
             var jobToUpdate = await jobRepository.GetJobAsync(jobId);
@@ -126,7 +126,7 @@ namespace PayManAPI.Controllers
             var user = await userRepository.GetuserAsync(Guid.Parse(authService.GetUserIdFromToken(User)));
             if (!user.Jobs.Contains(jobId))
             {
-                return Unauthorized();
+                return BadRequest();
             }
 
             var jobToDelte = await jobRepository.GetJobAsync(jobId);
