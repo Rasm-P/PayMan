@@ -5,26 +5,24 @@
              Shell.FlyoutBehavior="Disabled"
              Shell.NavBarIsVisible="False"
              BackgroundColor="{AppThemeBinding Default={StaticResource WindowBackgroundColor}}">
-    
+
     <ContentPage.Content>
-
-
-        <StackLayout Padding="40" VerticalOptions="Center" HorizontalOptions="FillAndExpand">
-            <Image HorizontalOptions="Center" 
+        <StackLayout Margin="40,20" HorizontalOptions="FillAndExpand">
+                <Image HorizontalOptions="Center" 
                     VerticalOptions="Center" 
                     Source="payman_logo"
                     Margin="50"/>
-            <Label Text="Login" HorizontalOptions="Center" FontSize="Title"/>
-            <Label Text="Username:" />
-            <Entry Placeholder="username" x:Name="EntryUsername"/>
-            <Label Text="Password:" />
-            <Entry Placeholder="password" IsPassword="True" x:Name="EntryPassword"/>
-            <Button Text="Login" Clicked="Login_Clicked"/>
-            <Label Text="Regiser" HorizontalOptions="Center">
-                <Label.GestureRecognizers>
-                    <TapGestureRecognizer Tapped="TapGesture_Tapped"/>
-                </Label.GestureRecognizers>
-            </Label>
-        </StackLayout>
+                <Label Text="Login" HorizontalOptions="Center" FontSize="Title"/>
+                <Label Text="Username:" />
+                <Entry Placeholder="username" x:Name="EntryUsername"/>
+                <Label Text="Password:" />
+                <Entry Placeholder="password" IsPassword="True" x:Name="EntryPassword"/>
+                <Button Text="Login" Clicked="Login_Clicked"/>
+                <Label Text="Don't have an account? Sign up." HorizontalOptions="Center">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TapGesture_Tapped"/>
+                    </Label.GestureRecognizers>
+                </Label>
+            </StackLayout>
     </ContentPage.Content>
 </ContentPage>
