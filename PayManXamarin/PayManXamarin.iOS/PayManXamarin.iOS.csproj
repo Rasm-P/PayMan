@@ -160,4 +160,10 @@
   <ItemGroup>
     <BundleResource Include="Resources\add_new.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\edit_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\clock_icon.png" />
+  </ItemGroup>
 </Project>

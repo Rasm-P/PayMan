@@ -11,12 +11,12 @@
     <Shell.Resources>
         <ResourceDictionary>
             <Style x:Key="BaseStyle" TargetType="Element">
-                <Setter Property="Shell.BackgroundColor" Value="#adbdc4" />
-                <Setter Property="Shell.ForegroundColor" Value="#dff0f7" />
+                <Setter Property="Shell.BackgroundColor" Value="#f27649" />
+                <Setter Property="Shell.ForegroundColor" Value="#ffa776" />
                 <Setter Property="Shell.TitleColor" Value="#676b6c" />
                 <Setter Property="Shell.DisabledColor" Value="#B4FFFFFF" />
-                <Setter Property="Shell.TabBarBackgroundColor" Value="#adbdc4" />
-                <Setter Property="Shell.TabBarForegroundColor" Value="#adbdc4" />
+                <Setter Property="Shell.TabBarBackgroundColor" Value="#f27649" />
+                <Setter Property="Shell.TabBarForegroundColor" Value="#f27649" />
                 <Setter Property="Shell.TabBarTitleColor" Value="#676b6c" />
             </Style>
             <Style BasedOn="{StaticResource BaseStyle}" TargetType="TabBar" />
@@ -29,19 +29,19 @@
                 ApplyToDerivedTypes="True"
                 Class="FlyoutItemLayoutStyle"
                 TargetType="Layout">
-                <Setter Property="BackgroundColor" Value="#dff0f7" />
+                <Setter Property="BackgroundColor" Value="#ffa776" />
                 <Setter Property="VisualStateManager.VisualStateGroups">
                     <VisualStateGroupList>
                         <VisualStateGroup x:Name="CommonStates">
                             <VisualState x:Name="Normal">
                                 <VisualState.Setters>
-                                    <Setter Property="BackgroundColor" Value="#dff0f7" />
+                                    <Setter Property="BackgroundColor" Value="White" />
                                     <Setter TargetName="FlyoutItemLabel" Property="Label.TextColor" Value="#676b6c" />
                                 </VisualState.Setters>
                             </VisualState>
                             <VisualState x:Name="Selected">
                                 <VisualState.Setters>
-                                    <Setter Property="BackgroundColor" Value="#adbdc4"/>
+                                    <Setter Property="BackgroundColor" Value="#ffa776"/>
                                 </VisualState.Setters>
                             </VisualState>
                         </VisualStateGroup>

@@ -15,8 +15,8 @@
                             <Label Text="{Binding JobTitle}" FontSize="Subtitle" FontAttributes="Bold" Grid.Column="1" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" VerticalTextAlignment="Center" Margin="0,15,0,0"/>
                             <Grid ColumnSpacing="0">
                                 <Grid.RowDefinitions>
-                                <RowDefinition/>
-                            </Grid.RowDefinitions>
+                                    <RowDefinition/>
+                                </Grid.RowDefinitions>
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="*"/>
                                     <ColumnDefinition Width="30"/>
@@ -27,7 +27,7 @@
                                     <Label Text="{Binding CreatedAt, StringFormat='Created at: {0}'}" Grid.Column="2" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" VerticalTextAlignment="Center"/>
                                 </StackLayout>
                                 <StackLayout Grid.Column="1">
-                                    <Image Source="workhours_icon"/>
+                                    <Image Source="edit_icon"/>
                                     <Label Text="Edit" FontSize="Caption" HorizontalTextAlignment="Center"/>
                                 </StackLayout>
                             </Grid>
@@ -54,12 +54,13 @@
                 CornerRadius="40"
                 VerticalOptions="Center"
                 HorizontalOptions="End"
-                ImageSource="add_new"/>
+                ImageSource="add_new"
+                BackgroundColor="{AppThemeBinding Default={StaticResource Primarylight}}"/>
             <Label Text="Add new job!"
                    VerticalOptions="Center"
                    HorizontalOptions ="End"
                    FontSize="Caption"/>
         </StackLayout>
     </StackLayout>
-
+    
 </ContentPage>
