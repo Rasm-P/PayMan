@@ -90,7 +90,6 @@ namespace PayManAPI
                     ValidateIssuer = false,
                     ValidateAudience = false
                 };
-                x.SaveToken = true;
             });
 
             //Cross Origin Request Support CORS policy, sould be opdated for release
