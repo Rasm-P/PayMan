@@ -30,14 +30,16 @@ namespace PayManAPI.Controllers
             this.authService = authService;
         }
 
-        //Get /workHours/{id}
+        /// <summary>
+        /// Get method returning a list of WorkHours from a specific Job as JSON
+        /// </summary>
+        /// <returns>IEnumerable WorkHourDto</returns>
         [HttpGet("{jobId}")]
         public async Task<IEnumerable<WorkHourDto>> GetWorkHoursAsync(Guid jobId)
         {
             var user = await userRepository.GetuserAsync(Guid.Parse(authService.GetUserIdFromToken(User)));
             if (!user.Jobs.Contains(jobId))
             {
-                //return Unauthorized();
                 throw new NotFoundException(jobId);
             }
 
@@ -47,7 +49,10 @@ namespace PayManAPI.Controllers
             return workHours;
         }
 
-        //Get /workHours/{id}/{id}
+        /// <summary>
+        /// Get method returning a specific WorkHour from a specific Job as JSON
+        /// </summary>
+        /// <returns>WorkHourDto</returns>
         [HttpGet("{jobId}/{workHourId}")]
         public async Task<ActionResult<WorkHourDto>> GetWorkHourAsync(Guid jobId, Guid workHourId)
         {
@@ -56,7 +61,7 @@ namespace PayManAPI.Controllers
 
             if (!user.Jobs.Contains(jobId) || !job.WorkHours.Contains(workHourId))
             {
-                return Unauthorized();
+                return BadRequest();
             }
 
             var workHour = await workHourRepository.GetWorkHourAsync(workHourId);
@@ -68,7 +73,10 @@ namespace PayManAPI.Controllers
             return workHour.AsWorkHourDto();
         }
 
-        //Post /workHours/{id}
+        /// <summary>
+        /// Post method for creating a WorkHour for a specific Job
+        /// </summary>
+        /// <returns>ActionResult CreatedAtAction(name, id, WorkHour)</returns>
         [HttpPost("{jobId}")]
         public async Task<ActionResult> CreateWorkHourAsync(CreateUpdateWorkHourDto workHourDto, Guid jobId)
         {
@@ -100,7 +108,10 @@ namespace PayManAPI.Controllers
             return CreatedAtAction(nameof(CreateWorkHourAsync), new { id = newWorkHour.Id }, new { newWorkHour });
         }
 
-        //Put /workHours/{id}/{id}
+        /// <summary>
+        /// Put method for updating a specific WorkHour for a specific Job
+        /// </summary>
+        /// <returns>ActionResult NoContent</returns>
         [HttpPut("{jobId}/{workHourId}")]
         public async Task<ActionResult> UpdateWorkHourAsync(CreateUpdateWorkHourDto workHourDto, Guid jobId, Guid workHourId)
         {
@@ -109,7 +120,7 @@ namespace PayManAPI.Controllers
 
             if (!user.Jobs.Contains(jobId) || !job.WorkHours.Contains(workHourId))
             {
-                return Unauthorized();
+                return BadRequest();
             }
 
             var workHourToUpdate = await workHourRepository.GetWorkHourAsync(workHourId);
@@ -131,7 +142,10 @@ namespace PayManAPI.Controllers
             return NoContent();
         }
 
-        //Delete /workHours/{id}/{id}
+        /// <summary>
+        /// Delete method for deleting a specific WorkHour from a specific Job
+        /// </summary>
+        /// <returns>ActionResult NoContent</returns>
         [HttpDelete("{jobId}/{workHourId}")]
         public async Task<ActionResult> DeleteWorkHourAsync(Guid jobId, Guid workHourId)
         {
@@ -140,7 +154,7 @@ namespace PayManAPI.Controllers
 
             if (!user.Jobs.Contains(jobId) || !job.WorkHours.Contains(workHourId))
             {
-                return Unauthorized();
+                return BadRequest();
             }
 
             var workHourToDelete = await workHourRepository.GetWorkHourAsync(workHourId);

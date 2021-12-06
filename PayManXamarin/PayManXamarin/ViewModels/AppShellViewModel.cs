@@ -1,11 +1,15 @@
-﻿using PayManXamarin.Views;
+﻿using MvvmHelpers;
+using Newtonsoft.Json;
+using PayManXamarin.Models;
+using PayManXamarin.Views;
+using System;
 using System.Windows.Input;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 
 namespace PayManXamarin.ViewModels
 {
-    class AppShellViewModel
+    class AppShellViewModel : BaseViewModel
     {
 
         private Command logout;
@@ -29,7 +33,7 @@ namespace PayManXamarin.ViewModels
             Application.Current.Properties.Clear();
             Application.Current.SavePropertiesAsync();
 
-            Shell.Current.GoToAsync($"//{nameof(LoginPage)}");
+            Application.Current.MainPage = new NavigationPage(new LoginPage());
         }
     }
 }

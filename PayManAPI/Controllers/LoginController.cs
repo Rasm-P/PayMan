@@ -26,7 +26,10 @@ namespace PayManAPI.Controllers
             this.passAuth = passAuth;
         }
 
-        //Post /login
+        /// <summary>
+        /// Post method for login in with credentials
+        /// </summary>
+        /// <returns>{JWTToken, UserDto}</returns>
         [HttpPost("login")]
         public async Task<ActionResult> LoginAsync(LoginDto loginDto)
         {
@@ -34,7 +37,7 @@ namespace PayManAPI.Controllers
 
             if (token == null)
             {
-                return Unauthorized();
+                return Unauthorized("Wrong username or password!");
             }
 
             var user = userToReturn.AsUserDto();
@@ -42,14 +45,17 @@ namespace PayManAPI.Controllers
             return Ok(new { token, user });
         }
 
-        //Post /login
+        /// <summary>
+        /// Post method for creating a user
+        /// </summary>
+        /// <returns>ActionResult CreatedAtAction(name, id, {JWTToken, UserDto})</returns>
         [HttpPost("create")]
         public async Task<ActionResult> CreateUserAsync(CreateUpdateUserDto userDto)
         {
             var isUsernameTaken = await repositroy.IsUsernameTaken(userDto.UserName);
             if (isUsernameTaken)
             {
-                return Unauthorized();
+                return Unauthorized("Username already taken!");
             }
 
             UserModel newUser = new()

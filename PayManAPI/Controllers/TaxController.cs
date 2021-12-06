@@ -30,14 +30,16 @@ namespace PayManAPI.Controllers
             this.authService = authService;
         }
 
-        //Get /taxes/{id}
+        /// <summary>
+        /// Get method returning a list of Taxes from a specific Job as JSON
+        /// </summary>
+        /// <returns>IEnumerable TaxDto</returns>
         [HttpGet("{jobId}")]
         public async Task<IEnumerable<TaxDto>> GetTaxesAsync(Guid jobId)
         {
             var user = await userRepository.GetuserAsync(Guid.Parse(authService.GetUserIdFromToken(User)));
             if (!user.Jobs.Contains(jobId))
             {
-                //return Unauthorized();
                 throw new NotFoundException(jobId);
             }
 
@@ -47,7 +49,10 @@ namespace PayManAPI.Controllers
             return taxes;
         }
 
-        //Get /taxes/{id}/{id}
+        /// <summary>
+        /// Get method returning a specific Tax from a specific Job as JSON
+        /// </summary>
+        /// <returns>TaxDto</returns>
         [HttpGet("{jobId}/{taxId}")]
         public async Task<ActionResult<TaxDto>> GetTaxAsync(Guid jobId, Guid taxId)
         {
@@ -56,7 +61,7 @@ namespace PayManAPI.Controllers
 
             if (!user.Jobs.Contains(jobId) || !job.Taxes.Contains(taxId))
             {
-                return Unauthorized();
+                return BadRequest();
             }
 
             var tax = await taxRepository.GetTaxAsync(taxId);
@@ -68,7 +73,10 @@ namespace PayManAPI.Controllers
             return tax.AsTaxDto();
         }
 
-        //Post /taxes/{id}
+        /// <summary>
+        /// Post method for creating a Tax for a specific Job
+        /// </summary>
+        /// <returns>ActionResult CreatedAtAction(name, id, Tax)</returns>
         [HttpPost("{jobId}")]
         public async Task<ActionResult> CreateTaxAsync(CreateUpdateTaxDto taxDto, Guid jobId)
         {
@@ -100,7 +108,10 @@ namespace PayManAPI.Controllers
             return CreatedAtAction(nameof(CreateTaxAsync), new { id = newTax.Id }, new { newTax });
         }
 
-        //Put /taxes/{id}/{id}
+        /// <summary>
+        /// Put method for updating a specific Tax for a specific Job
+        /// </summary>
+        /// <returns>ActionResult NoContent</returns>
         [HttpPut("{jobId}/{taxId}")]
         public async Task<ActionResult> UpdateTaxAsync(CreateUpdateTaxDto taxDto, Guid jobId, Guid taxId)
         {
@@ -109,7 +120,7 @@ namespace PayManAPI.Controllers
 
             if (!user.Jobs.Contains(jobId) || !job.Taxes.Contains(taxId))
             {
-                return Unauthorized();
+                return BadRequest();
             }
 
             var taxToUpdate = await taxRepository.GetTaxAsync(taxId);
@@ -131,7 +142,10 @@ namespace PayManAPI.Controllers
             return NoContent();
         }
 
-        //Delete /taxes/{id}/{id}
+        /// <summary>
+        /// Delete method for deleting a specific Tax from a specific Job
+        /// </summary>
+        /// <returns>ActionResult NoContent</returns>
         [HttpDelete("{jobId}/{taxId}")]
         public async Task<ActionResult> DeleteTaxAsync(Guid jobId, Guid taxId)
         {
@@ -140,7 +154,7 @@ namespace PayManAPI.Controllers
 
             if (!user.Jobs.Contains(jobId) || !job.Taxes.Contains(taxId))
             {
-                return Unauthorized();
+                return BadRequest();
             }
 
             var taxToDelete = await taxRepository.GetTaxAsync(taxId);

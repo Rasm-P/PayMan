@@ -30,7 +30,10 @@ namespace PayManAPI.Controllers
             this.passAuth = passAuth;
         }
 
-        //Get /user
+        /// <summary>
+        /// Get method returnning a User as JSON
+        /// </summary>
+        /// <returns>UserDto</returns>
         [HttpGet]
         public async Task<ActionResult<UserDto>> GetUserAsync()
         {
@@ -42,7 +45,10 @@ namespace PayManAPI.Controllers
             return user.AsUserDto();
         }
 
-        //Put /user
+        /// <summary>
+        /// Put method for updating a User
+        /// </summary>
+        /// <returns>ActionResult NoContent</returns>
         [HttpPut]
         public async Task<ActionResult> UpdateUserAsync(CreateUpdateUserDto userDto)
         {
@@ -65,7 +71,10 @@ namespace PayManAPI.Controllers
             return NoContent();
         }
 
-        //Delete user
+        /// <summary>
+        /// Delete method for deleting a User
+        /// </summary>
+        /// <returns>ActionResult NoContent</returns>
         [HttpDelete]
         public async Task<ActionResult> DeleteUserAsync()
         {

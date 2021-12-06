@@ -15,7 +15,7 @@
                 <Entry Placeholder="password" IsPassword="True" x:Name="EntryPassword"/>
                 <Label Text="Repeat Password:" />
                 <Entry Placeholder="password" IsPassword="True" x:Name="EntryRepeatPassword"/>
-            <Button Text="Register" Clicked="Register_Clicked"/>
+            <Button Text="Regiser" Clicked="Register_Clicked"/>
             <Label Text="Back" HorizontalOptions="Center">
                 <Label.GestureRecognizers>
                     <TapGestureRecognizer Tapped="TapGesture_Tapped"/>

@@ -28,7 +28,10 @@ namespace PayManAPI.Controllers
             this.authService = authService;
         }
 
-        //Get /jobs
+        /// <summary>
+        /// Get method returning a list of Jobs from a User
+        /// </summary>
+        /// <returns>IEnumerable JobDto</returns>
         [HttpGet]
         public async Task<IEnumerable<JobDto>> GetJobsAsync()
         {
@@ -38,14 +41,17 @@ namespace PayManAPI.Controllers
             return jobs;
         }
 
-        //Get /jobs/{id}
+        /// <summary>
+        /// Get method returning a specific Job from a User
+        /// </summary>
+        /// <returns>JobDto</returns>
         [HttpGet("{jobId}")]
         public async Task<ActionResult<JobDto>> GetJobAsync(Guid jobId)
         {
             var user = await userRepository.GetuserAsync(Guid.Parse(authService.GetUserIdFromToken(User)));
             if (!user.Jobs.Contains(jobId))
             {
-                return Unauthorized();
+                return BadRequest();
             }
 
             var job = await jobRepository.GetJobAsync(jobId);
@@ -57,7 +63,10 @@ namespace PayManAPI.Controllers
             return job.AsJobDto();
         }
 
-        //Post /jobs
+        /// <summary>
+        /// Post method for creating a Job for a User
+        /// </summary>
+        /// <returns>ActionResult CreatedAtAction(name, id, Job)</returns>
         [HttpPost]
         public async Task<ActionResult> CreateJobAsync(CreateUpdateJobDto jobDto)
         {
@@ -90,14 +99,17 @@ namespace PayManAPI.Controllers
             return CreatedAtAction(nameof(CreateJobAsync), new { id = newjob.Id }, new { newjob });
         }
 
-        //Put /jobs/{id}
+        /// <summary>
+        /// Put method for updating a specific Job for a User
+        /// </summary>
+        /// <returns>ActionResult NoContent</returns>
         [HttpPut("{jobId}")]
         public async Task<ActionResult> UpdateJobAsync(CreateUpdateJobDto jobDto, Guid jobId)
         {
             var user = await userRepository.GetuserAsync(Guid.Parse(authService.GetUserIdFromToken(User)));
             if (!user.Jobs.Contains(jobId))
             {
-                return Unauthorized();
+                return BadRequest();
             }
 
             var jobToUpdate = await jobRepository.GetJobAsync(jobId);
@@ -119,14 +131,17 @@ namespace PayManAPI.Controllers
             return NoContent();
         }
 
-        //Delete /jobs/{id}
+        /// <summary>
+        /// Delete method for deleting a specific Job from a User
+        /// </summary>
+        /// <returns>ActionResult NoContent</returns>
         [HttpDelete("{jobId}")]
         public async Task<ActionResult> DeleteJobAsync(Guid jobId)
         {
             var user = await userRepository.GetuserAsync(Guid.Parse(authService.GetUserIdFromToken(User)));
             if (!user.Jobs.Contains(jobId))
             {
-                return Unauthorized();
+                return BadRequest();
             }
 
             var jobToDelte = await jobRepository.GetJobAsync(jobId);

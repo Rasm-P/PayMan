@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:viewmodels="clr-namespace:PayManXamarin.ViewModels"
+             HeightRequest="150"
+             x:Class="PayManXamarin.Views.HeaderContentView">
+    <ContentView.BindingContext>
+        <viewmodels:HeaderContentViewmodel/>
+    </ContentView.BindingContext>
+    
+  <ContentView.Content>
+        <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="10"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="30"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="80"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <Image Source="user_icon" HeightRequest="80" WidthRequest="80" Grid.Column="1" Grid.Row="1" HorizontalOptions="Start" VerticalOptions="End"/>
+
+            <StackLayout VerticalOptions="CenterAndExpand" Grid.Row="1" Margin="10,0,0,0" Grid.Column="2" Grid.ColumnSpan="3" Orientation="Vertical">
+                <Label HorizontalTextAlignment="Start" VerticalTextAlignment="Center" Text="{Binding Username}"/>
+                <Label HorizontalTextAlignment="Start" VerticalTextAlignment="Center" Text="{Binding Frikort, StringFormat='Hovedkort: {0} ddk'}"/>
+                <Label HorizontalTextAlignment="Start" VerticalTextAlignment="Center" Text="{Binding Hovedkort, StringFormat='Hovedkort: {0} ddk'}"/>
+            </StackLayout>
+        </Grid>
+    </ContentView.Content>
+</ContentView>

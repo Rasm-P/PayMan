@@ -6,6 +6,61 @@
 
     <StackLayout>
         <Label Text="Jobs" HorizontalTextAlignment="Center" FontSize="36" Padding="16"/>
-    </StackLayout>
 
+        <ListView x:Name="JobList" Margin="40,0"  HasUnevenRows="True">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout>
+                            <Label Text="{Binding JobTitle}" FontSize="Subtitle" FontAttributes="Bold" Grid.Column="1" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" VerticalTextAlignment="Center" Margin="0,15,0,0"/>
+                            <Grid ColumnSpacing="0">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="30"/>
+                                </Grid.ColumnDefinitions>
+                                <StackLayout Grid.Column="0">
+                                    <Label Text="{Binding Description}" Grid.Column="0" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" VerticalTextAlignment="Center"/>
+                                    <Label Text="{Binding HourlyWage, StringFormat='Wage: {0} ddk'}" Grid.Column="1" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" VerticalTextAlignment="Center"/>
+                                    <Label Text="{Binding CreatedAt, StringFormat='Created at: {0}'}" Grid.Column="2" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Start" VerticalTextAlignment="Center"/>
+                                </StackLayout>
+                                <StackLayout Grid.Column="1">
+                                    <Image Source="edit_icon"/>
+                                    <Label Text="Edit" FontSize="Caption" HorizontalTextAlignment="Center"/>
+                                </StackLayout>
+                            </Grid>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <StackLayout x:Name="Unable_to_connect" Padding="40" VerticalOptions="Center" HorizontalOptions="Center" IsVisible="False">
+            <Image  HorizontalOptions="Center" 
+                    VerticalOptions="Center" 
+                    Source="unable_to_connect"/>
+            <Label Text="Unable to connect!" HorizontalOptions="Center"/>
+        </StackLayout>
+        <StackLayout x:Name="Add_new_job" Padding="40" VerticalOptions="Center" HorizontalOptions="Center" IsVisible="False">
+            <Label Text="You have not added any jobs yet!" HorizontalOptions="Center"/>
+        </StackLayout>
+
+        <StackLayout Margin="40" VerticalOptions="EndAndExpand">
+            <Button
+                WidthRequest="70"
+                HeightRequest="70"
+                CornerRadius="40"
+                VerticalOptions="Center"
+                HorizontalOptions="End"
+                ImageSource="add_new"
+                BackgroundColor="{AppThemeBinding Default={StaticResource Primarylight}}"/>
+            <Label Text="Add new job!"
+                   VerticalOptions="Center"
+                   HorizontalOptions ="End"
+                   FontSize="Caption"/>
+        </StackLayout>
+    </StackLayout>
+    
 </ContentPage>

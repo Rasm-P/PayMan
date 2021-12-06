@@ -4,12 +4,12 @@
              x:Class="PayManXamarin.App">
     <Application.Resources>
         <ResourceDictionary>
-            <Color x:Key="Primary">#dff0f7</Color>
-            <Color x:Key="PrimaryDark">#adbdc4</Color>
-            <Color x:Key="Primarylight">#ffffff</Color>
+            <Color x:Key="Primary">#f27649</Color>
+            <Color x:Key="PrimaryDark">#ba471e</Color>
+            <Color x:Key="Primarylight">#ffa776</Color>
             <Color x:Key="TextColor">#676b6c</Color>
-            <Color x:Key="WindowBackgroundColor">#dff0f7</Color>
-            <Color x:Key="CardBackground">#adbdc4</Color>
+            <Color x:Key="WindowBackgroundColor">#ffffff</Color>
+            <Color x:Key="CardBackground">#ffffff</Color>
         </ResourceDictionary>
     </Application.Resources>
 </Application>

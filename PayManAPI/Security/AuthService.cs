@@ -24,7 +24,7 @@ namespace PayManAPI.Security
 
         private readonly PasswordAuthentication passAuth;
 
-        //Constructor for injecting a MongoDB client
+        //Constructor for injecting a MongoDB client along with configurations containing JwtKey string
         public AuthService(IMongoClient mongoClient, IConfiguration Configuration)
         {
             IMongoDatabase database = mongoClient.GetDatabase(dbName);
