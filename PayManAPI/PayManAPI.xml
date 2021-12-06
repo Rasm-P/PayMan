@@ -4,11 +4,125 @@
         <name>PayManAPI</name>
     </assembly>
     <members>
+        <member name="M:PayManAPI.Controllers.JobController.GetJobsAsync">
+            <summary>
+            Get method returning a list of Jobs from a User
+            </summary>
+            <returns>IEnumerable JobDto</returns>
+        </member>
+        <member name="M:PayManAPI.Controllers.JobController.GetJobAsync(System.Guid)">
+            <summary>
+            Get method returning a specific Job from a User
+            </summary>
+            <returns>JobDto</returns>
+        </member>
+        <member name="M:PayManAPI.Controllers.JobController.CreateJobAsync(PayManAPI.Dtos.CreateUpdateJobDto)">
+            <summary>
+            Post method for creating a Job for a User
+            </summary>
+            <returns>ActionResult CreatedAtAction(name, id, Job)</returns>
+        </member>
+        <member name="M:PayManAPI.Controllers.JobController.UpdateJobAsync(PayManAPI.Dtos.CreateUpdateJobDto,System.Guid)">
+            <summary>
+            Put method for updating a specific Job for a User
+            </summary>
+            <returns>ActionResult NoContent</returns>
+        </member>
+        <member name="M:PayManAPI.Controllers.JobController.DeleteJobAsync(System.Guid)">
+            <summary>
+            Delete method for deleting a specific Job from a User
+            </summary>
+            <returns>ActionResult NoContent</returns>
+        </member>
+        <member name="M:PayManAPI.Controllers.LoginController.LoginAsync(PayManAPI.Dtos.LoginDto)">
+            <summary>
+            Post method for login in with credentials
+            </summary>
+            <returns>{JWTToken, UserDto}</returns>
+        </member>
+        <member name="M:PayManAPI.Controllers.LoginController.CreateUserAsync(PayManAPI.Dtos.CreateUpdateUserDto)">
+            <summary>
+            Post method for creating a user
+            </summary>
+            <returns>ActionResult CreatedAtAction(name, id, {JWTToken, UserDto})</returns>
+        </member>
+        <member name="M:PayManAPI.Controllers.TaxController.GetTaxesAsync(System.Guid)">
+            <summary>
+            Get method returning a list of Taxes from a specific Job as JSON
+            </summary>
+            <returns>IEnumerable TaxDto</returns>
+        </member>
+        <member name="M:PayManAPI.Controllers.TaxController.GetTaxAsync(System.Guid,System.Guid)">
+            <summary>
+            Get method returning a specific Tax from a specific Job as JSON
+            </summary>
+            <returns>TaxDto</returns>
+        </member>
+        <member name="M:PayManAPI.Controllers.TaxController.CreateTaxAsync(PayManAPI.Dtos.CreateUpdateTaxDto,System.Guid)">
+            <summary>
+            Post method for creating a Tax for a specific Job
+            </summary>
+            <returns>ActionResult CreatedAtAction(name, id, Tax)</returns>
+        </member>
+        <member name="M:PayManAPI.Controllers.TaxController.UpdateTaxAsync(PayManAPI.Dtos.CreateUpdateTaxDto,System.Guid,System.Guid)">
+            <summary>
+            Put method for updating a specific Tax for a specific Job
+            </summary>
+            <returns>ActionResult NoContent</returns>
+        </member>
+        <member name="M:PayManAPI.Controllers.TaxController.DeleteTaxAsync(System.Guid,System.Guid)">
+            <summary>
+            Delete method for deleting a specific Tax from a specific Job
+            </summary>
+            <returns>ActionResult NoContent</returns>
+        </member>
         <member name="M:PayManAPI.Controllers.UserController.GetUserAsync">
             <summary>
             Get method returnning a User as JSON
             </summary>
             <returns>UserDto</returns>
+        </member>
+        <member name="M:PayManAPI.Controllers.UserController.UpdateUserAsync(PayManAPI.Dtos.CreateUpdateUserDto)">
+            <summary>
+            Put method for updating a User
+            </summary>
+            <returns>ActionResult NoContent</returns>
+        </member>
+        <member name="M:PayManAPI.Controllers.UserController.DeleteUserAsync">
+            <summary>
+            Delete method for deleting a User
+            </summary>
+            <returns>ActionResult NoContent</returns>
+        </member>
+        <member name="M:PayManAPI.Controllers.WorkHourController.GetWorkHoursAsync(System.Guid)">
+            <summary>
+            Get method returning a list of WorkHours from a specific Job as JSON
+            </summary>
+            <returns>IEnumerable WorkHourDto</returns>
+        </member>
+        <member name="M:PayManAPI.Controllers.WorkHourController.GetWorkHourAsync(System.Guid,System.Guid)">
+            <summary>
+            Get method returning a specific WorkHour from a specific Job as JSON
+            </summary>
+            <returns>WorkHourDto</returns>
+        </member>
+        <member name="M:PayManAPI.Controllers.WorkHourController.CreateWorkHourAsync(PayManAPI.Dtos.CreateUpdateWorkHourDto,System.Guid)">
+            <summary>
+            Post method for creating a WorkHour for a specific Job
+            </summary>
+            <returns>ActionResult CreatedAtAction(name, id, WorkHour)</returns>
+        </member>
+        <member name="M:PayManAPI.Controllers.WorkHourController.UpdateWorkHourAsync(PayManAPI.Dtos.CreateUpdateWorkHourDto,System.Guid,System.Guid)">
+            <summary>
+            Put method for updating a specific WorkHour for a specific Job
+            </summary>
+            <returns>ActionResult NoContent</returns>
+        </member>
+        <member name="M:PayManAPI.Controllers.WorkHourController.DeleteWorkHourAsync(System.Guid,System.Guid)">
+            <summary>
+            Delete method for deleting a specific WorkHour from a specific Job
+            </summary>
+            <returns>ActionResult NoContent</returns>
         </member>
     </members>
 </doc>

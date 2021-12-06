@@ -14,7 +14,7 @@
                 <Setter Property="Shell.BackgroundColor" Value="#f27649" />
                 <Setter Property="Shell.ForegroundColor" Value="#ffa776" />
                 <Setter Property="Shell.TitleColor" Value="#676b6c" />
-                <Setter Property="Shell.DisabledColor" Value="#B4FFFFFF" />
+                <Setter Property="Shell.DisabledColor" Value="White" />
                 <Setter Property="Shell.TabBarBackgroundColor" Value="#f27649" />
                 <Setter Property="Shell.TabBarForegroundColor" Value="#f27649" />
                 <Setter Property="Shell.TabBarTitleColor" Value="#676b6c" />
@@ -36,7 +36,7 @@
                             <VisualState x:Name="Normal">
                                 <VisualState.Setters>
                                     <Setter Property="BackgroundColor" Value="White" />
-                                    <Setter TargetName="FlyoutItemLabel" Property="Label.TextColor" Value="#676b6c" />
+                                    <Setter TargetName="FlyoutItemLabel" Property="Label.TextColor" Value="#676b6c"/>
                                 </VisualState.Setters>
                             </VisualState>
                             <VisualState x:Name="Selected">
