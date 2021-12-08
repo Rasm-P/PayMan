@@ -1,12 +1,10 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using PayManAPI.Repositories;
-using PayManAPI.Models;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using PayManAPI.Dtos;
-using System.Linq;
-using Microsoft.AspNetCore.Authorization;
+using PayManAPI.Models;
+using PayManAPI.Repositories;
 using PayManAPI.Security;
+using System;
 using System.Threading.Tasks;
 
 namespace PayManAPI.Controllers

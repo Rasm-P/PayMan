@@ -1,7 +1,3 @@
-using System;
-using System.IO;
-using System.Reflection;
-using System.Text;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -18,6 +14,10 @@ using PayManAPI.Config;
 using PayManAPI.Exceptions;
 using PayManAPI.Repositories;
 using PayManAPI.Security;
+using System;
+using System.IO;
+using System.Reflection;
+using System.Text;
 
 namespace PayManAPI
 {
