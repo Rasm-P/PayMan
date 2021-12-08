@@ -1,8 +1,5 @@
 ﻿using MvvmHelpers;
-using Newtonsoft.Json;
-using PayManXamarin.Models;
 using PayManXamarin.Views;
-using System;
 using System.Windows.Input;
 using Xamarin.Essentials;
 using Xamarin.Forms;

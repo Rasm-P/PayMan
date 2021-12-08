@@ -1,9 +1,4 @@
-﻿using PayManXamarin.Models;
-using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace PayManXamarin.Authentication
+﻿namespace PayManXamarin.Authentication
 {
     public class AuthenticationResult
     {

@@ -2,8 +2,6 @@
 using Newtonsoft.Json;
 using PayManXamarin.Models;
 using System;
-using System.Collections.Generic;
-using System.Text;
 using Xamarin.Forms;
 
 namespace PayManXamarin.ViewModels

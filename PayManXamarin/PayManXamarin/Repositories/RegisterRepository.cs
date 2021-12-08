@@ -1,10 +1,8 @@
 ﻿using Newtonsoft.Json.Linq;
 using PayManXamarin.Authentication;
 using System;
-using System.Collections.Generic;
 using System.Net.Http;
 using System.Net.Http.Headers;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace PayManXamarin.Repositories
