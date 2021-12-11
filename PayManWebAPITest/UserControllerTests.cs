@@ -20,23 +20,6 @@ namespace PayManWebAPITest
         private readonly Mock<IPasswordAuthentication> passwordAuthenticationStub = new();
 
         [Fact]
-        public async Task GetUserAsync_WithNoUser_ReturnsNotFound()
-        {
-            //Arrange
-            var userId = Guid.NewGuid();
-            userRepositroyStub.Setup(repository => repository.GetuserAsync(It.IsAny<Guid>())).ReturnsAsync((UserModel)null);
-            authServiceStub.Setup(authService => authService.GetUserIdFromToken(It.IsAny<ClaimsPrincipal>())).Returns(userId.ToString());
-
-            var userController = new UserController(authServiceStub.Object, userRepositroyStub.Object, passwordAuthenticationStub.Object);
-
-            //Act
-            var result = await userController.GetUserAsync();
-
-            //Assert
-            result.Result.Should().BeOfType<NotFoundResult>();
-        }
-
-        [Fact]
         public async Task GetUserAsync_WithUser_ReturnsUser()
         {
             //Arrange
@@ -52,6 +35,23 @@ namespace PayManWebAPITest
             //Assert
             //With this method from FluentAssertions we dont need to check alle the object properties
             result.Value.Should().BeEquivalentTo(expectedUser, options => options.ComparingByMembers<UserDto>().ExcludingMissingMembers());
+        }
+
+        [Fact]
+        public async Task GetUserAsync_WithNoUser_ReturnsNotFound()
+        {
+            //Arrange
+            var userId = Guid.NewGuid();
+            userRepositroyStub.Setup(repository => repository.GetuserAsync(It.IsAny<Guid>())).ReturnsAsync((UserModel)null);
+            authServiceStub.Setup(authService => authService.GetUserIdFromToken(It.IsAny<ClaimsPrincipal>())).Returns(userId.ToString());
+
+            var userController = new UserController(authServiceStub.Object, userRepositroyStub.Object, passwordAuthenticationStub.Object);
+
+            //Act
+            var result = await userController.GetUserAsync();
+
+            //Assert
+            result.Result.Should().BeOfType<NotFoundResult>();
         }
 
         [Fact]
