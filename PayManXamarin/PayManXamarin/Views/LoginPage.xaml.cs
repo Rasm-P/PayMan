@@ -1,12 +1,6 @@
 ﻿using PayManXamarin.ViewModels;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
 
 namespace PayManXamarin.Views
 {
@@ -22,9 +16,16 @@ namespace PayManXamarin.Views
 
         private async void Login_Clicked(Object sender, EventArgs e)
         {
-            await loginViewModel.Login(EntryUsername.Text, EntryPassword.Text);
-            EntryUsername.Text = "";
-            EntryPassword.Text = "";
+            if (EntryUsername.Text != null || EntryPassword.Text != null)
+            {
+                await loginViewModel.Login(EntryUsername.Text, EntryPassword.Text);
+                EntryUsername.Text = null;
+                EntryPassword.Text = null;
+            }
+            else
+            {
+                await Application.Current.MainPage.DisplayAlert("Login Error", "Username or password cannot be empty", "Ok");
+            }
         }
 
         private async void TapGesture_Tapped(Object sender, EventArgs e)

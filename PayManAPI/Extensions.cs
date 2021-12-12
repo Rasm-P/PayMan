@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using PayManAPI.Dtos;
 using PayManAPI.Models;
-using PayManAPI.Dtos;
 
 namespace PayManAPI
 {
-    //Use of extention method
-    public static class Extentions
+    //Use of extension methods
+    public static class Extensions
     {
         //Converts a User object to a UserDto
         public static UserDto AsUserDto(this UserModel user)

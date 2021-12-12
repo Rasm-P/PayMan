@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace PayManXamarin.Models
+﻿namespace PayManXamarin.Models
 {
     public class LoginModel
     {
