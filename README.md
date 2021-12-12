@@ -1,12 +1,12 @@
 C# .Net Exam project
 
-# Payman web API and Xamarin app #
+# Payman REST API and Xamarin app #
 
 Course: 62413 Advanced object oriented programming with C# and .NET ##
 
 Created by student: s215777
 
-The Payman platform
+About Payman
 ==================
 Most student workers have at some point in their student life been in the situation where the wage from a
 part time job and shifting hours has been hard to predict. In short, how much money am I going to earn
@@ -19,8 +19,8 @@ Instructions
 ==================
 This project contains two Visual Studio solutions, one of them being for a backend REST API build with ASP.NET and the other a Xamarin crossplatform app
 The requires solutions files can be found in the following directories:
-ASP.NET REST API: PayMan/PayManAPI/PayManWebAPI.sln
-Xamarin app: PayMan/PayManXamarin/PayManXamarin.sln
+- ASP.NET REST API: PayMan/PayManAPI/PayManWebAPI.sln
+- Xamarin app: PayMan/PayManXamarin/PayManXamarin.sln
 
 Backend API setup
 ==================
@@ -34,7 +34,7 @@ Technologies used in the backed API are as follows:
 
 Xamarin client app setup
 ==================
-Technologies used in the frontend client application are as follows:
+Technologies used in the frontend client app are as follows:
 
 - Xamarin.Forms 
 - Xamarin.Essentials
