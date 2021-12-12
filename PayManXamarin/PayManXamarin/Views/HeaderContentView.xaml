@@ -27,7 +27,7 @@
 
             <StackLayout VerticalOptions="CenterAndExpand" Grid.Row="1" Margin="10,0,0,0" Grid.Column="2" Grid.ColumnSpan="3" Orientation="Vertical">
                 <Label HorizontalTextAlignment="Start" VerticalTextAlignment="Center" Text="{Binding Username}"/>
-                <Label HorizontalTextAlignment="Start" VerticalTextAlignment="Center" Text="{Binding Frikort, StringFormat='Hovedkort: {0} ddk'}"/>
+                <Label HorizontalTextAlignment="Start" VerticalTextAlignment="Center" Text="{Binding Frikort, StringFormat='Frikort: {0} ddk'}"/>
                 <Label HorizontalTextAlignment="Start" VerticalTextAlignment="Center" Text="{Binding Hovedkort, StringFormat='Hovedkort: {0} ddk'}"/>
             </StackLayout>
         </Grid>
